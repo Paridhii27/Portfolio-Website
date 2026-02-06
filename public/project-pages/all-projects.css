@@ -1,0 +1,1115 @@
+/* ============================================================================
+   CSS VARIABLES
+   ============================================================================ */
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --highlight-color: #3d479c;
+  --border-color: #e6e6e0;
+  --image-border-primary: #e6e6e0;
+
+  --heading-font: "Inter", sans-serif;
+  --content-font: "Open Sans", sans-serif;
+
+  --font-size-h1: clamp(2rem, 4.5vw, 3.5rem);
+  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem);
+  --font-size-h3: clamp(1.25rem, 3vw, 1.75rem);
+  --font-size-paragraph: 1rem;
+  --font-size-button: 1rem;
+  --font-size-button-small: 0.8rem;
+  --font-size-button-large: 1.1rem;
+
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+  --spacing-3xl: 3rem; /* 48px */
+
+  /* Container Spacing */
+  --page-margin: clamp(1rem, 5vw, 5%);
+  --container-gap: clamp(1rem, 3vw, 2rem);
+  --gallery-spacing: clamp(1rem, 2vw, 1.5rem);
+  --mobile-padding: var(--spacing-md);
+  --border-radius: 10px;
+
+  /* Mobile Touch Targets */
+  --touch-target-min: 44px; /* Minimum touch target size */
+  --touch-target-comfortable: 48px;
+}
+
+/* ============================================================================
+   BASE STYLING
+   ============================================================================ */
+body {
+  background-color: var(--bg-color);
+  margin: var(--page-margin);
+  padding-top: 20px;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  line-height: 1.2;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+::selection {
+  background-color: var(--highlight-color);
+}
+
+/* ============================================================================
+   PROJECT VISUAL AND TITLE STYLING
+   ============================================================================ */
+.project-visual {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  justify-content: start;
+  background-color: red;
+}
+
+#main-img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: clamp(2rem, 1vw, 3.5rem);
+  margin-bottom: clamp(1rem, 1vw, 1.5rem);
+}
+
+.title h1 {
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: var(--font-size-h1);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ============================================================================
+   PROJECT CONTAINER STYLING
+   ============================================================================ */
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* ============================================================================
+   DETAILS SECTION
+   ============================================================================ */
+
+.details {
+  flex: 1;
+  min-width: 250px;
+  width: 20%;
+  height: 80vh;
+  overflow-y: auto;
+  padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+}
+
+/* ============================================================================
+   KEYWORDS CONTAINER STYLING
+   ============================================================================ */
+.keywords {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.keywords:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.keywords h2 {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  padding: clamp(var(--spacing-xs), 1vw, var(--spacing-sm)) 0;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.keywords h2:not(:last-child) {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================================
+   TOOLS CONTAINER STYLING
+   ============================================================================ */
+.tools-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: 0;
+  padding: clamp(var(--spacing-sm), 2vw, var(--spacing-sm));
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.02);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tools-container p {
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
+}
+
+.tools-container p span {
+  display: block;
+  line-height: 1.6;
+  margin: 0;
+  padding: clamp(var(--spacing-xs), 0.7vw, var(--spacing-xs)) 0;
+  font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+  color: var(--text-color);
+  opacity: 0.9;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+  border-left: 2px solid transparent;
+  padding-left: var(--spacing-xs);
+}
+
+.tools-container p span:not(:last-child) {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: clamp(var(--spacing-xs), 0.8vw, var(--spacing-sm));
+}
+
+/* ============================================================================
+   PROJECT LINKS STYLING
+   ============================================================================ */
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  width: 100%;
+}
+
+.project-links:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.project-link {
+  border-radius: 10px;
+  border: 1px dashed white;
+  color: #fff;
+  display: flex;
+  position: relative;
+  text-align: center;
+  font-size: var(--font-size-button);
+  padding: var(--spacing-sm) var(--spacing-sm);
+  margin-bottom: 0;
+  width: 100%;
+  transition:
+    color 0.5s,
+    padding 0.5s,
+    transform 0.2s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  touch-action: manipulation;
+  user-select: none;
+  min-height: var(--touch-target-min);
+  align-items: center;
+  justify-content: center;
+  line-height: var(--line-height-normal);
+  box-sizing: border-box;
+}
+
+.project-link:not(:last-child) {
+  margin-bottom: var(--spacing-xs);
+}
+
+.project-link:after {
+  content: " ↗ ";
+  position: absolute;
+  opacity: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.project-link:hover {
+  color: rgb(196, 172, 230);
+  padding-right: 25px;
+  padding-left: 8px;
+}
+
+.project-link:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.project-link:focus {
+  outline: 2px solid var(--hover-color);
+  outline-offset: 2px;
+}
+
+.project-link:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+/* ============================================================================
+   DOCUMENTATION SECTION
+   ============================================================================ */
+
+.documentation {
+  flex: 3;
+  font-family: var(--content-font);
+  padding: 2% 5%;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  line-height: 1.8;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-top: var(--spacing-lg);
+}
+
+.documentation h3 {
+  font-family: var(--heading-font);
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(---text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.documentation h3:first-child {
+  margin-top: 0;
+}
+
+.documentation p {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-color);
+  font-size: var(--font-size-paragraph);
+  line-height: var(--line-height-loose);
+}
+
+.documentation ul {
+  margin: 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.documentation li {
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--project-desc-text-color);
+  font-size: var(--font-size-paragraph);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.documentation li::before {
+  content: "•";
+  color: var(--border-color);
+  position: absolute;
+  left: 0.5rem;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.documentation li:last-child {
+  margin-bottom: 1.25rem;
+}
+
+.documentation p:last-child {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================================================
+   IMAGE CONTAINER STYLING
+   ============================================================================ */
+.project-container .documentation img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  justify-content: start;
+}
+
+.documentation .inline-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.documentation .inline-img-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.documentation .inline-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid var(--border-color);
+  opacity: 1;
+  display: block;
+  margin: 0 auto;
+  max-height: 50vh;
+  object-fit: contain;
+  position: relative;
+}
+
+.documentation .inline-img[src*=".png"],
+.documentation .inline-img[src*=".PNG"] {
+  border: none;
+}
+
+.documentation .inline-img-container .inline-img-caption {
+  font-family: var(--content-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: var(--project-desc-text-color);
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* ============================================================================
+Inline Image Grid Layout
+============================================================================ */
+
+.documentation .inline-img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(var(--spacing-xs), 1vw, var(--spacing-xs));
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
+}
+
+.documentation .inline-img-grid .inline-img-container {
+  margin: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.documentation .inline-img-grid .inline-img-container figure {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.documentation .inline-img-grid .inline-img {
+  width: 90%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* ============================================================================
+     INLINE IMAGE GALLERY WITH AUTO-ROTATION
+     ============================================================================ */
+.documentation .inline-img-gallery {
+  margin: 1.5rem 0;
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
+  position: relative;
+}
+
+.documentation .inline-img-gallery .gallery-container {
+  position: relative;
+  width: 100%;
+}
+
+.documentation .inline-img-gallery .gallery-slides {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.documentation .inline-img-gallery .gallery-slide {
+  display: none;
+  width: 95%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.documentation .inline-img-gallery .gallery-slide.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+
+.documentation .inline-img-gallery .gallery-slide .inline-img-container {
+  margin: 0;
+  margin-bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.documentation .inline-img-gallery .gallery-slide .inline-img-container figure {
+  padding: 0;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+.documentation .inline-img-gallery .gallery-slide .inline-img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* Gallery Navigation Dots */
+.documentation .inline-img-gallery .gallery-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.documentation .inline-img-gallery .gallery-dots .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.documentation .inline-img-gallery .gallery-dots .dot:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.documentation .inline-img-gallery .gallery-dots .dot.active {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================================
+   INLINE IMAGE HOVER EFFECT
+   ============================================================================ */
+
+.documentation .inline-img-container figure {
+  position: relative;
+  padding: clamp(5px, 2vw, 15px);
+  flex: 0 0 auto;
+  width: auto;
+  min-width: fit-content;
+  height: 90%;
+  max-height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  touch-action: pan-x pinch-zoom;
+  user-select: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Override figure padding for grid images */
+.documentation .inline-img-grid .inline-img-container figure {
+  padding: 0;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+.documentation .inline-img-container figure:hover {
+  position: relative;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.documentation .inline-img-container figure div {
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+  z-index: 1000;
+  display: none;
+}
+
+.documentation .inline-img-container:hover figure div:nth-child(2) {
+  top: 0;
+  left: 0;
+  display: block;
+  width: clamp(60px, 4vw, 80px);
+  height: clamp(60px, 4vw, 80px);
+  border-left: 0.1px solid var(--image-border-primary);
+  border-top: 0.1px solid var(--image-border-primary);
+  border-radius: 15px 0px 0px 0px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.documentation .inline-img-container:hover figure div:nth-child(3) {
+  top: 0;
+  right: 0;
+  display: block;
+  width: clamp(60px, 4vw, 80px);
+  height: clamp(60px, 4vw, 80px);
+  border-top: 0.1px solid var(--image-border-primary);
+  border-right: 0.1px solid var(--image-border-primary);
+  border-radius: 0px 15px 0px 0px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.documentation .inline-img-container:hover figure div:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: clamp(60px, 4vw, 80px);
+  height: clamp(60px, 4vw, 80px);
+  border-bottom: 0.1px solid var(--image-border-primary);
+  border-right: 0.1px solid var(--image-border-primary);
+  border-radius: 0px 0px 15px 0px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.documentation .inline-img-container:hover figure div:nth-child(5) {
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: clamp(60px, 4vw, 80px);
+  height: clamp(60px, 4vw, 80px);
+  border-bottom: 0.1px solid var(--image-border-primary);
+  border-left: 0.1px solid var(--image-border-primary);
+  border-radius: 0px 0px 0px 15px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* ============================================================================
+   VIDEO CONTAINER STYLING
+   ============================================================================ */
+.documentation .inline-video-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.documentation .inline-video-container video {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.documentation .inline-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+  border-radius: 8px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid var(--border-color);
+  opacity: 1;
+  display: block;
+  margin: 0 auto;
+  max-height: 50vh;
+  background-color: #000;
+  vertical-align: middle;
+}
+
+.documentation .inline-video-container .inline-video-caption {
+  font-family: var(--content-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: var(--project-desc-text-color);
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* ============================================================================
+   AUDIO CONTAINER STYLING
+   ============================================================================ */
+.documentation .inline-audio-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.documentation .inline-audio-container audio {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.documentation .inline-audio {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 48px;
+  border-radius: 8px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid var(--border-color);
+  opacity: 1;
+  display: block;
+  margin: 0 auto;
+  background-color: #d74b4b;
+  vertical-align: middle;
+}
+
+.documentation .inline-audio-container .inline-audio-caption {
+  font-family: var(--content-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: var(--project-desc-text-color);
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* ============================================================================
+   CREDITS AND REFERENCES SECTION STYLING
+   ============================================================================ */
+.documentation .credits-container {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.documentation .credits-container h3 {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.7);
+  padding-bottom: 0.5rem;
+}
+
+.documentation .credits-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.documentation .credits-list li {
+  list-style: none;
+  padding: 0.5rem 0;
+  padding-left: 0;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.4rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.documentation .credits-list li::before {
+  content: none;
+  display: none;
+}
+
+.documentation .credits-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.documentation .credits-list .credits-category {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.35rem;
+  margin-top: 0.2rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.documentation .credits-list li:first-child .credits-category {
+  margin-top: 0;
+}
+
+.documentation .credits-list .credits-detail {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.documentation .credits-list .credits-detail:last-child {
+  margin-bottom: 0;
+}
+
+.documentation .credits-list .credits-detail em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
+}
+
+.documentation .credits-list .credits-detail a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.documentation .credits-list .credits-detail a:hover {
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   FULLSCREEN OVERLAY STYLING
+   ============================================================================ */
+.inline-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.inline-fullscreen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.inline-fullscreen-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.inline-fullscreen-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  line-height: 1;
+  padding: 0;
+}
+
+.inline-fullscreen-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.inline-fullscreen-close:active {
+  transform: scale(0.95);
+}
+
+.inline-fullscreen-prev,
+.inline-fullscreen-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+}
+
+.inline-fullscreen-prev {
+  left: 1rem;
+}
+
+.inline-fullscreen-next {
+  right: 1rem;
+}
+
+.inline-fullscreen-prev:hover:not(:disabled),
+.inline-fullscreen-next:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.inline-fullscreen-prev:active:not(:disabled),
+.inline-fullscreen-next:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.inline-fullscreen-prev:disabled,
+.inline-fullscreen-next:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.inline-fullscreen-img,
+.inline-fullscreen-video {
+  max-width: 100%;
+  max-height: calc(90vh - 100px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.inline-fullscreen-video {
+  width: 100%;
+  max-width: 90vw;
+}
+
+.inline-fullscreen-caption {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--content-font);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   NEXT AND PREVIOUS BUTTONS
+   ============================================================================ */
+
+.nextPrev {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.prev-project,
+.next-project {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.previous,
+.next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--image-border-primary);
+  color: black;
+  border-radius: 50%;
+  text-decoration: none;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  /* Enhanced touch interactions */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  touch-action: manipulation;
+  user-select: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+  /* Minimum touch target */
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+}
+
+.previous:hover,
+.next:hover {
+  background-color: var(--image-border-secondary);
+  color: black;
+}
+
+.previous:active,
+.next:active {
+  transform: scale(0.9);
+  background-color: var(--hover-color);
+}
+
+.previous:focus,
+.next:focus {
+  outline: 2px solid var(--hover-color);
+  outline-offset: 2px;
+}
+
+.prev-project p,
+.next-project p {
+  margin: 0;
+  font-size: var(--font-size-paragraph);
+  line-height: 1.3;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* ============================================================================
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .documentation .inline-img-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  /* Responsive adjustments for gallery */
+  .documentation .inline-img-gallery .gallery-slides {
+    min-height: 300px;
+  }
+
+  .documentation .inline-img-gallery .gallery-dots {
+    gap: 0.5rem;
+  }
+
+  .documentation .inline-img-gallery .gallery-dots .dot {
+    width: 10px;
+    height: 10px;
+  }
+  /* Single column credits list on smaller screens */
+  .documentation .credits-list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}

@@ -1,0 +1,448 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+/* ============================================================================
+   CSS VARIABLES
+   ============================================================================ */
+
+:root {
+  /* Color Palette */
+  --nav-bg: #000000;
+  --nav-text: #ffffff;
+  --nav-hover-start: #a49ce0;
+  --nav-hover-end: #a7c3e7;
+  --nav-mobile-hover-start: #99bcf0;
+  --nav-mobile-hover-end: #36d1dc;
+
+  /* Typography */
+  --nav-font-primary: "Quicksand", sans-serif;
+  --nav-font-weight: 700;
+
+  /* Layout - Consistent across all pages */
+  --nav-height: 75px;
+  --nav-padding: 20px;
+  --logo-size: 50px;
+  --menu-font-size: 20px;
+  --menu-link-gap: 4rem; /* Spacing between menu links */
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+/* ============================================================================
+   BASE BODY STYLES
+   ============================================================================ */
+
+body {
+  padding-top: calc(
+    var(--nav-height) + 1rem
+  ); /* Consistent padding for navbar */
+}
+
+::selection {
+  background: #3d479c;
+}
+
+/* .home-page .navigation-container {
+  background-color: transparent !important;
+  box-shadow: none !important;
+} */
+
+/* ============================================================================
+   NAVIGATION CONTAINER
+   ============================================================================ */
+
+.navigation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+  /* Safe area insets for notched devices */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  /* Prevent pull-to-refresh interference */
+  overscroll-behavior-y: contain;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 0 var(--nav-padding);
+  font-family: var(--nav-font-primary);
+  font-weight: var(--nav-font-weight);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ============================================================================
+   LOGO STYLES
+   ============================================================================ */
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: var(--logo-size);
+  width: var(--logo-size);
+  aspect-ratio: 1 / 1;
+  margin: 0; /* Remove left margin for consistent positioning */
+  overflow: hidden;
+  transition: transform var(--transition-medium);
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo:active {
+  transform: scale(1);
+}
+
+.logo a:active {
+  transform: none;
+}
+
+.logo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo .default-logo,
+.logo .hover-logo {
+  transition: opacity var(--transition-medium);
+}
+
+.logo .default-logo {
+  z-index: 2;
+}
+
+.logo .hover-logo {
+  z-index: 1;
+  opacity: 0;
+}
+
+.logo:hover .default-logo {
+  opacity: 0;
+}
+
+.logo:hover .hover-logo {
+  z-index: 2;
+  opacity: 1;
+}
+
+/* ============================================================================
+   MENU STYLES
+   ============================================================================ */
+
+#menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--menu-link-gap); /* Consistent spacing between menu links */
+}
+
+#menu li {
+  display: inline;
+}
+
+#menu a {
+  color: var(--nav-text);
+  font-family: var(--nav-font-primary);
+  font-size: var(--menu-font-size);
+  padding: 0.5rem var(--nav-padding); /* Added vertical padding for better spacing */
+  text-decoration: none;
+  font-weight: 450;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.05em; /* Slight letter spacing for better readability */
+}
+
+#menu li:hover a {
+  background-image: linear-gradient(
+    to left,
+    var(--nav-hover-start),
+    var(--nav-hover-end)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================================
+   MENU TOGGLE (HAMBURGER MENU)
+   ============================================================================ */
+
+#menuToggle {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+#menuToggle input,
+#menuToggle span {
+  display: none;
+}
+
+/* ============================================================================
+   MOBILE STYLES
+   ============================================================================ */
+
+@media screen and (max-width: 900px) {
+  body {
+    margin: 5%;
+    padding: 0;
+    padding-top: calc(
+      var(--nav-height) + env(safe-area-inset-top) + 1rem
+    ); /* Preserve navbar padding with safe area */
+    overflow-x: hidden;
+    /* Prevent pull-to-refresh */
+    overscroll-behavior-y: contain;
+    /* Safe area insets */
+    padding-left: max(5%, env(safe-area-inset-left));
+    padding-right: max(5%, env(safe-area-inset-right));
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Ensure navbar maintains consistent height on mobile */
+  .navigation-container {
+    height: var(--nav-height);
+  }
+
+  nav {
+    height: 100%;
+    padding: 0 var(--nav-padding);
+  }
+
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 1001; /* Higher than menu */
+    user-select: none;
+  }
+
+  #menuToggle input {
+    display: block;
+    width: 50px;
+    height: 44px; /* Increased for better touch target */
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1002; /* Highest z-index */
+    /* Enhanced touch interactions */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Hamburger Icon - FIXED ANIMATION */
+  #menuToggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 4px;
+    position: relative;
+    background: var(--nav-text);
+    border-radius: 3px;
+    z-index: 1001;
+    transform-origin: 4px 0;
+    transition:
+      transform var(--transition-slow),
+      background var(--transition-slow),
+      opacity var(--transition-slow); /* Fixed: was 0.55s ease */
+  }
+
+  /* Fixed transform origins for proper animation */
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  #menuToggle span:nth-child(3) {
+    /* Second span (middle line) */
+    transform-origin: 0% 50%;
+  }
+
+  #menuToggle span:nth-child(4) {
+    /* Third span (bottom line) */
+    transform-origin: 0% 100%;
+  }
+
+  /* FIXED: Hamburger to X Animation */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: var(--nav-text);
+  }
+
+  #menuToggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #menuToggle input:checked ~ span:nth-child(4) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  /* Mobile Menu */
+  #menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    margin: 0;
+    padding: 0;
+    background: var(--nav-bg);
+    /* Safe area insets */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+
+    /* Flexbox centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    /* Animation */
+    transform: translateX(100%);
+    transition: transform var(--transition-slow);
+    z-index: 999;
+    /* Prevent scrolling when menu is open */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #menu li {
+    text-align: center;
+    list-style: none;
+    width: 100%;
+  }
+
+  #menu a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 450;
+    transition: all var(--transition-fast);
+
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+
+    /* Enhanced touch interactions */
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
+    min-height: 44px; /* Minimum touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  #menu a:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  #menu a:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #menu li:hover a {
+    background-image: linear-gradient(
+      to right,
+      var(--nav-mobile-hover-start),
+      var(--nav-mobile-hover-end)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Show menu when checkbox is checked */
+  #menuToggle input:checked ~ ul {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .logo {
+    height: 40px;
+    margin-left: 0; /* Consistent positioning */
+  }
+}
+
+/* ============================================================================
+   ADDITIONAL RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+/* Additional responsive adjustments for very small screens */
+@media screen and (max-width: 480px) {
+  #menu a {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  #menu {
+    gap: 1.5rem;
+  }
+}
+
+/* For larger mobile screens */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #menu a {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  #menu {
+    gap: 2.5rem;
+  }
+}
