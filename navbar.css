@@ -31,23 +31,16 @@
 }
 
 /* ============================================================================
-   BASE BODY STYLES
+   BASE STYLES
    ============================================================================ */
 
 body {
-  padding-top: calc(
-    var(--nav-height) + 1rem
-  ); /* Consistent padding for navbar */
-}
+  padding-top: calc(var(--nav-height) + 1rem);
+} /* Consistent padding for navbar */
 
 ::selection {
   background: #3d479c;
 }
-
-/* .home-page .navigation-container {
-  background-color: transparent !important;
-  box-shadow: none !important;
-} */
 
 /* ============================================================================
    NAVIGATION CONTAINER
@@ -98,7 +91,7 @@ nav {
   max-height: var(--logo-size);
   width: var(--logo-size);
   aspect-ratio: 1 / 1;
-  margin: 0; /* Remove left margin for consistent positioning */
+  margin: 0;
   overflow: hidden;
   transition: transform var(--transition-medium);
   flex-shrink: 0; /* Prevent logo from shrinking */
@@ -217,26 +210,22 @@ nav {
 }
 
 /* ============================================================================
-   MOBILE STYLES
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
    ============================================================================ */
 
 @media screen and (max-width: 900px) {
   body {
     margin: 5%;
     padding: 0;
-    padding-top: calc(
-      var(--nav-height) + env(safe-area-inset-top) + 1rem
-    ); /* Preserve navbar padding with safe area */
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top) + 1rem);
     overflow-x: hidden;
-    /* Prevent pull-to-refresh */
-    overscroll-behavior-y: contain;
-    /* Safe area insets */
-    padding-left: max(5%, env(safe-area-inset-left));
-    padding-right: max(5%, env(safe-area-inset-right));
-    padding-bottom: env(safe-area-inset-bottom);
+    overscroll-behavior-y: contain; /* Prevent pull-to-refresh */
+    padding-left: max(5%, env(safe-area-inset-left)); /* Safe area insets */
+    padding-right: max(5%, env(safe-area-inset-right)); /* Safe area insets */
+    padding-bottom: env(safe-area-inset-bottom); /* Safe area insets */
   }
 
-  /* Ensure navbar maintains consistent height on mobile */
+  /* Ensures the navbar maintains consistent height on mobile */
   .navigation-container {
     height: var(--nav-height);
   }
@@ -251,26 +240,25 @@ nav {
     position: absolute;
     top: 30px;
     right: 20px;
-    z-index: 1001; /* Higher than menu */
+    z-index: 1001; /* Higher than the menu */
     user-select: none;
   }
 
   #menuToggle input {
     display: block;
     width: 50px;
-    height: 44px; /* Increased for better touch target */
+    height: 44px;
     position: absolute;
     top: -7px;
     left: -5px;
     cursor: pointer;
     opacity: 0;
     z-index: 1002; /* Highest z-index */
-    /* Enhanced touch interactions */
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    touch-action: manipulation; /* Enhanced touch interactions */
   }
 
-  /* Hamburger Icon - FIXED ANIMATION */
+  /* Hamburger Icon */
   #menuToggle span {
     display: block;
     width: 25px;
@@ -284,10 +272,9 @@ nav {
     transition:
       transform var(--transition-slow),
       background var(--transition-slow),
-      opacity var(--transition-slow); /* Fixed: was 0.55s ease */
+      opacity var(--transition-slow);
   }
 
-  /* Fixed transform origins for proper animation */
   #menuToggle span:first-child {
     transform-origin: 0% 0%;
   }
@@ -302,7 +289,7 @@ nav {
     transform-origin: 0% 100%;
   }
 
-  /* FIXED: Hamburger to X Animation */
+  /* Hamburger to X Animation */
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
@@ -330,7 +317,6 @@ nav {
     margin: 0;
     padding: 0;
     background: var(--nav-bg);
-    /* Safe area insets */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
     padding-left: env(safe-area-inset-left);
@@ -369,16 +355,13 @@ nav {
     text-decoration: none;
     font-weight: 450;
     transition: all var(--transition-fast);
-
     margin: 0;
     border: none;
     outline: none;
     box-sizing: border-box;
-
-    /* Enhanced touch interactions */
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
     touch-action: manipulation;
-    min-height: 44px; /* Minimum touch target */
+    min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -415,7 +398,7 @@ nav {
 
   .logo {
     height: 40px;
-    margin-left: 0; /* Consistent positioning */
+    margin-left: 0;
   }
 }
 
@@ -423,7 +406,7 @@ nav {
    ADDITIONAL RESPONSIVE ADJUSTMENTS
    ============================================================================ */
 
-/* Additional responsive adjustments for very small screens */
+/* For very small screens */
 @media screen and (max-width: 480px) {
   #menu a {
     font-size: 1.2rem;
