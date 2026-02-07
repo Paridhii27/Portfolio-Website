@@ -109,7 +109,7 @@ const ProjectsData = {
       description:
         "This speculative environment draws a poetic parallel between human memories and browser cookies, inviting participants into a data store where personal memories become uniquely flavored cookies.",
       thumbnail: "./assets/images/thumbnails/warped-memories.png",
-      url: "./project-pages/warped-memories.html",
+      url: "./project-pages/warped-memories-of-digital-ghosts.html",
       categories: ["narrative"],
       tools: [
         "3D Modelling",
@@ -151,7 +151,7 @@ const ProjectsData = {
       description:
         "Audio-reactive visuals with dynamic particle systems that respond in real-time to the kicks and snares in the song.",
       thumbnail: "./assets/images/thumbnails/audiovisual.jpg",
-      url: "./project-pages/vj-set.html",
+      url: "./project-pages/audiovisual.html",
       categories: ["others"],
       tools: ["Sound reactive", "Generative visuals", "Particle systems"],
     },
