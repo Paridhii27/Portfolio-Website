@@ -20,39 +20,29 @@
   /* Spacing - Consistent System */
   --spacing-xs: 0.5rem; /* 8px */
   --spacing-sm: 0.75rem; /* 12px */
-  --spacing-md: 1rem; /* 16px */
-  --spacing-lg: 1.5rem; /* 24px */
   --spacing-xl: 2rem; /* 32px */
-  --spacing-2xl: 2.5rem; /* 40px */
   --spacing-3xl: 3rem; /* 48px */
 
   /* Container Spacing */
   --container-spacing: clamp(1rem, 5vw, 5%);
   --section-spacing: clamp(1.5rem, 5vw, 3rem);
-  --section-gap: clamp(1.25rem, 4vw, 2rem);
 
   /* Line Heights */
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
-  --line-height-relaxed: 1.6;
-  --line-height-loose: 1.7;
 
   --border-radius: 10px;
 
-  /* Font Sizes - Consistent across all pages */
-  --font-size-paragraph: 1rem; /* 16px - Base paragraph text */
-  --font-size-h1: clamp(2rem, 4.5vw, 3.5rem); /* Large page titles */
-  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem); /* Section titles */
-  --font-size-h3: clamp(1.25rem, 3vw, 1.75rem); /* Subsection titles */
-  --font-size-button: 1rem; /* 16px - Base buttons */
-  --font-size-button-small: 0.8rem; /* 12.8px - Small buttons */
-  --font-size-button-large: 1.1rem; /* 17.6px - CTA buttons */
+  /* Font Sizes */
+  --font-size-paragraph: 1rem;
+  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem);
 
   /* Animation Variables */
   --animation-duration: 0.5s;
   --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --stagger-delay: 0.08s;
 }
+
 /* ============================================================================
    BASE STYLES
    ============================================================================ */
@@ -86,6 +76,10 @@ p {
   color: var(--text-color);
 }
 
+/* ============================================================================
+   FILTER BUTTONS
+   ============================================================================ */
+
 #filterBtns {
   display: flex;
   justify-content: center;
@@ -93,7 +87,7 @@ p {
   padding: var(--spacing-xl);
   max-width: 800px;
   margin: 0 auto;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
   margin-top: var(--spacing-xl);
   gap: var(--spacing-xs);
   flex-wrap: nowrap;
@@ -136,7 +130,6 @@ p {
   border-color: var(--hover-color);
 }
 
-/* Remove focus outline on desktop (mouse hover), keep for keyboard navigation */
 .btn:focus {
   outline: none;
 }
@@ -147,21 +140,22 @@ p {
   border-radius: var(--border-radius);
 }
 
-/* Project Section */
+/* ============================================================================
+   PROJECTS GALLERY SECTION
+   ============================================================================ */
 #projects-section {
   display: grid;
   content-visibility: auto;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--section-spacing);
-  margin-top: calc(var(--nav-height) + var(--nav-padding) * 2);
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-md);
   width: 100%;
   padding-bottom: var(--spacing-xl);
+  margin-top: var(--spacing-md);
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-/* Animation Styles for Project Containers */
 .container {
   display: none;
   flex-direction: column;
@@ -217,12 +211,15 @@ p {
   transition-delay: calc(var(--stagger-delay) * 2);
 }
 
-/* Hover effect enhancement - only lift, no scale */
+/* Hover effect for project containers */
 .container.animate:hover {
   border-color: var(--hover-color);
   box-shadow: 0 10px 30px rgba(167, 219, 235, 0.2);
 }
 
+/* ============================================================================
+   RESEARCH PROJECTS
+   ============================================================================ */
 /* Research projects span 2 columns only when "all" filter is active */
 #projects-section.filter-all .container.research {
   grid-column: span 2;
@@ -233,7 +230,9 @@ p {
   grid-column: span 1;
 }
 
-/* Thumbnail Images */
+/* ============================================================================
+   THUMBNAIL IMAGES
+   ============================================================================ */
 .thumbnail {
   aspect-ratio: 16/9;
   width: 100%;
@@ -262,7 +261,6 @@ p {
   transform: scale(0.98);
 }
 
-/* Remove focus outline on desktop (mouse hover), keep for keyboard navigation */
 .thumbnail a:focus {
   outline: none;
 }
@@ -292,7 +290,6 @@ p {
   transform: scale(1.05);
 }
 
-/* Project overlay for hover arrow */
 .thumbnail::after {
   content: "";
   position: absolute;
@@ -315,6 +312,9 @@ p {
   opacity: 1;
 }
 
+/* ============================================================================
+   ARROW LINK TO PROJECT PAGE
+   ============================================================================ */
 .arrow-link {
   position: absolute;
   top: 0.75rem;
@@ -356,7 +356,6 @@ p {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Remove focus outline on desktop (mouse hover), keep for keyboard navigation */
 .arrow-link:focus {
   outline: none;
 }
@@ -367,7 +366,9 @@ p {
   border-radius: 50%;
 }
 
-/* Project Title */
+/* ============================================================================
+   PROJECT TITLE
+   ============================================================================ */
 .project-title {
   font-family: var(--heading-font);
   font-weight: var(--heading-bold);
@@ -385,16 +386,8 @@ p {
   flex-wrap: wrap;
 }
 
-.project-year {
-  font-size: var(--font-size-paragraph);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: var(--content-font);
-}
-
 .project-title:hover {
   color: var(--hover-color);
-  text-shadow: 0 0 2px #f1efff;
 }
 
 .project-title:active {
@@ -413,6 +406,19 @@ p {
   border-radius: 4px;
 }
 
+/* ============================================================================
+   PROJECT YEAR
+   ============================================================================ */
+.project-year {
+  font-size: var(--font-size-paragraph);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--content-font);
+}
+
+/* ============================================================================
+   PROJECT KEYWORDS OR TAGS
+   ============================================================================ */
 .tool-name {
   display: flex;
   flex-wrap: wrap;
@@ -432,9 +438,10 @@ p {
   cursor: default;
 }
 
-/* Enhanced Back to Top Button */
+/* ============================================================================
+   BACK TO TOP BUTTON
+   ============================================================================ */
 #back-to-top {
-  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -480,7 +487,6 @@ p {
   background: transparent;
 }
 
-/* Remove focus outline on desktop (mouse hover), keep for keyboard navigation */
 #back-to-top:focus {
   outline: none;
 }
@@ -490,6 +496,10 @@ p {
   outline-offset: 3px;
   border-radius: 50%;
 }
+
+/* ============================================================================
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
+   ============================================================================ */
 
 /* Large desktop breakpoint */
 @media screen and (min-width: 1400px) {
@@ -522,24 +532,9 @@ p {
     max-width: 1200px;
   }
 
-  #projects-section {
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    gap: clamp(1.5rem, 2.2vw, 2.25rem);
-    margin-top: calc(var(--nav-height) + var(--nav-padding) + 1.25rem);
-    margin-bottom: 3rem;
-  }
-
-  #projects-section.filter-all .container.research {
-    grid-column: span 2;
-  }
-
-  .container {
-    padding: 4%;
-  }
-
   #filterBtns {
     max-width: 900px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
     padding: 20px;
   }
@@ -548,6 +543,21 @@ p {
     font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     padding: 12px 18px;
   }
+
+  .container {
+    padding: 4%;
+  }
+
+  #projects-section {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 2.2vw, 2.25rem);
+    margin-top: calc(var(--nav-height) + var(--nav-padding) + 1.25rem);
+    margin-bottom: 3rem;
+  }
+
+  #projects-section.filter-all .container.research {
+    grid-column: span 2;
+  }
 }
 
 /* Tablet breakpoint */
@@ -555,6 +565,28 @@ p {
   body {
     padding: 3vw 4%;
     max-width: 100%;
+  }
+
+  p {
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+
+  #filterBtns {
+    max-width: 90%;
+    padding: 18px;
+    margin-bottom: 1.5rem;
+    margin-top: 80px;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .btn {
+    padding: 12px 18px;
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+    min-height: 44px;
+    white-space: nowrap;
   }
 
   #projects-section {
@@ -589,10 +621,14 @@ p {
     font-size: clamp(0.9rem, 1.2vw, 1rem);
   }
 
-  p {
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-    line-height: 1.6;
-    margin: 0.5rem 0;
+  .thumbnail {
+    margin: 0.75rem 0;
+    aspect-ratio: 16/9;
+  }
+
+  .thumbnail img {
+    object-fit: cover;
+    height: 100%;
   }
 
   .tool-name {
@@ -605,16 +641,6 @@ p {
     padding: 5px 10px;
   }
 
-  .thumbnail {
-    margin: 0.75rem 0;
-    aspect-ratio: 16/9;
-  }
-
-  .thumbnail img {
-    object-fit: cover;
-    height: 100%;
-  }
-
   .arrow-link {
     width: 30px;
     height: 30px;
@@ -623,36 +649,36 @@ p {
     right: 0.5rem;
   }
 
-  #filterBtns {
-    max-width: 90%;
-    padding: 18px;
-    margin-bottom: 1.5rem;
-    margin-top: 80px;
-    gap: 10px;
-    flex-wrap: nowrap;
-  }
-
-  .btn {
-    padding: 12px 18px;
-    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
-    min-height: 44px;
-    white-space: nowrap;
-  }
-
   #back-to-top {
     bottom: 20px;
     right: 20px;
     width: 36px;
     height: 36px;
     font-size: 1rem;
-    line-height: 1;
-    text-align: center;
   }
 }
 
 /* Mobile and small tablet breakpoint */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+    padding: calc(var(--section-spacing) / 4) 4%;
+  }
+
+  p {
+    font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+  }
+
   .btn {
+    padding: clamp(14px, 2.5vw, 16px) clamp(16px, 3.5vw, 24px);
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    min-height: 48px;
+    height: auto;
+    width: fit-content;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
     touch-action: manipulation;
   }
@@ -664,48 +690,17 @@ p {
     opacity: 0.9;
   }
 
-  .thumbnail a {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
-    touch-action: manipulation;
-  }
-
-  .thumbnail a:active {
-    opacity: 0.7;
-    transform: scale(0.97);
-  }
-
-  .project-title {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
-    touch-action: manipulation;
-  }
-
-  .project-title:active {
-    opacity: 0.7;
-    transform: scale(0.97);
-  }
-
-  .arrow-link {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-    touch-action: manipulation;
-  }
-
-  .arrow-link:active {
-    opacity: 0.85;
-    transform: translateY(-2px) scale(0.93);
-  }
-
-  #back-to-top {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-    touch-action: manipulation;
-  }
-
-  #back-to-top:active {
-    opacity: 0.85;
-    transform: translateY(0) scale(0.93);
-  }
-  body {
-    width: 100%;
-    padding: calc(var(--section-spacing) / 3) 4%;
+  #filterBtns {
+    max-width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    margin-top: 80px;
+    position: relative;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    flex-wrap: wrap;
+    z-index: 10;
   }
 
   #projects-section {
@@ -718,12 +713,18 @@ p {
     margin-top: 5%;
   }
 
-  #projects-section.filter-all .container.research {
-    grid-column: span 1;
+  .btn {
+    flex: 1;
+    min-width: calc(50% - 4px);
+    max-width: calc(50% - 4px);
+    padding: clamp(10px, 2.5vw, 12px) clamp(8px, 2vw, 12px);
+    font-size: clamp(0.65rem, 2vw, 0.85rem);
+    min-height: 38px;
   }
 
-  .container.research {
-    grid-column: span 1;
+  .container {
+    padding: clamp(0.75rem, 3.5vw, 1rem);
+    transition-duration: 0.4s;
   }
 
   /* Single column animation adjustments */
@@ -750,58 +751,36 @@ p {
     transition-delay: calc(var(--stagger-delay) * 2.5);
   }
 
-  p {
-    font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+  #projects-section.filter-all .container.research {
+    grid-column: span 1;
   }
 
-  #filterBtns {
-    max-width: 95%;
-    padding: 12px;
-    margin-bottom: 15px;
-    margin-top: 80px;
-    justify-content: center;
-    position: relative;
-    z-index: 10;
-    align-items: stretch;
-    gap: 10px;
-    flex-wrap: nowrap;
+  .container.research {
+    grid-column: span 1;
   }
 
-  .btn {
-    padding: clamp(14px, 2.5vw, 16px) clamp(16px, 3.5vw, 24px);
-    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-    min-height: 48px;
-    height: auto;
-    width: fit-content;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: clip;
+  .project-title {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    touch-action: manipulation;
   }
 
-  #back-to-top {
-    bottom: 15px;
-    right: 15px;
-    width: 32px;
-    height: 32px;
-    font-size: var(--font-size-paragraph);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    text-align: center;
+  .project-title:active {
+    opacity: 0.7;
+    transform: scale(0.97);
   }
 
-  /* Make thumbnail images fully visible on mobile */
-  .thumbnail {
-    aspect-ratio: 16/9;
-    height: auto;
+  .thumbnail a {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    touch-action: manipulation;
   }
 
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .thumbnail a:active {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+
+  .tool-name {
+    gap: 6px;
   }
 
   .tool-name span {
@@ -818,39 +797,14 @@ p {
     font-size: clamp(0.85rem, 3.5vw, 0.95rem);
   }
 
-  .tool-name {
-    gap: 6px;
+  .arrow-link {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
   }
 
-  p {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-  }
-
-  .container {
-    padding: clamp(0.75rem, 3.5vw, 1rem);
-    transition-duration: 0.4s;
-  }
-
-  body {
-    padding: calc(var(--section-spacing) / 4) 4%;
-  }
-
-  #filterBtns {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    max-width: 100%;
-    padding: 8px;
-    margin-top: 90px;
-  }
-
-  .btn {
-    flex: 1;
-    min-width: calc(50% - 4px);
-    max-width: calc(50% - 4px);
-    padding: clamp(10px, 2.5vw, 12px) clamp(8px, 2vw, 12px);
-    font-size: clamp(0.65rem, 2vw, 0.85rem);
-    min-height: 38px;
+  .arrow-link:active {
+    opacity: 0.85;
+    transform: translateY(-2px) scale(0.93);
   }
 
   #back-to-top {
@@ -858,41 +812,30 @@ p {
     right: 10px;
     width: 28px;
     height: 28px;
-    font-size: 0.9rem;
-    line-height: 1;
-    text-align: center;
+    font-size: var(--font-size-paragraph);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
+  }
+
+  #back-to-top:active {
+    opacity: 0.85;
+    transform: translateY(0) scale(0.93);
   }
 }
 
+/* Extra Small Mobile (480px and below) */
 @media screen and (max-width: 480px) {
   body {
     padding: calc(var(--section-spacing) / 4) 4%;
   }
-  .container {
-    transition-duration: 0.3s;
+
+  p {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   }
 
   .container {
     padding: clamp(0.75rem, 3.5vw, 1rem);
     transition-duration: 0.4s;
-  }
-
-  #back-to-top {
-    bottom: 8px;
-    right: 8px;
-    width: 28px;
-    height: 28px;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    text-align: center;
-  }
-
-  #filterBtns {
-    gap: 6px;
-    padding: 8px;
   }
 
   .btn {
@@ -903,16 +846,9 @@ p {
     min-height: 36px;
   }
 
-  /* Make thumbnail images fully visible on very small screens */
-  .thumbnail {
-    aspect-ratio: 16/9;
-    height: auto;
-  }
-
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  #filterBtns {
+    gap: 6px;
+    padding: 8px;
   }
 
   .tool-name span {
@@ -920,7 +856,11 @@ p {
     padding: 6px 10px;
   }
 
-  p {
-    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  #back-to-top {
+    bottom: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
   }
 }

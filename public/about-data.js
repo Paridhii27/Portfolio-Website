@@ -51,12 +51,17 @@ const AboutData = {
   exhibitions: [
     {
       number: "01.",
-      name: "Quantum Art",
+      name: "Quantum Art: Creative Expressions of the Infamously Counter Intuitive",
       location: "Microscope Gallery, New York, NY",
     },
     {
-      number: "02.",
-      name: "Mosaic DT Pop Up",
+      number: "03.",
+      name: "How to show off quantum computing",
+      location: "KISD, Cologne, Germany",
+    },
+    {
+      number: "04.",
+      name: "Mosaic Pop Up Show",
       location: "Parsons School of Design, New York, NY",
     },
   ],
@@ -86,7 +91,7 @@ const AboutData = {
       number: "04.",
       category: "Advanced Computing",
       description:
-        "OpenAI API · Anthropic API · Google's Gemini API · Training text generation models · prompt engineering for text generation · ElevenLabs · text-to-speech · speech-to-text · Runway ML · Stable Diffusion · StyleGANs for image generation · Image generation · ImageFX · MusicFX · Gesture Recognition · Object Detection",
+        "APIs (OpenAI, Anthropic, Google's Gemini) · Training text generation models · prompt engineering for text generation · Image generation · ElevenLabs · text-to-speech · speech-to-text · Runway ML · Stable Diffusion · Gesture Recognition · Object Detection",
     },
   ],
 

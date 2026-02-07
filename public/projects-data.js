@@ -145,7 +145,7 @@ const ProjectsData = {
       ],
     },
     {
-      id: "vj-set",
+      id: "audiovisual",
       title: "Audiovisual",
       year: "2023",
       description:
@@ -167,7 +167,7 @@ const ProjectsData = {
       tools: ["Visual Effects", "Typography"],
     },
     {
-      id: "light-and-darkness",
+      id: "intermittent",
       title: "Intermittent",
       year: "2023",
       description:

@@ -34,42 +34,54 @@
   <body>
     <!-- Project Visual -->
     <div class="project-visual">
-      <img
-        src="../assets/images/project-pages/fleeting-states/main.png"
-        id="main-img"
-      />
+      <div class="video-container">
+        <iframe
+          src="https://player.vimeo.com/video/1047646947?title=0&byline=0&portrait=0&sidedock=0&badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameborder="0"
+          allow="
+            autoplay;
+            fullscreen;
+            picture-in-picture;
+            clipboard-write;
+            encrypted-media;
+          "
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+          title="fleeting-states"
+        >
+        </iframe>
+      </div>
     </div>
 
     <!-- Project Title -->
     <div class="title">
-      <h1>Fleeting States + Measured Values</h1>
+      <h1>Move a Bit</h1>
     </div>
 
     <div class="project-container">
       <!-- Project Details -->
       <div class="details">
         <div class="keywords">
-          <h2 style="color: #4453a6">Quantum Physics</h2>
-          <h2 style="color: #99a6f2">LED Mapping</h2>
-          <h2 style="color: #6c9bd9">Interactive Installation</h2>
+          <h2 style="color: #cee4eb">Quantum Computing</h2>
+          <h2 style="color: #58a5bf">Motion Capture</h2>
+          <h2 style="color: #a0ddf2">Interactive Installation</h2>
         </div>
 
         <div class="collaborators-list">
           <p>
             <span id="collaborators-title">COLLABORATORS</span>
-            <span>Aikaterini Sideri</span>
-            <span>Jana Hartmann</span>
-            <span>Prakhar Mittal</span>
-            <span>Mika Arai</span>
+            <span>Isabella Wang</span>
+            <span>Kalinda Panholzer</span>
+            <span>Youn Hwang</span>
+            <span>Si Ran Pang</span>
           </p>
         </div>
 
         <div class="project-role">
           <p>
             <span id="project-role-title">PROJECT ROLE</span>
-            <span>UI Developer</span>
-            <span>Researcher</span>
             <span>Creative Technologist</span>
+            <span>Researcher</span>
+            <span>Experiential Designer</span>
           </p>
         </div>
 
@@ -77,13 +89,9 @@
         <div class="tools-container">
           <p>
             <span id="toolkit-title">TOOLKIT</span>
-            <span>Touchdesigner</span>
-            <span>Physical Computing</span>
-            <span>Figma</span>
-            <span>HTML/CSS</span>
-            <span>JavaScript (Node.js, Express.js)</span>
             <span>Python</span>
-            <span>Render</span>
+            <span>Touchdesigner</span>
+            <span>Projection Mapping</span>
           </p>
         </div>
 
@@ -91,27 +99,115 @@
         <div class="project-links">
           <a
             class="project-link"
-            href="https://measured-values-interface.onrender.com/"
+            href="https://innovationcenter.newschool.edu/quantum-art-exhibition/"
             target=" "
-            >Measured values Interface
-          </a>
-          <a
-            class="project-link"
-            href="https://github.com/Paridhii27/fleeting-states"
-            target=" "
-            >Github Repository
-          </a>
-          <a
-            class="project-link"
-            href="https://kisd.de/en/news/how-to-show-off-quantum-computing-a-kisd-collaboration-with-parsons-school-of-design/"
-            target=" "
-            >Read about the project
+            >Quantum art exhibition
           </a>
         </div>
       </div>
 
       <!-- Project Documentation -->
-      <div class="documentation"></div>
+      <div class="documentation">
+        <h3>Design Problem</h3>
+        <p>
+          How to create an interactive art experience that visualizes quantum
+          states in real-time at the intersection of quantum physics and art.
+        </p>
+        <h3>Concept</h3>
+        <p>
+          Move a Bit is a live motion capture project showcasing quantum
+          entanglement and the messiness of quantum noise. Quantum entanglement
+          suggests that there is a special correlation between qubits and
+          quantum systems. Just as there is a special correlation between
+          qubits, the particles in Move-a-Bit have a special correlation with
+          the subject in motion. Movement produces the quantum state with all
+          the quantum possibilities represented in different colors. Stillness
+          represents the observed collapsed, classical state. Essentially a
+          system which is entangled with you and exists only when you move.
+        </p>
+        <h3>Process</h3>
+        <p>
+          This was the first time I was learning about quantum computing and the
+          concept felt intimidating at first so making it more approachable was
+          a key goal of this project. As a group we wanted to create something
+          that helped one understand and explore the quantum concept of
+          entanglement in a simple, fun and engaging manner. Taking this project
+          to gallery spaces in New York and seeing how people interacted with it
+          was also really exciting.
+        </p>
+        <p>
+          As for the working of the project, it uses a live camera feed going
+          into TouchDesigner, and data generated using IBM's Qiskit platform to
+          create a live motion capture project that brings quantum entanglement
+          to life. To generate the quantum data to guide the properties of our
+          motion-reactive particles, we used the quantum concept of W-state to
+          entangle three qubits.
+        </p>
+        <div class="inline-img-container">
+          <img
+            class="inline-img"
+            src="../assets/images/project-pages/move-a-bit/data.png"
+          />
+          <div class="inline-img-caption">
+            Quantum circuit used to generate the quantum data
+          </div>
+        </div>
+        <div class="inline-img-container">
+          <img
+            class="inline-img"
+            src="../assets/images/project-pages/move-a-bit/quantumShots.png"
+          />
+          <div class="inline-img-caption">
+            Quantum data and noise generated using IBM's Qiskit platform
+          </div>
+        </div>
+        <p>
+          The three qubit value shots were then used to control the RGB color
+          values of the particles. These particles are generated using particle
+          systems in TouchDesigner which is a node-based programming language
+          used for creating such interactive visuals. The particles that aren't
+          of the original R G B colors (red: (1,0,0), green:(0,1,0), blue:
+          (0,0,1)) are a demonstration of noise, or quantum computation errors.
+        </p>
+        <div class="inline-img-container">
+          <img
+            class="inline-img"
+            src="../assets/images/project-pages/move-a-bit/colorRamp.png"
+          />
+          <div class="inline-img-caption">RGB color ramp for the particles</div>
+        </div>
+        <div class="inline-img-container">
+          <img
+            class="inline-img"
+            src="../assets/images/project-pages/move-a-bit/1.png"
+          />
+          <div class="inline-img-caption">
+            Building the Touchdesigner setup for the project
+          </div>
+        </div>
+        <h3>Gallery Experience</h3>
+        <p>
+          Further, after setting up the live camera feed we also set up a
+          projector to display “move a bit” on a large wall to capture all body
+          movements which eventually generated the particles.
+        </p>
+        <div class="inline-img-container">
+          <img
+            class="inline-img"
+            src="../assets/images/project-pages/move-a-bit/5.png"
+          />
+          <div class="inline-img-caption">Setting up at the gallery space</div>
+          <div class="inline-img-container">
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/move-a-bit/10.png"
+            />
+            <div class="inline-img-caption">
+              Projecting on the wall at Microscope Gallery
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Next Previous Buttons Section -->
