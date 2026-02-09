@@ -94,7 +94,7 @@ const ProjectsData = {
       year: "2025",
       description: "What would a festival for fireflies be?",
       thumbnail: "./assets/images/thumbnails/firefly-symphony.png",
-      url: "./project-pages/firefly-symphony.html",
+      url: "./project-pages/a-firefly-symphony.html",
       categories: ["others"],
       tools: [
         "3D Modelling",

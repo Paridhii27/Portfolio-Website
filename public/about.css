@@ -12,7 +12,11 @@
 
   /* Font Families */
   --heading-font: "Inter", sans-serif;
+  --subheading-font: "Inter", sans-serif;
   --content-font: "Open Sans", sans-serif;
+
+  /* Font Weights */
+  --heading-bold: 700;
 
   /* Font Sizes */
   --font-size-paragraph: 0.9rem;
@@ -278,6 +282,19 @@ html {
 /* ============================================================================
    ABOUT ME TEXT
    ============================================================================ */
+.about-text-title {
+  font-family: var(--subheading-font);
+  font-size: var(--font-size-h2);
+  font-weight: var(--heading-bold);
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-sm) 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: var(--line-height-tight);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
 .about-text {
   display: flex;
   flex-direction: column;
@@ -627,6 +644,13 @@ html {
     max-width: 100%;
   }
 
+  .about-text-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
   .about-text {
     align-items: center;
     text-align: left;
@@ -746,6 +770,14 @@ html {
     max-width: 100%;
   }
 
+  .about-text-title {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
   .about-text p {
     font-size: clamp(0.8rem, 4vw, 0.85rem);
     line-height: var(--line-height-normal);
@@ -856,6 +888,7 @@ html {
   .content-right,
   .about-page-image,
   .contacts,
+  .about-text-title,
   .about-text,
   .exhibitions-dropdown,
   .toolkit-dropdown,

@@ -29,7 +29,7 @@
   /* Font Sizes */
   --font-size-paragraph: 1rem;
   --font-size-h1: clamp(2rem, 4.5vw, 3.5rem);
-  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem);
+  --font-size-h2: clamp(1.5rem, 3.5vw, 2.2rem);
   --font-size-h3: clamp(1.25rem, 3vw, 1.75rem);
   --font-size-button: 1rem;
   --font-size-button-large: 1.1rem;
@@ -84,6 +84,7 @@ html {
    ============================================================================ */
 .welcome-section {
   margin-top: calc(var(--nav-height) + 2rem);
+  height: 25vh;
   text-align: left;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.3s forwards;
@@ -101,7 +102,6 @@ html {
 }
 
 .welcome-title {
-  margin: 0;
   font-family: var(--subheading-font);
   font-size: var(--font-size-h2);
   font-weight: var(--heading-bold);
@@ -118,7 +118,6 @@ html {
 
 .welcome-title .title-text {
   animation: slideInText 1.2s ease-out 0.5s both;
-  margin-bottom: 0;
   position: relative;
   text-align: left;
 }
@@ -180,6 +179,13 @@ html {
   transform: translateY(-2px);
   color: var(--text-color);
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-subtitle {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .special-letter {
@@ -509,6 +515,8 @@ html {
 .about-me-section {
   padding: var(--spacing-xl) var(--container-padding);
   background-color: var(--bg-color);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2s forwards;
 }
 
 .about-me-container {
@@ -578,8 +586,36 @@ html {
   margin: 0;
 }
 
+.about-me-description-secondary {
+  font-family: var(--content-font);
+  font-size: var(--font-size-paragraph);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--line-height-relaxed);
+  margin: var(--spacing-sm) 0 0 0;
+  font-style: italic;
+}
+
+.about-me-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
 .about-me-content .nav-button {
   align-self: flex-start;
+}
+
+.projects-button-secondary {
+  background-color: transparent;
+  border: 1px dashed var(--border-color);
+  color: var(--text-color);
+}
+
+.projects-button-secondary:hover {
+  border-color: var(--hover-color);
+  color: var(--hover-color);
+  background-color: rgba(167, 219, 235, 0.05);
 }
 
 /* ===== FOOTER SECTION ===== */
@@ -904,6 +940,14 @@ html {
     max-width: 100%;
   }
 
+  .welcome-subtitle {
+    margin-left: var(--container-padding);
+    padding-left: 0;
+    padding-right: var(--container-padding);
+    text-align: center;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+  }
+
   .title-text {
     display: block;
     width: 100%;
@@ -1092,9 +1136,22 @@ html {
     max-width: 100%;
   }
 
+  .about-me-description-secondary {
+    text-align: center;
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-me-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
   .about-me-content .nav-button {
     align-self: center;
-    margin-top: 0.75rem;
+    margin-top: 0;
   }
 
   .collaborate-footer {
@@ -1445,9 +1502,26 @@ html {
     max-width: 100%;
   }
 
+  .about-me-description-secondary {
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    line-height: 1.5;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-me-actions {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-sm);
+  }
+
   .about-me-content .nav-button {
     align-self: center;
-    margin-top: var(--spacing-xs);
+    margin-top: 0;
+    width: 100%;
+    max-width: 300px;
   }
 
   .collaborate-footer {
@@ -1531,6 +1605,17 @@ html {
 
   .about-me-description {
     font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  .about-me-description-secondary {
+    font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+  }
+
+  .welcome-subtitle {
+    margin-left: var(--spacing-md);
+    padding-left: 0;
+    padding-right: var(--spacing-md);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
 
   .nav-button {
