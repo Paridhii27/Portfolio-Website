@@ -327,6 +327,11 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide(nextIndex);
     }
 
+    function prevSlide() {
+      const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prevIndex);
+    }
+
     function startAutoRotate() {
       // Clear any existing interval
       stopAutoRotate();
@@ -380,11 +385,29 @@ document.addEventListener("DOMContentLoaded", function () {
           nextSlide();
         } else {
           // Swipe right - previous slide
-          const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-          showSlide(prevIndex);
+          prevSlide();
         }
       }
     }
+
+    // Keyboard navigation: Arrow Left = previous, Arrow Right = next
+    gallery.setAttribute("tabindex", "0");
+    gallery.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevSlide();
+        stopAutoRotate();
+        setTimeout(startAutoRotate, 2000);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextSlide();
+        stopAutoRotate();
+        setTimeout(startAutoRotate, 2000);
+      }
+    });
+
+    // Focus gallery on click so keyboard navigation works after user interacts
+    gallery.addEventListener("click", () => gallery.focus());
 
     // Initialize - ensure first slide is active
     if (slides.length > 0 && dots.length > 0) {

@@ -631,11 +631,30 @@ Inline Image Grid Layout
   margin: 1rem 0;
   margin-bottom: var(--spacing-md);
   width: 100%;
+  justify-content: center;
+  align-items: start;
+}
+
+.documentation .inline-img-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
+  margin: 1rem 0;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
   justify-content: start;
   align-items: start;
 }
 
 .documentation .inline-img-grid .inline-img-container {
+  margin: 0;
+  margin-bottom: 0;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.documentation .inline-img-grid-three .inline-img-container {
   margin: 0;
   margin-bottom: 0;
   width: auto;
@@ -652,7 +671,23 @@ Inline Image Grid Layout
   margin: 0;
 }
 
+.documentation .inline-img-grid-three .inline-img-container figure {
+  width: auto;
+  height: 400px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
 .documentation .inline-img-grid .inline-img {
+  width: auto;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.documentation .inline-img-grid-three .inline-img {
   width: auto;
   height: 400px;
   object-fit: cover;
@@ -855,9 +890,14 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-/* Adjust borders for inline-img-grid */
+/* Adjust borders for inline-img-grid and inline-img-grid-three */
 .documentation
   .inline-img-grid
+  .inline-img-container:hover
+  figure
+  div:nth-child(2),
+.documentation
+  .inline-img-grid-three
   .inline-img-container:hover
   figure
   div:nth-child(2) {
@@ -874,6 +914,11 @@ Inline Image Grid Layout
   .inline-img-grid
   .inline-img-container:hover
   figure
+  div:nth-child(3),
+.documentation
+  .inline-img-grid-three
+  .inline-img-container:hover
+  figure
   div:nth-child(3) {
   top: -8px;
   right: -8px;
@@ -888,6 +933,11 @@ Inline Image Grid Layout
   .inline-img-grid
   .inline-img-container:hover
   figure
+  div:nth-child(4),
+.documentation
+  .inline-img-grid-three
+  .inline-img-container:hover
+  figure
   div:nth-child(4) {
   bottom: -8px;
   right: -8px;
@@ -900,6 +950,11 @@ Inline Image Grid Layout
 
 .documentation
   .inline-img-grid
+  .inline-img-container:hover
+  figure
+  div:nth-child(5),
+.documentation
+  .inline-img-grid-three
   .inline-img-container:hover
   figure
   div:nth-child(5) {
@@ -978,14 +1033,26 @@ Inline Image Grid Layout
   justify-content: center;
   align-items: center;
   margin: 0.75rem 0;
-  padding: 0.5rem;
+  padding: 0;
   width: 100%;
+  max-width: 100%;
+  min-width: 0; /* allow flex shrink on narrow viewports */
+  box-sizing: border-box;
+}
+
+.documentation .inline-video-container figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .documentation .inline-video-container video {
   width: 100%;
   max-width: 100%;
   display: block;
+  box-sizing: border-box;
 }
 
 .documentation .inline-video {
@@ -1002,8 +1069,8 @@ Inline Image Grid Layout
   display: block;
   margin: 0 auto;
   max-height: 50vh;
-  background-color: #000;
   vertical-align: middle;
+  object-fit: cover;
 }
 
 .documentation .inline-video-container .inline-video-caption {
@@ -1451,13 +1518,44 @@ Inline Image Grid Layout
   }
 
   .documentation .inline-img-gallery .gallery-dots {
-    gap: 0.5rem;
+    gap: 0.3rem;
   }
 
   .documentation .inline-img-gallery .gallery-dots .dot {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
   }
+
+  /* Inline video container: better fit and touch on mobile */
+  .documentation .inline-video-container {
+    margin: 0.5rem 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .documentation .inline-video-container figure {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .documentation .inline-video-container .inline-video {
+    max-height: 55vh;
+    min-height: 180px;
+    border-radius: 6px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .documentation .inline-video-container .inline-video-caption {
+    padding: 0 0.25rem;
+    margin-top: 0.4rem;
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+  }
+
   /* Single column credits list on smaller screens */
   .documentation .credits-list {
     grid-template-columns: 1fr;
