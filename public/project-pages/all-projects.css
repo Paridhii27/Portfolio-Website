@@ -695,7 +695,7 @@ Inline Image Grid Layout
 }
 
 /* ============================================================================
-   INLINE VIDEO GRID (3-column, same style as inline-img-grid-three)
+   INLINE VIDEO GRID (3-column)
    ============================================================================ */
 .documentation .inline-video-grid {
   display: grid;
