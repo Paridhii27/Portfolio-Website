@@ -40,6 +40,7 @@
 
   /* Container Spacing */
   --pg-margin: clamp(1rem, 5vw, 5%);
+  --container-padding: clamp(1rem, 5vw, 5%);
   --section-spacing: clamp(1.5rem, 5vw, 3rem);
   --section-gap: clamp(1.25rem, 4vw, 2rem);
 
@@ -892,8 +893,156 @@ html {
   .about-text,
   .exhibitions-dropdown,
   .toolkit-dropdown,
-  .resume-button {
+  .resume-button,
+  .collaborate-footer {
     opacity: 1 !important;
     animation: none !important;
+  }
+
+  .marquee-content {
+    animation: none !important;
+  }
+}
+
+/* ============================================================================
+   LET'S COLLABORATE FOOTER (same styling as index.html)
+   ============================================================================ */
+.collaborate-footer {
+  margin: 0 calc(-1 * var(--pg-margin));
+  width: calc(100% + 2 * var(--pg-margin));
+  padding: 2rem var(--container-padding);
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.marquee-content {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  gap: var(--spacing-3xl);
+  will-change: transform;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.collaborate-title {
+  font-family: var(--subheading-font);
+  font-size: var(--font-size-h2);
+  font-weight: var(--heading-bold);
+  color: var(--text-color);
+  margin: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: var(--line-height-tight);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.marquee-content:hover .collaborate-title {
+  color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Collaborate footer responsive styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .collaborate-footer {
+    padding: var(--spacing-lg) var(--container-padding);
+  }
+
+  .marquee-content {
+    gap: var(--spacing-2xl);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collaborate-footer {
+    margin: 0 calc(-1 * var(--pg-margin));
+    width: calc(100% + 2 * var(--pg-margin));
+    max-width: 100vw;
+    padding: 1.5rem var(--container-padding);
+  }
+
+  .marquee-content {
+    gap: 3rem;
+  }
+
+  .collaborate-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: 2px;
+  }
+
+  .marquee-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .marquee-content {
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .collaborate-footer {
+    /* Body uses --spacing-xs at 480px */
+    margin: 0 calc(-1 * var(--spacing-xs));
+    width: calc(100% + 2 * var(--spacing-xs));
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 100vw;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .collaborate-footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .marquee-content {
+    gap: var(--spacing-2xl);
+  }
+
+  .collaborate-title {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+    letter-spacing: 1px;
+  }
+
+  .marquee-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .marquee-content {
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .collaborate-footer {
+    margin: 0 calc(-1 * var(--spacing-xs));
+    width: calc(100% + 2 * var(--spacing-xs));
+    padding: var(--spacing-md) 0.75rem;
   }
 }

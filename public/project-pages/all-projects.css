@@ -827,6 +827,23 @@ Inline Image Grid Layout
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
+.documentation .inline-img-gallery .gallery-caption {
+  font-family: var(--content-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: var(--project-desc-text-color);
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
 /* ============================================================================
    INLINE IMAGE HOVER EFFECT
    ============================================================================ */
@@ -1573,8 +1590,13 @@ Inline Image Grid Layout
 
   .documentation .inline-img-grid .inline-img-container figure,
   .documentation .inline-img-grid .inline-img {
-    height: 300px;
+    height: auto;
     width: 100%;
+    max-height: 70vh;
+  }
+
+  .documentation .inline-img-grid .inline-img {
+    object-fit: contain;
   }
 
   .documentation .inline-img-grid-three,
@@ -1587,8 +1609,14 @@ Inline Image Grid Layout
   .documentation .inline-img-grid-three .inline-img,
   .documentation .inline-video-grid .inline-video-container figure,
   .documentation .inline-video-grid .inline-video {
-    height: 300px;
+    height: auto;
     width: 100%;
+    max-height: 70vh;
+  }
+
+  .documentation .inline-img-grid-three .inline-img,
+  .documentation .inline-video-grid .inline-video {
+    object-fit: contain;
   }
   /* Responsive adjustments for gallery */
   .documentation .inline-img-gallery .gallery-slides {
@@ -1602,6 +1630,24 @@ Inline Image Grid Layout
   .documentation .inline-img-gallery .gallery-dots .dot {
     width: 5px;
     height: 5px;
+  }
+
+  /* Standalone inline images: scale better on mobile (not in grid/gallery) */
+  .documentation > .inline-img-container figure {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    max-height: none;
+    padding: 0.5rem;
+  }
+
+  .documentation > .inline-img-container .inline-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
   }
 
   /* Inline video container: better fit and touch on mobile */
@@ -1629,6 +1675,12 @@ Inline Image Grid Layout
   }
 
   .documentation .inline-video-container .inline-video-caption {
+    padding: 0 0.25rem;
+    margin-top: 0.4rem;
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+  }
+
+  .documentation .inline-img-gallery .gallery-caption {
     padding: 0 0.25rem;
     margin-top: 0.4rem;
     font-size: clamp(0.7rem, 2.5vw, 0.85rem);

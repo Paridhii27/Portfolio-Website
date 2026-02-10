@@ -310,15 +310,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoRotateInterval;
 
     function showSlide(index) {
+      // Clamp index to valid slide range (slides are source of truth)
+      const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
+
       // Hide all slides
       slides.forEach((slide) => slide.classList.remove("active"));
       dots.forEach((dot) => dot.classList.remove("active"));
 
-      // Show current slide
-      if (slides[index] && dots[index]) {
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
-        currentSlide = index;
+      // Show current slide (don't require dot—galleries may have more slides than dots)
+      if (slides[clampedIndex]) {
+        slides[clampedIndex].classList.add("active");
+        if (dots[clampedIndex]) {
+          dots[clampedIndex].classList.add("active");
+        }
+        currentSlide = clampedIndex;
       }
     }
 

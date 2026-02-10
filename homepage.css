@@ -14,6 +14,7 @@
   --text-color: #ffffff;
   --hover-color: #a7dbeb;
   --border-color: rgba(255, 255, 255, 0.8);
+  --highlight-color: #3d479c;
 
   /* Typography */
   --heading-font: "Mondwest", sans-serif;
@@ -45,6 +46,7 @@
 
   /* Container Spacing */
   --container-padding: clamp(1rem, 5vw, 5%);
+  --content-padding: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
   --section-spacing: clamp(1.5rem, 5vw, 3rem);
   --section-gap: clamp(1.25rem, 4vw, 2rem);
 
@@ -71,7 +73,7 @@ body.home-page {
 }
 
 ::selection {
-  background: #3d479c;
+  background: var(--highlight-color);
 }
 
 /* Smooth scroll behavior */
@@ -84,7 +86,8 @@ html {
    ============================================================================ */
 .welcome-section {
   margin-top: calc(var(--nav-height) + 2rem);
-  height: 25vh;
+  min-height: 25vh;
+  padding: var(--spacing-xl) var(--content-padding) var(--spacing-2xl);
   text-align: left;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.3s forwards;
@@ -107,10 +110,9 @@ html {
   font-weight: var(--heading-bold);
   color: var(--text-color);
   font-style: normal;
-  line-height: var(--line-height-tight);
+  line-height: 1.25;
   max-width: 900px;
-  margin-left: var(--spacing-xl);
-  padding-left: var(--spacing-xl);
+  margin-left: var(--spacing-lg);
   margin-right: auto;
   text-wrap: balance;
   text-transform: uppercase;
@@ -151,7 +153,7 @@ html {
 .title-text {
   display: block;
   width: 100%;
-  text-align: center;
+  text-align: left;
   animation: slideInText 1.2s ease-out 0.5s both;
   word-break: keep-all;
   white-space: normal;
@@ -213,6 +215,7 @@ html {
 /* ===== FEATURED PROJECTS SECTION ===== */
 .featured-projects-section {
   padding: 2rem var(--container-padding);
+  margin-bottom: var(--spacing-3xl);
   opacity: 0;
   animation: fadeInUp 1s ease-out 1.2s forwards;
 }
@@ -384,7 +387,7 @@ html {
 .title-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
 }
 
@@ -712,13 +715,14 @@ html {
 /* For tablets (769px to 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .welcome-section {
-    padding: var(--spacing-lg) var(--container-padding) var(--spacing-lg);
-    margin-top: calc(var(--nav-height) + var(--spacing-lg));
+    min-height: 18vh;
+    padding: var(--spacing-md) var(--container-padding) var(--spacing-md);
+    margin-top: calc(var(--nav-height) + var(--spacing-md));
   }
 
   .welcome-title {
     gap: 1.5rem;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--font-size-h2);
   }
 
   .featured-projects-section {
@@ -812,6 +816,21 @@ html {
 
   .marquee-content {
     gap: var(--spacing-2xl);
+  }
+}
+
+/* For laptop and desktop screens (1025px and up) */
+@media screen and (min-width: 1025px) {
+  .welcome-section {
+    min-height: 18vh;
+    padding: var(--spacing-lg) var(--content-padding) var(--spacing-lg);
+    margin-top: calc(var(--nav-height) + var(--spacing-lg));
+  }
+
+  .welcome-title {
+    font-size: var(--font-size-h2);
+    line-height: 1.3;
+    max-width: 1000px;
   }
 }
 
@@ -929,23 +948,21 @@ html {
   }
 
   .welcome-section {
-    padding: 1.5rem var(--container-padding) 1.25rem;
-    margin-top: calc(var(--nav-height) + 1.25rem);
+    padding: 1.25rem var(--container-padding) 1.5rem;
+    margin-top: calc(var(--nav-height) + 1rem);
   }
 
   .welcome-title {
-    gap: var(--spacing-sm);
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-size: clamp(1.2rem, 5.5vw, 2rem);
+    line-height: 1.35;
     flex-wrap: wrap;
     max-width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  .welcome-subtitle {
-    margin-left: var(--container-padding);
-    padding-left: 0;
-    padding-right: var(--container-padding);
-    text-align: center;
-    font-size: clamp(0.95rem, 3vw, 1.1rem);
+  .welcome-title .title-text {
+    text-align: left;
   }
 
   .title-text {
@@ -1303,14 +1320,14 @@ html {
   }
 
   .welcome-section {
-    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
-    margin-top: calc(var(--nav-height) + var(--spacing-md));
+    padding: 1.125rem var(--spacing-md) 1.25rem;
+    margin-top: calc(var(--nav-height) + 0.875rem);
   }
 
   .welcome-title {
     flex-direction: column;
-    gap: var(--spacing-xs);
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(1.1rem, 6vw, 1.6rem);
+    line-height: 1.4;
     flex-wrap: wrap;
     max-width: 100%;
   }
@@ -1565,7 +1582,11 @@ html {
     --container-padding: 0.75rem;
   }
 
-  .welcome-section,
+  .welcome-section {
+    padding: 1rem 0.75rem 1.25rem;
+    margin-top: calc(var(--nav-height) + 0.75rem);
+  }
+
   .featured-projects-section,
   .about-me-section,
   .collaborate-footer {
@@ -1573,7 +1594,8 @@ html {
   }
 
   .welcome-title {
-    font-size: clamp(1.4rem, 9vw, 2rem);
+    font-size: clamp(1rem, 7vw, 1.5rem);
+    line-height: 1.4;
     gap: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
     margin-bottom: var(--spacing-sm);
     max-width: 100%;
@@ -1609,13 +1631,6 @@ html {
 
   .about-me-description-secondary {
     font-size: clamp(0.85rem, 2.8vw, 0.95rem);
-  }
-
-  .welcome-subtitle {
-    margin-left: var(--spacing-md);
-    padding-left: 0;
-    padding-right: var(--spacing-md);
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
 
   .nav-button {
