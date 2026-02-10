@@ -642,7 +642,7 @@ Inline Image Grid Layout
   margin: 1rem 0;
   margin-bottom: var(--spacing-md);
   width: 100%;
-  justify-content: start;
+  justify-content: center;
   align-items: start;
 }
 
@@ -688,6 +688,45 @@ Inline Image Grid Layout
 }
 
 .documentation .inline-img-grid-three .inline-img {
+  width: auto;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================================================
+   INLINE VIDEO GRID (3-column, same style as inline-img-grid-three)
+   ============================================================================ */
+.documentation .inline-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
+  margin: 1rem 0;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+  justify-content: center;
+  align-items: start;
+}
+
+.documentation .inline-video-grid .inline-video-container {
+  margin: 0;
+  margin-bottom: 0;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.documentation .inline-video-grid .inline-video-container figure {
+  position: relative;
+  width: auto;
+  height: 400px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.documentation .inline-video-grid .inline-video {
   width: auto;
   height: 400px;
   object-fit: cover;
@@ -830,7 +869,8 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-.documentation .inline-img-container figure div {
+.documentation .inline-img-container figure div,
+.documentation .inline-video-container figure div {
   position: absolute;
   background: transparent;
   pointer-events: none;
@@ -838,7 +878,8 @@ Inline Image Grid Layout
   display: none;
 }
 
-.documentation .inline-img-container:hover figure div:nth-child(2) {
+.documentation .inline-img-container:hover figure div:nth-child(2),
+.documentation .inline-video-container:hover figure div:nth-child(2) {
   top: 0;
   left: 0;
   display: block;
@@ -851,7 +892,8 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-.documentation .inline-img-container:hover figure div:nth-child(3) {
+.documentation .inline-img-container:hover figure div:nth-child(3),
+.documentation .inline-video-container:hover figure div:nth-child(3) {
   top: 0;
   right: 0;
   display: block;
@@ -864,7 +906,8 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-.documentation .inline-img-container:hover figure div:nth-child(4) {
+.documentation .inline-img-container:hover figure div:nth-child(4),
+.documentation .inline-video-container:hover figure div:nth-child(4) {
   bottom: 0;
   right: 0;
   display: block;
@@ -877,7 +920,8 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-.documentation .inline-img-container:hover figure div:nth-child(5) {
+.documentation .inline-img-container:hover figure div:nth-child(5),
+.documentation .inline-video-container:hover figure div:nth-child(5) {
   bottom: 0;
   left: 0;
   display: block;
@@ -890,7 +934,7 @@ Inline Image Grid Layout
   transition: all 0.3s ease;
 }
 
-/* Adjust borders for inline-img-grid and inline-img-grid-three */
+/* Adjust borders for inline-img-grid, inline-img-grid-three, and inline-video-grid */
 .documentation
   .inline-img-grid
   .inline-img-container:hover
@@ -899,6 +943,11 @@ Inline Image Grid Layout
 .documentation
   .inline-img-grid-three
   .inline-img-container:hover
+  figure
+  div:nth-child(2),
+.documentation
+  .inline-video-grid
+  .inline-video-container:hover
   figure
   div:nth-child(2) {
   top: -8px;
@@ -919,6 +968,11 @@ Inline Image Grid Layout
   .inline-img-grid-three
   .inline-img-container:hover
   figure
+  div:nth-child(3),
+.documentation
+  .inline-video-grid
+  .inline-video-container:hover
+  figure
   div:nth-child(3) {
   top: -8px;
   right: -8px;
@@ -938,6 +992,11 @@ Inline Image Grid Layout
   .inline-img-grid-three
   .inline-img-container:hover
   figure
+  div:nth-child(4),
+.documentation
+  .inline-video-grid
+  .inline-video-container:hover
+  figure
   div:nth-child(4) {
   bottom: -8px;
   right: -8px;
@@ -956,6 +1015,11 @@ Inline Image Grid Layout
 .documentation
   .inline-img-grid-three
   .inline-img-container:hover
+  figure
+  div:nth-child(5),
+.documentation
+  .inline-video-grid
+  .inline-video-container:hover
   figure
   div:nth-child(5) {
   bottom: -8px;
@@ -1509,6 +1573,20 @@ Inline Image Grid Layout
 
   .documentation .inline-img-grid .inline-img-container figure,
   .documentation .inline-img-grid .inline-img {
+    height: 300px;
+    width: 100%;
+  }
+
+  .documentation .inline-img-grid-three,
+  .documentation .inline-video-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .documentation .inline-img-grid-three .inline-img-container figure,
+  .documentation .inline-img-grid-three .inline-img,
+  .documentation .inline-video-grid .inline-video-container figure,
+  .documentation .inline-video-grid .inline-video {
     height: 300px;
     width: 100%;
   }

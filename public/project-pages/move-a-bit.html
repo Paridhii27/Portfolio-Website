@@ -110,10 +110,15 @@
       <div class="documentation">
         <h3>Design Problem</h3>
         <p>
-          How to create an interactive art experience that visualizes quantum
-          states in real-time at the intersection of quantum physics and art.
+          How can we create an interactive art experience that visualizes quantum states in real-time at the intersection of quantum physics and art? This design problem required us to address several key challenges:
         </p>
-        <h3>Concept</h3>
+        <ul>
+          <li>Making quantum entanglement—a phenomenon that defies classical intuition—comprehensible through visual representation</li>
+          <li>Translating abstract quantum data (qubit states, superposition, noise) into an engaging visual language that invites exploration rather than intimidation</li>
+          <li>Designing an experience that works in a gallery setting where visitors of varying technical backgrounds can interact meaningfully with quantum concepts</li>
+        </ul>
+        
+        <h3>Quantum Entanglement</h3>
         <p>
           Move a Bit is a live motion capture project showcasing quantum
           entanglement and the messiness of quantum noise. Quantum entanglement
@@ -134,6 +139,7 @@
             controls
             loop
             autoplay
+            muted
             playsinline
             preload="auto"
           >
@@ -149,95 +155,10 @@
             <div></div>
           </figure>
         </div>
-        <h3>Process</h3>
+
+        <h3>Entanglement with the system</h3>
         <p>
-          This was the first time I was learning about quantum computing and the
-          concept felt intimidating at first so making it more approachable was
-          a key goal of this project. As a group we wanted to create something
-          that helped one understand and explore the quantum concept of
-          entanglement in a simple, fun and engaging manner. Taking this project
-          to gallery spaces in New York and seeing how people interacted with it
-          was also really exciting.
-        </p>
-        <p>
-          As for the working of the project, it uses a live camera feed going
-          into TouchDesigner, and data generated using IBM's Qiskit platform to
-          create a live motion capture project that brings quantum entanglement
-          to life. To generate the quantum data to guide the properties of our
-          motion-reactive particles, we used the quantum concept of W-state to
-          entangle three qubits.
-        </p>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/move-a-bit/data.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">
-            Quantum circuit used to generate the quantum data
-          </div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/move-a-bit/quantumShots.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">
-            Quantum data and noise generated using IBM's Qiskit platform
-          </div>
-        </div>
-        <p>
-          The three qubit value shots were then used to control the RGB color
-          values of the particles. These particles are generated using particle
-          systems in TouchDesigner which is a node-based programming language
-          used for creating such interactive visuals. The particles that aren't
-          of the original R G B colors (red: (1,0,0), green:(0,1,0), blue:
-          (0,0,1)) are a demonstration of noise, or quantum computation errors.
-        </p>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/move-a-bit/colorRamp.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">RGB color ramp for the particles</div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/move-a-bit/1.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">
-            Building the Touchdesigner setup for the project
-          </div>
-        </div>
-        <h3>Gallery Experience</h3>
-        <p>
-          Further, after setting up the live camera feed we also set up a
-          projector to display “move a bit” on a wall to capture all body
-          movements which eventually generated the particles.
+          The core innovation of Move a Bit lies in its translation of the quantum observer effect into embodied experience. In quantum mechanics, observation fundamentally alters the state of a system—collapsing superposition into a definite state. We mapped this principle directly onto human presence and movement: motion generates quantum entanglement (represented by particles in multiple color states), while stillness triggers observation and collapse into a classical, definite state.
         </p>
         <div class="inline-img-grid-three">
           <div class="inline-img-container">
@@ -282,40 +203,81 @@
             </figure>
           </div>
         </div>
-
-
-        <div class="inline-img-grid">
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/move-a-bit/8.png"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/move-a-bit/9.png"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
+        <p>This creates an intuitive parallel between participant and observer. When you move, you're actively entangled with the quantum system. Raise your arm, and particles burst into superposition. Hold still, and they settle into classical certainty. The particles don't exist independently; they emerge from and respond to your physical presence. </p>
+        <p>
+          The immediate feedback loop was crucial. There's no delay between gesture and quantum response. To achieve this effect, we use a live camera feed in TouchDesigner combined with quantum data generated through IBM's Qiskit platform, creating an interactive experience that brings quantum entanglement to life through motion. To generate the quantum data to guide the properties of our motion-reactive particles, we used the quantum concept of W-state to entangle three qubits.
+        </p>
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/move-a-bit/data.png"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-img-caption">
+            Quantum circuit used to generate the quantum data
           </div>
         </div>
-          <div class="inline-img-grid-three">
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/move-a-bit/quantumShots.png"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-img-caption">
+            Quantum data and noise generated using IBM's Qiskit platform
+          </div>
+        </div>
+        <p>
+          The three qubit value shots were then used to control the RGB color values of the particles. These particles are generated using particle systems in TouchDesigner. The particles that aren't of the original RGB colors (red: (1,0,0), green: (0,1,0), blue: (0,0,1)) are a demonstration of quantum noise, or quantum computation errors.
+        </p>
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/move-a-bit/colorRamp.png"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-img-caption">RGB color ramp for the particles</div>
+        </div>
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/move-a-bit/1.png"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-img-caption">
+            Building the Touchdesigner setup for the project
+          </div>
+        </div>
+        <p>
+          The experience teaches through doing, transforming intimidating quantum concepts into something playful and accessible. This project was done as part of a collaboration between Parsons School of Design and IBM.
+        </p>
+
+        <div class="inline-img-grid-three">
             <div class="inline-img-container">
               <figure>
                 <img
                   class="inline-img"
-                  src="../assets/images/project-pages/move-a-bit/10.png"
+                  src="../assets/images/project-pages/move-a-bit/8.png"
                 />
                 <div></div>
                 <div></div>
@@ -340,7 +302,7 @@
               <figure>
                 <img
                   class="inline-img"
-                  src="../assets/images/project-pages/move-a-bit/12.png"
+                  src="../assets/images/project-pages/move-a-bit/9.png"
                 />
                 <div></div>
                 <div></div>
