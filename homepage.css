@@ -257,6 +257,7 @@ html {
   font-size: var(--font-size-paragraph);
   font-weight: bold;
   font-family: var(--subheading-font);
+  font-variant-emoji: text;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
@@ -511,6 +512,7 @@ html {
   font-size: 0.9rem;
   font-weight: bold;
   font-family: var(--subheading-font);
+  font-variant-emoji: text;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);

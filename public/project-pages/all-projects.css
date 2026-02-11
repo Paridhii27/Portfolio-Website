@@ -447,11 +447,13 @@ body {
 }
 
 .project-link:after {
-  content: " ↗ ";
+  content: " \2197 ";
   position: absolute;
   opacity: 0;
   right: -10px;
   transition: 0.5s;
+  font-variant-emoji: text;
+  font-family: inherit;
 }
 
 .project-link:hover {

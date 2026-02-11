@@ -332,6 +332,7 @@ p {
   font-size: var(--font-size-paragraph);
   font-weight: bold;
   font-family: var(--subheading-font);
+  font-variant-emoji: text;
   opacity: 0;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
