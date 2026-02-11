@@ -1553,6 +1553,11 @@ Inline Image Grid Layout
   body {
     margin: 0;
   }
+
+  .project-link:after {
+    display: none;
+    content: none;
+  }
   .project-container {
     display: flex;
     flex-direction: column;

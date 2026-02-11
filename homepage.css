@@ -967,6 +967,16 @@ html {
     outline-offset: 2px;
   }
 
+  #main-featured-media-container::after {
+    display: none;
+    content: none;
+  }
+
+  .project-thumbnail::after {
+    display: none;
+    content: none;
+  }
+
   a,
   button {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.15);

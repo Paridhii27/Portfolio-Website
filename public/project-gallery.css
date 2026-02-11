@@ -644,6 +644,10 @@ p {
 
 /* Mobile and small tablet breakpoint */
 @media screen and (max-width: 768px) {
+  .arrow-link {
+    display: none;
+  }
+
   body {
     width: 100%;
     padding: calc(var(--section-spacing) / 4) 4%;
