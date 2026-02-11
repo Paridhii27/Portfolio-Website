@@ -1570,24 +1570,26 @@ Inline Image Grid Layout
     padding: 0;
   }
 
+  .project-role,
+  .collaborators-list,
+  .tools-container {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .collaborators-list,
+  .tools-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .project-visual {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 0;
     margin-top: 10vh;
-  }
-
-  .collaborators-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-  }
-
-  .tools-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
   }
 
   .documentation .inline-img-grid {
