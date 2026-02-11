@@ -241,7 +241,7 @@ const ProjectsData = {
           href="${project.url}"
           class="arrow-link"
           aria-label="View ${project.title} project"
-        >↗</a>
+        >&nearr;</a>
         <a
           href="${project.url}"
           class="project-title"

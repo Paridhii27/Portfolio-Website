@@ -1,6 +1,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <style>
+      html,
+      body {
+        background: #000;
+      }
+    </style>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
@@ -25,6 +31,11 @@
 
     <!-- Preloading critical resources for faster loading -->
     <link rel="preload" href="./public/assets/videos/moveabit.mp4" as="video" />
+    <link
+      rel="preload"
+      href="./public/assets/videos/grannybytes.gif"
+      as="image"
+    />
     <link rel="preload" href="./navbar.css" as="style" />
     <link rel="preload" href="./homepage.css" as="style" />
 
@@ -95,24 +106,27 @@
     <section class="welcome-section">
       <h1 class="welcome-title">
         <span class="title-text">
-          Paridhi is a
-          <span style="background-color: var(--highlight-color)"
-            >creative technologist</span
+          <span style="color: var(--text-color)"
+            >I'm Paridhi — a creative technologist
+          </span>
+          <span style="color: var(--secondary-text-color)"
+            >based in New York, designing and developing interactive interfaces
+            and experiences.</span
           >
-          based in New York designing and developing interactive experiences.
         </span>
       </h1>
     </section>
 
     <!-- Featured Projects Section -->
     <section class="featured-projects-section">
+      <p class="featured-projects-category">Featured Projects</p>
       <div class="featured-projects-container">
         <div class="main-featured-project">
           <div id="main-featured-media-container">
             <video
               id="main-featured-video"
-              src="./public/assets/videos/moveabit.mp4"
-              poster="./public/assets/images/thumbnails/move-a-bit.jpg"
+              src="./public/assets/videos/thismachine.mp4"
+              poster="./public/assets/images/thumbnails/machine-stranger.jpg"
               autoplay
               loop
               muted
@@ -122,59 +136,83 @@
             ></video>
             <img
               id="main-featured-image"
-              src="./public/assets/images/thumbnails/move-a-bit.jpg"
-              alt="Move A Bit"
+              src="./public/assets/images/thumbnails/machine-stranger.jpg"
+              alt="This Machine is a Stranger"
               style="display: none"
             />
           </div>
           <a
-            href="./public/project-pages/move-a-bit.html"
+            href="./public/project-pages/this-machine-is-a-stranger.html"
             id="main-featured-link"
             style="display: none"
           ></a>
-          <div class="project-info">
-            <div class="title-container">
-              <a
-                href="./public/project-pages/move-a-bit.html"
-                id="main-featured-title-link"
-                class="featured-project-title-link"
-              >
-                <h2 id="main-featured-title" class="featured-project-title">
-                  Move A Bit
-                </h2>
-              </a>
-            </div>
+          <div class="project-info project-header-row">
+            <a
+              href="./public/project-pages/this-machine-is-a-stranger.html"
+              id="main-featured-title-link"
+              class="featured-project-title-link"
+            >
+              <h2 id="main-featured-title" class="featured-project-title">
+                This Machine is a Stranger
+              </h2>
+            </a>
             <p
               id="main-featured-description"
               class="featured-project-description"
             >
-              Move a Bit features a live motion capture experience bringing
-              quantum computing to life through an interactive display that
-              visually showcases entanglement.
+              "This Machine is a Stranger" investigates how one can navigate
+              life at the intersection of human intuition and the quiet,
+              calculated logic of autonomous machines, questioning how much a
+              person implicitly trusts or mistrusts a machine..
             </p>
           </div>
         </div>
         <div class="featured-projects-thumbnails">
-          <div class="project-thumbnail" data-project-id="machine-stranger">
+          <div
+            class="project-thumbnail"
+            data-project-id="machine-stranger"
+            tabindex="0"
+            role="button"
+            aria-label="View This Machine is a Stranger"
+          >
             <img
               src="./public/assets/images/thumbnails/machine-stranger.jpg"
               alt="This Machine is a Stranger"
               loading="lazy"
             />
+            <span class="project-thumbnail-title"
+              >This Machine is a Stranger</span
+            >
           </div>
-          <div class="project-thumbnail" data-project-id="fleeting-states">
+          <div
+            class="project-thumbnail"
+            data-project-id="fleeting-states"
+            tabindex="0"
+            role="button"
+            aria-label="View Fleeting States + Measured Values"
+          >
             <img
               src="./public/assets/images/thumbnails/fleeting-states-two.png"
               alt="Fleeting States + Measured Values"
               loading="lazy"
             />
+            <span class="project-thumbnail-title"
+              >Fleeting States + Measured Values</span
+            >
           </div>
-          <div class="project-thumbnail" data-project-id="sights-and-insights">
+          <div
+            class="project-thumbnail"
+            data-project-id="granny-bytes"
+            tabindex="0"
+            role="button"
+            aria-label="View Granny Bytes"
+          >
             <img
-              src="./public/assets/images/thumbnails/sights-and-insights.png"
-              alt="Sights and Insights"
+              src="./public/assets/images/thumbnails/granny-bytes.png"
+              alt="Granny Bytes"
               loading="lazy"
             />
+            <span class="project-thumbnail-title">Granny Bytes</span>
           </div>
         </div>
       </div>

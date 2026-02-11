@@ -38,6 +38,16 @@ body {
   padding-top: calc(var(--nav-height) + 1rem);
 } /* Consistent padding for navbar */
 
+/* Instant blank screen when navigating away - no content bleed from previous page */
+body.navigating {
+  background: #000 !important;
+  overflow: hidden;
+}
+body.navigating > * {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 ::selection {
   background: #3d479c;
 }

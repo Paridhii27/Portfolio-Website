@@ -2,6 +2,29 @@
  * Generating the navigation bar dynamically for all pages
  */
 
+// Instantly hide page on internal link click - prevents any content from previous page showing
+document.addEventListener(
+  "click",
+  (e) => {
+    const a = e.target.closest("a");
+    if (
+      !a ||
+      a.target === "_blank" ||
+      e.ctrlKey ||
+      e.metaKey ||
+      e.shiftKey ||
+      a.getAttribute("href")?.startsWith("mailto:") ||
+      a.getAttribute("href")?.startsWith("#")
+    )
+      return;
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("javascript:")) return;
+    if (a.hostname && a.hostname !== location.hostname) return;
+    document.body.classList.add("navigating");
+  },
+  true
+);
+
 const Navigation = {
   /**
    * Getting the base path for assets based on current page location

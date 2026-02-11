@@ -24,17 +24,18 @@ const projects = {
       "Move a Bit features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.",
     url: "./public/project-pages/move-a-bit.html",
   },
-  "sights-and-insights": {
-    image: "./public/assets/images/thumbnails/sights-and-insights.png",
-    title: "Sights and Insights",
+  "granny-bytes": {
+    image: "./public/assets/images/thumbnails/granny-bytes.png",
+    video: "./public/assets/videos/grannybytes.gif",
+    title: "Granny Bytes",
     description:
-      "Sights and Insights is a voice-based AI web application that transforms ordinary walks into ones filled with curious interventions.",
-    url: "./public/project-pages/sights-and-insights.html",
+      "Granny Bytes explores intergenerational connections and how they can manifest within our interactions with technology.",
+    url: "./public/project-pages/granny-bytes.html",
   },
 };
 
 // Track currently featured project
-let currentFeaturedProject = "move-a-bit";
+let currentFeaturedProject = "machine-stranger";
 
 // Get all project IDs
 const allProjectIds = Object.keys(projects);
@@ -65,34 +66,41 @@ function updateFeaturedProject(projectId) {
     "main-featured-media-container",
   );
 
-  // Handle video vs image display
-  if (project.video) {
+  // Handle video vs image display (GIFs use img element since video doesn't support them)
+  const isGif = project.video && project.video.toLowerCase().endsWith(".gif");
+  const hasVideo = project.video && !isGif;
+
+  if (hasVideo) {
     // If project has video, show video instead of image
     if (mainImage) {
       mainImage.style.display = "none";
     }
 
-    // Hide the link so video can be clicked to play/pause
-    if (mainLink) {
-      mainLink.style.display = "none";
-    }
-
-    // Ensure media container is directly in main-featured-project (not inside link)
-    if (mediaContainer && mainLink && mediaContainer.parentNode === mainLink) {
+    // Show the link and ensure it wraps the media container for navigation
+    if (mainLink && mediaContainer) {
+      const containerParent = mediaContainer.parentNode;
       const mainFeaturedProject = document.querySelector(
         ".main-featured-project",
       );
-      if (mainFeaturedProject) {
-        // Remove from link
-        mainLink.removeChild(mediaContainer);
-        // Insert before project-info
+
+      if (containerParent !== mainLink && mainFeaturedProject) {
+        if (containerParent) {
+          containerParent.removeChild(mediaContainer);
+        }
+        mainLink.innerHTML = "";
+        mainLink.appendChild(mediaContainer);
         const projectInfo = mainFeaturedProject.querySelector(".project-info");
         if (projectInfo) {
-          mainFeaturedProject.insertBefore(mediaContainer, projectInfo);
+          mainFeaturedProject.insertBefore(mainLink, projectInfo);
         } else {
-          mainFeaturedProject.appendChild(mediaContainer);
+          mainFeaturedProject.appendChild(mainLink);
         }
       }
+      mainLink.style.display = "block";
+      mainLink.style.position = "relative";
+      mainLink.style.width = "100%";
+      mainLink.style.alignSelf = "stretch";
+      mainLink.style.textDecoration = "none";
     }
 
     // Create video element if it doesn't exist
@@ -125,6 +133,40 @@ function updateFeaturedProject(projectId) {
       // Autoplay was prevented, but video will play when user interacts
       console.log("Video autoplay prevented:", error);
     });
+  } else if (isGif) {
+    // GIF: use image element (GIFs animate in img, video element doesn't support them)
+    if (mainVideo) {
+      mainVideo.style.display = "none";
+    }
+    if (mainLink && mediaContainer) {
+      const containerParent = mediaContainer.parentNode;
+      const mainFeaturedProject = document.querySelector(
+        ".main-featured-project",
+      );
+      if (containerParent !== mainLink && mainFeaturedProject) {
+        if (containerParent) {
+          containerParent.removeChild(mediaContainer);
+        }
+        mainLink.innerHTML = "";
+        mainLink.appendChild(mediaContainer);
+        const projectInfo = mainFeaturedProject.querySelector(".project-info");
+        if (projectInfo) {
+          mainFeaturedProject.insertBefore(mainLink, projectInfo);
+        } else {
+          mainFeaturedProject.appendChild(mainLink);
+        }
+      }
+      mainLink.style.display = "block";
+      mainLink.style.position = "relative";
+      mainLink.style.width = "100%";
+      mainLink.style.alignSelf = "stretch";
+      mainLink.style.textDecoration = "none";
+    }
+    if (mainImage) {
+      mainImage.src = project.video;
+      mainImage.alt = project.title;
+      mainImage.style.display = "block";
+    }
   } else {
     // If project doesn't have video, show image and make it clickable
     if (mainVideo) {
@@ -150,10 +192,10 @@ function updateFeaturedProject(projectId) {
         mainLink.innerHTML = "";
         mainLink.appendChild(mediaContainer);
 
-        // Insert link before project-info in main-featured-project
+        // Insert link after project-info (title+description above media)
         const projectInfo = mainFeaturedProject.querySelector(".project-info");
         if (projectInfo) {
-          mainFeaturedProject.insertBefore(mainLink, projectInfo);
+          mainFeaturedProject.insertBefore(mainLink, projectInfo.nextElementSibling);
         } else {
           mainFeaturedProject.appendChild(mainLink);
         }
@@ -162,8 +204,8 @@ function updateFeaturedProject(projectId) {
       // Show and style the link
       mainLink.style.display = "block";
       mainLink.style.position = "relative";
-      mainLink.style.width = "90%";
-      mainLink.style.alignSelf = "flex-start";
+      mainLink.style.width = "100%";
+      mainLink.style.alignSelf = "stretch";
       mainLink.style.textDecoration = "none";
     }
 
@@ -176,6 +218,11 @@ function updateFeaturedProject(projectId) {
 
   if (mainLink && project.url) {
     mainLink.href = project.url;
+  }
+  const mainArrowLink = document.getElementById("main-featured-arrow-link");
+  if (mainArrowLink && project.url) {
+    mainArrowLink.href = project.url;
+    mainArrowLink.setAttribute("aria-label", `View ${project.title} project`);
   }
   if (mainTitleLink && project.url) {
     mainTitleLink.href = project.url;
@@ -212,6 +259,15 @@ function updateThumbnails(featuredId) {
           img.alt = project.title;
         }
 
+        // Update title below thumbnail
+        let titleEl = thumbnail.querySelector(".project-thumbnail-title");
+        if (!titleEl) {
+          titleEl = document.createElement("span");
+          titleEl.className = "project-thumbnail-title";
+          thumbnail.appendChild(titleEl);
+        }
+        titleEl.textContent = project.title;
+
         // Update active state
         thumbnail.classList.remove("active");
       }
@@ -221,11 +277,11 @@ function updateThumbnails(featuredId) {
 
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize thumbnails with default state (all projects except move-a-bit)
-  updateThumbnails("move-a-bit");
+  // Initialize thumbnails with default state (all projects except machine-stranger)
+  updateThumbnails("machine-stranger");
 
-  // Initialize the main featured project to show video if it's move-a-bit
-  updateFeaturedProject("move-a-bit");
+  // Initialize the main featured project
+  updateFeaturedProject("machine-stranger");
 
   // Force video autoplay for Safari compatibility
   const mainVideo = document.getElementById("main-featured-video");
@@ -259,21 +315,24 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("touchstart", tryPlayVideo, { once: true });
   }
 
-  // Add click event listeners to thumbnails
+  // Add click and keyboard event listeners to thumbnails
   const thumbnails = document.querySelectorAll(".project-thumbnail");
+  const handleThumbnailSelect = function (e) {
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
+    if (e.type === "keydown") e.preventDefault();
+    const projectId = this.dataset.projectId;
+    if (projectId && projectId !== currentFeaturedProject) {
+      this.style.transform = "scale(0.95)";
+      const el = this;
+      setTimeout(() => {
+        el.style.transform = "";
+        updateFeaturedProject(projectId);
+      }, 150);
+    }
+  };
   thumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener("click", function (e) {
-      e.preventDefault();
-      const projectId = this.dataset.projectId;
-      if (projectId && projectId !== currentFeaturedProject) {
-        // Add transition effect
-        thumbnail.style.transform = "scale(0.95)";
-        setTimeout(() => {
-          thumbnail.style.transform = "";
-          updateFeaturedProject(projectId);
-        }, 150);
-      }
-    });
+    thumbnail.addEventListener("click", handleThumbnailSelect);
+    thumbnail.addEventListener("keydown", handleThumbnailSelect);
   });
 
   // Wrap updateFeaturedProject to add smooth transitions
