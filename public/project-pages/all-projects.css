@@ -40,6 +40,11 @@
   /* Mobile Touch Targets */
   --touch-target-min: 44px; /* Minimum touch target size */
   --touch-target-comfortable: 48px;
+
+  /* Sticky layout sizing (project pages) */
+  /* Match navbar.css body padding-top; include fallback */
+  --project-sticky-top: calc(var(--nav-height, 75px) + 3rem);
+  --nextprev-sticky-height: 76px;
 }
 
 /* ============================================================================
@@ -48,7 +53,8 @@
 body {
   background-color: var(--bg-color);
   margin: var(--page-margin);
-  padding-top: 20px;
+  padding-top: var(--project-sticky-top);
+  padding-bottom: calc(var(--nextprev-sticky-height) + var(--spacing-lg));
   color: var(--text-color);
   font-family: var(--heading-font);
   line-height: 1.2;
@@ -163,7 +169,12 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  position: sticky;
+  top: var(--project-sticky-top);
   gap: 20px;
+  height: calc(
+    100vh - var(--project-sticky-top) - var(--nextprev-sticky-height)
+  );
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.6s forwards;
 }
@@ -175,8 +186,9 @@ body {
 .details {
   flex: 1;
   width: 20%;
-  height: 82vh;
+  max-height: calc(100% - var(--spacing-md));
   overflow-y: auto;
+  overflow-x: hidden;
   margin-top: var(--spacing-lg);
   padding-bottom: clamp(var(--spacing-lg), 3vw, var(--spacing-xl));
   display: flex;
@@ -490,7 +502,7 @@ body {
   line-height: 1.8;
   scrollbar-width: thin;
   scrollbar-color: var(--border-color) transparent;
-  max-height: 80vh;
+  max-height: calc(100% - var(--spacing-lg));
   overflow-y: auto;
   margin-top: var(--spacing-lg);
   opacity: 0;
@@ -1481,8 +1493,22 @@ Inline Image Grid Layout
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  box-sizing: border-box;
+  height: var(--nextprev-sticky-height);
+  padding: var(--spacing-sm) var(--page-margin);
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: var(--bg-color);
+}
+
+/* Remove divider line directly under Next/Prev */
+.nextPrev + hr {
+  display: none;
 }
 
 .prev-project,
@@ -1557,6 +1583,7 @@ Inline Image Grid Layout
 @media (max-width: 768px) {
   body {
     margin: 0;
+    padding-bottom: 0;
   }
 
   .project-link:after {
@@ -1567,7 +1594,18 @@ Inline Image Grid Layout
     display: flex;
     flex-direction: column;
     padding: 0;
+    position: static;
+    top: auto;
+    height: auto;
   }
+  .nextPrev {
+    position: static;
+    height: auto;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
   .details {
     width: 100%;
     height: auto;
