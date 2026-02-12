@@ -1370,43 +1370,72 @@ Inline Image Grid Layout
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.75rem;
+  row-gap: 1.25rem;
+  align-items: start;
   justify-content: center;
   padding: 2rem;
 }
 
 .inline-fullscreen-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, 0.2);
+  position: static;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
   border: none;
   color: white;
-  font-size: 2.5rem;
-  width: 50px;
-  height: 50px;
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10001;
-  transition:
-    background 0.3s,
-    transform 0.2s;
+  transition: all 0.3s ease;
   line-height: 1;
   padding: 0;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  margin-top: -2.2rem; /* Nudge slightly above the media top edge */
+}
+
+.inline-fullscreen-img,
+.inline-fullscreen-video {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.inline-fullscreen-caption {
+  grid-column: 1 / -1;
+  grid-row: 2;
 }
 
 .inline-fullscreen-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
 }
 
 .inline-fullscreen-close:active {
-  transform: scale(0.95);
+  opacity: 0.9;
+  transform: translateY(-2px) scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.inline-fullscreen-close:focus {
+  outline: none;
+}
+
+.inline-fullscreen-close:focus-visible {
+  outline: 2px solid var(--hover-color);
+  outline-offset: 3px;
 }
 
 .inline-fullscreen-prev,
@@ -1414,7 +1443,8 @@ Inline Image Grid Layout
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   border: none;
   color: white;
   font-size: 3rem;
@@ -1426,12 +1456,11 @@ Inline Image Grid Layout
   align-items: center;
   justify-content: center;
   z-index: 10001;
-  transition:
-    background 0.3s,
-    transform 0.2s;
+  transition: all 0.3s ease;
   line-height: 1;
   padding: 0;
   user-select: none;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
 .inline-fullscreen-prev {
@@ -1444,13 +1473,21 @@ Inline Image Grid Layout
 
 .inline-fullscreen-prev:hover:not(:disabled),
 .inline-fullscreen-next:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(calc(-50% - 2px)) scale(1.05);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
 }
 
 .inline-fullscreen-prev:active:not(:disabled),
 .inline-fullscreen-next:active:not(:disabled) {
-  transform: translateY(-50%) scale(0.95);
+  opacity: 0.9;
+  transform: translateY(calc(-50% - 2px)) scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.inline-fullscreen-prev:focus,
+.inline-fullscreen-next:focus {
+  outline: none;
 }
 
 .inline-fullscreen-prev:disabled,
