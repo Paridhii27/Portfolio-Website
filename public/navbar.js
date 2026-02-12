@@ -25,6 +25,17 @@ document.addEventListener(
   true
 );
 
+// If the browser restores this page from the back-forward cache (bfcache),
+// the class can persist and keep the page hidden (looks like a blank page).
+// Always clear it when the page is shown again.
+function clearNavigatingState() {
+  document.body.classList.remove("navigating");
+}
+
+window.addEventListener("pageshow", clearNavigatingState);
+window.addEventListener("popstate", clearNavigatingState);
+window.addEventListener("hashchange", clearNavigatingState);
+
 const Navigation = {
   /**
    * Getting the base path for assets based on current page location
