@@ -214,9 +214,7 @@ p {
   transition-delay: calc(var(--stagger-delay) * 2);
 }
 
-/* Hover effect for project containers */
 .container.animate:hover {
-  border-color: var(--hover-color);
   box-shadow: 0 10px 30px rgba(167, 219, 235, 0.2);
 }
 
@@ -276,7 +274,7 @@ p {
 
 .thumbnail img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: var(--border-radius);
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);

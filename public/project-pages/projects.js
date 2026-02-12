@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="inline-fullscreen-content">
           <button class="inline-fullscreen-close" aria-label="Close fullscreen">&times;</button>
           <button class="inline-fullscreen-prev" aria-label="Previous image">‹</button>
-          <button class="inline-fullscreen-next" aria-label="Next image">›</button>
+          <button class="inline-fullscreen-next" style="background-color: red;" aria-label="Next image">›</button>
           <img class="inline-fullscreen-img" src="" alt="" />
           <video class="inline-fullscreen-video" controls></video>
           <div class="inline-fullscreen-caption"></div>

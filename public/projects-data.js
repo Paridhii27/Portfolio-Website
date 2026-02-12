@@ -236,30 +236,27 @@ const ProjectsData = {
       .join(" ");
 
     return `
-      <div class="container ${categoriesClass} ${projectClass}">
-        <a
-          href="${project.url}"
-          class="arrow-link"
-          aria-label="View ${project.title} project"
-        >&nearr;</a>
-        <a
-          href="${project.url}"
-          class="project-title"
-        >${project.title} <span class="project-year">${project.year}</span></a>
+      <a
+        class="container ${categoriesClass} ${projectClass}"
+        href="${project.url}"
+        aria-label="View ${project.title} project"
+      >
+        <span class="arrow-link" aria-hidden="true">&nearr;</span>
+        <div class="project-title">
+          ${project.title} <span class="project-year">${project.year}</span>
+        </div>
         <div class="thumbnail">
-          <a href="${project.url}">
-            <img
-              src="${project.thumbnail}"
-              alt="Thumbnail image of ${project.title} project"
-              loading="lazy"
-              decoding="async"
-              fetchpriority="${project.id === "machine-stranger" || project.id === "fleeting-states" ? "high" : "auto"}"
-            />
-          </a>
+          <img
+            src="${project.thumbnail}"
+            alt="Thumbnail image of ${project.title} project"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="${project.id === "machine-stranger" || project.id === "fleeting-states" ? "high" : "auto"}"
+          />
         </div>
         <p>${project.description}</p>
         <p class="tool-name">${toolsHTML}</p>
-      </div>
+      </a>
     `;
   },
 

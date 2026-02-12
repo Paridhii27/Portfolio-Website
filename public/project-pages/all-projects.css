@@ -1506,6 +1506,9 @@ Inline Image Grid Layout
   padding: 0;
   font-size: 1.2rem;
   line-height: 1;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  text-decoration: none;
   /* Enhanced touch interactions */
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
   touch-action: manipulation;
@@ -1520,20 +1523,22 @@ Inline Image Grid Layout
 
 .previous:hover,
 .next:hover {
-  background-color: var(--button-hover-color);
-  color: black;
+  color: var(--text-color);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
 }
 
 .previous:active,
 .next:active {
-  transform: scale(0.9);
-  background-color: var(--button-hover-color);
+  opacity: 0.9;
+  transform: translateY(-2px) scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .previous:focus,
 .next:focus {
-  outline: 2px solid var(--button-hover-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .prev-project p,

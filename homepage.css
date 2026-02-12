@@ -82,7 +82,8 @@ html {
 .welcome-section {
   margin-top: calc(var(--nav-height) + clamp(1rem, 2.5vw, 2rem));
   min-height: 25vh;
-  padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl)) var(--content-padding) clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+  padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl))
+    var(--content-padding) clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
   text-align: left;
   opacity: 0;
   animation: fadeInUp 0.4s ease-out 0.05s forwards;
@@ -174,8 +175,19 @@ html {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   width: 100%;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.main-featured-project-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main-featured-project-link:focus {
+  outline: none;
 }
 
 .main-featured-project a {
@@ -191,6 +203,7 @@ html {
 
 .main-featured-project a:hover {
   opacity: 0.9;
+  box-shadow: 0 10px 30px rgba(167, 219, 235, 0.2);
 }
 
 .main-featured-project a:active {
@@ -215,17 +228,13 @@ html {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--spacing-sm);
   box-sizing: border-box;
+  overflow: hidden;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-#main-featured-media-container:hover {
-  box-shadow: 0 10px 30px rgba(167, 219, 235, 0.2);
 }
 
 #main-featured-media-container::before {
@@ -250,8 +259,8 @@ html {
 #main-featured-media-container::after {
   content: "\2197";
   position: absolute;
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
+  top: 0.75rem;
+  right: 0.75rem;
   width: 32px;
   height: 32px;
   font-size: var(--font-size-paragraph);
@@ -266,7 +275,7 @@ html {
   opacity: 0;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
-  z-index: 2;
+  z-index: 10;
   pointer-events: none;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
@@ -277,6 +286,12 @@ html {
   opacity: 1;
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+#main-featured-media-container:active::after {
+  opacity: 0.9;
+  transform: translateY(-2px) scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 #main-featured-media-container video {
@@ -295,15 +310,13 @@ html {
   border-radius: calc(var(--border-radius) - 4px);
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: center;
+  will-change: transform;
+  overflow: hidden;
   background: linear-gradient(
     135deg,
     rgba(164, 156, 224, 0.05) 0%,
     rgba(61, 71, 156, 0.05) 100%
   );
-}
-
-#main-featured-media-container:hover video {
-  transform: scale(1.05);
 }
 
 .main-featured-project #main-featured-media-container img {
@@ -325,10 +338,6 @@ html {
   );
 }
 
-#main-featured-media-container:hover img {
-  transform: scale(1.05);
-}
-
 /* ============================================================================
    PROJECT INFO (TITLE AND DESCRIPTION)
    ============================================================================ */
@@ -347,10 +356,8 @@ html {
   flex-wrap: wrap;
   align-items: baseline;
   padding-left: 15px;
-  padding-top: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
   gap: var(--spacing-md);
-  border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
 }
 
@@ -490,12 +497,11 @@ html {
 }
 
 .project-thumbnail:hover {
-  transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(167, 219, 235, 0.2);
 }
 
 .project-thumbnail:active {
-  transform: translateY(-2px) scale(0.98);
+  transform: scale(0.98);
 }
 
 .project-thumbnail.active {
@@ -503,27 +509,28 @@ html {
 }
 
 .project-thumbnail::after {
-  content: "\261E";
+  content: "\21A9";
   position: absolute;
-  top: var(--spacing-xs);
-  right: var(--spacing-xs);
-  width: 24px;
-  height: 24px;
-  font-size: 0.9rem;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 32px;
+  height: 28px;
+  font-size: var(--font-size-paragraph);
   font-weight: bold;
   font-family: var(--subheading-font);
   font-variant-emoji: text;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
   pointer-events: none;
   line-height: 1;
 }
@@ -531,7 +538,14 @@ html {
 .project-thumbnail:hover::after,
 .project-thumbnail.active::after {
   opacity: 1;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.project-thumbnail:active::after {
+  opacity: 0.9;
+  transform: translateY(-2px) scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .project-thumbnail img {
@@ -558,16 +572,11 @@ html {
   flex-shrink: 0;
 }
 
-.project-thumbnail:hover img {
-  transform: scale(1.05);
-}
-
 .project-thumbnail:focus {
   outline: none;
 }
 
 .project-thumbnail:focus-visible {
-  outline: 2px solid var(--hover-color);
   outline-offset: 3px;
   border-radius: 10px;
 }
@@ -637,7 +646,8 @@ html {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .welcome-section {
     min-height: 18vh;
-    padding: clamp(var(--spacing-md), 2.5vw, var(--spacing-lg)) var(--container-padding);
+    padding: clamp(var(--spacing-md), 2.5vw, var(--spacing-lg))
+      var(--container-padding);
     margin-top: calc(var(--nav-height) + var(--spacing-md));
   }
 
@@ -895,7 +905,8 @@ html {
 @media screen and (min-width: 1025px) {
   .welcome-section {
     min-height: 18vh;
-    padding: clamp(var(--spacing-lg), 2.5vw, var(--spacing-xl)) var(--content-padding);
+    padding: clamp(var(--spacing-lg), 2.5vw, var(--spacing-xl))
+      var(--content-padding);
     margin-top: calc(var(--nav-height) + var(--spacing-lg));
   }
 

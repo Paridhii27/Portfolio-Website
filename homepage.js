@@ -55,7 +55,6 @@ function updateFeaturedProject(projectId) {
 
   // Get DOM elements
   const mainLink = document.getElementById("main-featured-link");
-  const mainTitleLink = document.getElementById("main-featured-title-link");
   const mainTitle = document.getElementById("main-featured-title");
   const mainDescription = document.getElementById("main-featured-description");
 
@@ -74,33 +73,6 @@ function updateFeaturedProject(projectId) {
     // If project has video, show video instead of image
     if (mainImage) {
       mainImage.style.display = "none";
-    }
-
-    // Show the link and ensure it wraps the media container for navigation
-    if (mainLink && mediaContainer) {
-      const containerParent = mediaContainer.parentNode;
-      const mainFeaturedProject = document.querySelector(
-        ".main-featured-project",
-      );
-
-      if (containerParent !== mainLink && mainFeaturedProject) {
-        if (containerParent) {
-          containerParent.removeChild(mediaContainer);
-        }
-        mainLink.innerHTML = "";
-        mainLink.appendChild(mediaContainer);
-        const projectInfo = mainFeaturedProject.querySelector(".project-info");
-        if (projectInfo) {
-          mainFeaturedProject.insertBefore(mainLink, projectInfo);
-        } else {
-          mainFeaturedProject.appendChild(mainLink);
-        }
-      }
-      mainLink.style.display = "block";
-      mainLink.style.position = "relative";
-      mainLink.style.width = "100%";
-      mainLink.style.alignSelf = "stretch";
-      mainLink.style.textDecoration = "none";
     }
 
     // Create video element if it doesn't exist
@@ -138,30 +110,6 @@ function updateFeaturedProject(projectId) {
     if (mainVideo) {
       mainVideo.style.display = "none";
     }
-    if (mainLink && mediaContainer) {
-      const containerParent = mediaContainer.parentNode;
-      const mainFeaturedProject = document.querySelector(
-        ".main-featured-project",
-      );
-      if (containerParent !== mainLink && mainFeaturedProject) {
-        if (containerParent) {
-          containerParent.removeChild(mediaContainer);
-        }
-        mainLink.innerHTML = "";
-        mainLink.appendChild(mediaContainer);
-        const projectInfo = mainFeaturedProject.querySelector(".project-info");
-        if (projectInfo) {
-          mainFeaturedProject.insertBefore(mainLink, projectInfo);
-        } else {
-          mainFeaturedProject.appendChild(mainLink);
-        }
-      }
-      mainLink.style.display = "block";
-      mainLink.style.position = "relative";
-      mainLink.style.width = "100%";
-      mainLink.style.alignSelf = "stretch";
-      mainLink.style.textDecoration = "none";
-    }
     if (mainImage) {
       mainImage.src = project.video;
       mainImage.alt = project.title;
@@ -173,42 +121,6 @@ function updateFeaturedProject(projectId) {
       mainVideo.style.display = "none";
     }
 
-    // Show the link and ensure it wraps the media container for navigation
-    if (mainLink && mediaContainer) {
-      // Get the current parent of media container
-      const containerParent = mediaContainer.parentNode;
-      const mainFeaturedProject = document.querySelector(
-        ".main-featured-project",
-      );
-
-      // If media container is not already inside the link, move it
-      if (containerParent !== mainLink && mainFeaturedProject) {
-        // Remove media container from current parent
-        if (containerParent) {
-          containerParent.removeChild(mediaContainer);
-        }
-
-        // Clear link and add media container to it
-        mainLink.innerHTML = "";
-        mainLink.appendChild(mediaContainer);
-
-        // Insert link after project-info (title+description above media)
-        const projectInfo = mainFeaturedProject.querySelector(".project-info");
-        if (projectInfo) {
-          mainFeaturedProject.insertBefore(mainLink, projectInfo.nextElementSibling);
-        } else {
-          mainFeaturedProject.appendChild(mainLink);
-        }
-      }
-
-      // Show and style the link
-      mainLink.style.display = "block";
-      mainLink.style.position = "relative";
-      mainLink.style.width = "100%";
-      mainLink.style.alignSelf = "stretch";
-      mainLink.style.textDecoration = "none";
-    }
-
     if (mainImage) {
       mainImage.src = project.image;
       mainImage.alt = project.title;
@@ -218,14 +130,7 @@ function updateFeaturedProject(projectId) {
 
   if (mainLink && project.url) {
     mainLink.href = project.url;
-  }
-  const mainArrowLink = document.getElementById("main-featured-arrow-link");
-  if (mainArrowLink && project.url) {
-    mainArrowLink.href = project.url;
-    mainArrowLink.setAttribute("aria-label", `View ${project.title} project`);
-  }
-  if (mainTitleLink && project.url) {
-    mainTitleLink.href = project.url;
+    mainLink.setAttribute("aria-label", `View ${project.title} project`);
   }
   if (mainTitle) {
     mainTitle.textContent = project.title;

@@ -121,7 +121,12 @@
     <section class="featured-projects-section">
       <p class="featured-projects-category">Featured Projects</p>
       <div class="featured-projects-container">
-        <div class="main-featured-project">
+        <a
+          class="main-featured-project main-featured-project-link"
+          href="./public/project-pages/this-machine-is-a-stranger.html"
+          id="main-featured-link"
+          aria-label="View This Machine is a Stranger project"
+        >
           <div id="main-featured-media-container">
             <video
               id="main-featured-video"
@@ -132,7 +137,6 @@
               muted
               playsinline
               preload="auto"
-              style="width: 100%; height: auto; object-fit: cover"
             ></video>
             <img
               id="main-featured-image"
@@ -141,21 +145,15 @@
               style="display: none"
             />
           </div>
-          <a
-            href="./public/project-pages/this-machine-is-a-stranger.html"
-            id="main-featured-link"
-            style="display: none"
-          ></a>
           <div class="project-info project-header-row">
-            <a
-              href="./public/project-pages/this-machine-is-a-stranger.html"
+            <div
               id="main-featured-title-link"
               class="featured-project-title-link"
             >
               <h2 id="main-featured-title" class="featured-project-title">
                 This Machine is a Stranger
               </h2>
-            </a>
+            </div>
             <p
               id="main-featured-description"
               class="featured-project-description"
@@ -166,7 +164,7 @@
               person implicitly trusts or mistrusts a machine..
             </p>
           </div>
-        </div>
+        </a>
         <div class="featured-projects-thumbnails">
           <div
             class="project-thumbnail"
