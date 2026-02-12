@@ -1,44 +1,6 @@
 // Fullscreen functionality for inline images/videos and gallery images/videos
-(function () {
-  function isBackForwardNavigation(e) {
-    if (e && e.persisted) return true;
-    try {
-      const navEntries = performance.getEntriesByType?.("navigation");
-      const navType = navEntries && navEntries[0] && navEntries[0].type;
-      return navType === "back_forward";
-    } catch {
-      return false;
-    }
-  }
-
-  function ensurePageIsVisibleAfterRestore() {
-    // Some browsers restore pages from the back-forward cache without replaying
-    // CSS animations. Since project pages rely on fade-in animations, this can
-    // leave sections stuck at opacity:0 (appearing as a blank page).
-    const animatedSections = document.querySelectorAll(
-      ".project-visual, #main-img, .title, .project-container, .details, .documentation",
-    );
-
-    animatedSections.forEach((el) => {
-      // Force visible and stop any stuck animations.
-      el.style.opacity = "1";
-      el.style.animation = "none";
-    });
-
-    // If a fullscreen overlay was open before navigation, make sure it doesn't
-    // block the restored page.
-    const overlay = document.querySelector(".inline-fullscreen");
-    if (overlay) overlay.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  window.addEventListener("pageshow", (e) => {
-    if (isBackForwardNavigation(e)) {
-      ensurePageIsVisibleAfterRestore();
-    }
-  });
-})();
-
+// BFCache recovery: project pages also load script.js, which reloads on back/forward
+// (same behavior as projects.html) so back navigation between project pages works.
 document.addEventListener("DOMContentLoaded", function () {
   // Create fullscreen overlay if it doesn't exist
   let overlay = document.querySelector(".inline-fullscreen");
