@@ -41,10 +41,9 @@
   --touch-target-min: 44px; /* Minimum touch target size */
   --touch-target-comfortable: 48px;
 
-  /* Sticky layout sizing (project pages) */
-  /* Match navbar.css body padding-top; include fallback */
-  --project-sticky-top: calc(var(--nav-height, 75px) + 3rem);
-  --nextprev-sticky-height: 76px;
+  /* Sticky layout sizing */
+  --project-sticky-top: calc(var(--nav-height, 75px) + 5rem);
+  --nextprev-sticky-height: 10px;
 }
 
 /* ============================================================================
@@ -53,7 +52,6 @@
 body {
   background-color: var(--bg-color);
   margin: var(--page-margin);
-  padding-top: var(--project-sticky-top);
   padding-bottom: calc(var(--nextprev-sticky-height) + var(--spacing-lg));
   color: var(--text-color);
   font-family: var(--heading-font);
@@ -112,8 +110,6 @@ body {
   border-radius: 15px;
   margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
   justify-content: start;
-  /* Use fill-mode 'both' so the initial keyframe applies during delay,
-     but avoid a hard opacity:0 default (prevents "blank page" on bfcache restore). */
   animation: fadeInScale 0.8s ease-out 0.2s both;
 }
 
@@ -125,7 +121,6 @@ body {
   display: block;
   margin: 0 auto;
   border-radius: 15px;
-  /* See note above re: bfcache restore visibility */
   animation: fadeInScale 0.8s ease-out 0.2s both;
 }
 
@@ -149,7 +144,6 @@ body {
 .title {
   margin-top: clamp(2rem, 1vw, 3.5rem);
   margin-bottom: clamp(1rem, 1vw, 1.5rem);
-  /* See note above re: bfcache restore visibility */
   animation: fadeInUp 1s ease-out 0.4s both;
 }
 
@@ -176,7 +170,6 @@ body {
   height: calc(
     100vh - var(--project-sticky-top) - var(--nextprev-sticky-height)
   );
-  /* See note above re: bfcache restore visibility */
   animation: fadeInUp 1s ease-out 0.6s both;
 }
 
@@ -195,7 +188,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
-  /* See note above re: bfcache restore visibility */
   animation: fadeInUp 0.8s ease-out 0.8s both;
 }
 

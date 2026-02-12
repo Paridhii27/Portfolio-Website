@@ -163,7 +163,7 @@ p {
   display: none;
   flex-direction: column;
   padding: var(--container-spacing);
-  border: 0.1px dashed var(--border-color);
+  border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
   box-sizing: border-box;
   width: 100%;
