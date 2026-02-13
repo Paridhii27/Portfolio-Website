@@ -885,7 +885,8 @@ Inline Image Grid Layout
   max-height: none;
 }
 
-.documentation .inline-img-container figure:hover {
+.documentation .inline-img-container figure:hover,
+.documentation .inline-video-container figure:hover {
   position: relative;
   object-fit: contain;
   cursor: pointer;
@@ -1129,11 +1130,16 @@ Inline Image Grid Layout
 }
 
 .documentation .inline-video-container figure {
+  position: relative;
   margin: 0;
-  padding: 0;
+  padding: clamp(5px, 2vw, 15px);
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  user-select: none;
 }
 
 .documentation .inline-video-container video {
