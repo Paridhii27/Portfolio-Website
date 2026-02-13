@@ -1529,7 +1529,7 @@ Inline Image Grid Layout
   bottom: 0;
   z-index: 15;
   box-sizing: border-box;
-  height: var(--nextprev-sticky-height);
+  height: 65px;
   padding: var(--spacing-sm) var(--page-margin);
   margin-top: 0;
   margin-bottom: 0;
