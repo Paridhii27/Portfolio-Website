@@ -114,9 +114,10 @@
       <div class="documentation">
         <h3>Design Problem</h3>
         <p>
-          How can we simplify complex concepts such as quantum superposition and
-          entanglement by creating physical, interactive experiences that make
-          invisible phenomena accessible to human senses?
+          How can we make invisible quantum phenomena—like the Bloch sphere,
+          superposition, and entanglement—accessible to human senses through
+          physical, interactive experiences while giving the audience a deeper
+          understanding of quantum concepts?
         </p>
         <div class="inline-img-container">
           <figure>
@@ -129,23 +130,6 @@
             <div></div>
             <div></div>
           </figure>
-          <div class="inline-img-caption">
-            The two worlds of the project - the fleeting states and the measured
-            values
-          </div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/fleeting-states/render2.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-
           <div class="inline-img-caption">
             The two worlds of the project - the fleeting states and the measured
             values
@@ -170,22 +154,37 @@
 
         <h3>Concept</h3>
         <p>
-          Our approach to explaining quantum computing was a two-world concept
-          which shows the invisible aspects of quantum computing as well as the
-          visible. Science often operates on a level so small that it is
-          inconceivable by the human eye. This project was aimed at explaining
-          the science behind some of these invisible forces of the world which
-          appear as the quantum concepts of superposition and entanglement.
-          These concepts are explained through different forms of human
-          interactions.
+          We used a two-world concept to explain quantum computing phenomena—one
+          world showing the invisible aspects, the other showing the visible.
+          Science often operates at a scale too small for the human eye to
+          perceive. This project explains the science behind invisible forces
+          like superposition and entanglement through interactive human
+          experiences.
         </p>
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/fleeting-states/render2.png"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+
+          <div class="inline-img-caption">
+            The two worlds of the project - the fleeting states and the measured
+            values
+          </div>
+        </div>
         <p>
-          The separation of the worlds is analytical. On the one hand, we have
-          values we can measure and probabilistic results in units. It is how we
-          are trained/used to interact with phenomena. Superposition and
-          entanglement on the other hand are neither accessible to our senses
-          nor measurement. How can we sense these phenomena to explain what they
-          mean was a key question we were thinking about during this project.
+          The separation between worlds is analytical. On one hand, we have
+          measurable values and probabilistic results in units—the way we're
+          trained to interact with phenomena. On the other hand, superposition
+          and entanglement are neither accessible to our senses nor measurable.
+          So how can we depict both the visible and invisible aspects of quantum
+          computing?
         </p>
 
         <div class="inline-img-container">
@@ -199,8 +198,15 @@
             <div></div>
             <div></div>
           </figure>
+          <div class="inline-img-caption">How the two worlds are connected</div>
         </div>
 
+        <h3>How It Works</h3>
+        <p>
+          The project has two components: a touchscreen interface and LED-mapped
+          qubits. In the fleeting states world, qubits react to user
+          interactions through changes in light and sound.
+        </p>
         <div class="inline-img-container">
           <figure>
             <img
@@ -212,6 +218,9 @@
             <div></div>
             <div></div>
           </figure>
+          <div class="inline-img-caption">
+            States of the LEDs mapped quibits
+          </div>
         </div>
 
         <div class="inline-img-container">
@@ -225,40 +234,47 @@
             <div></div>
             <div></div>
           </figure>
+          <div class="inline-img-caption">
+            Entanglement in the fleeting states world
+          </div>
         </div>
 
-        <h3>Design and Development</h3>
         <p>
-          The project has two components – a touchscreen interface and some LED
-          mapped qubits. In the world of fleeting states, we show a set of
-          qubits that react to interactions with the interface in the form of
-          light and sound changes.
-        </p>
-        <p>
-          On the interface users can operate gates to manipulate the qubits. The
-          interface explains quantum concepts such as qubits, entanglement,
-          superposition and rotation by the addition of gates on qubits. A qubit
-          is essentially the basic unit of information in quantum computing. By
-          the addition of gates we meddle with the state the qubit exists in.
+          In the measured values world, users manipulate qubits by dragging
+          quantum gates—like Hadamard, Rotation, and CNOT—onto individual
+          qubits. A qubit is the basic unit of information in quantum computing.
+          Gates alter the state a qubit exists in. As users drag gates, they can
+          read about how each gate changed the qubit.
         </p>
 
-        <p>
-          While these changes are immediately observable as the changes in
-          colours, intensity and movement of lights in the fleeting states or
-          the visible world. In the hidden world, on the interface they can only
-          be seen as statistical probability and only after measuring. When
-          something is measured we get a classical probability of the values.
-          Users can playfully gain insights on quantum principles, just by
-          exploring the interface and interacting with this physical
-          installation in real time.
-        </p>
-        <p>
-          To create this physical installation, there is a node.js server based
-          communication established between the arduino components and the
-          interface website. The interface is coded using HTML/CSS and
-          javascript. There are visual and sound changes on dragging and
-          dropping different quantum gates on qubits.
-        </p>
+        <div class="inline-video-container">
+          <figure>
+            <video
+              width="700"
+              height="700"
+              class="inline-video"
+              controls
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="auto"
+            >
+              <source
+                src="../assets/images/project-pages/fleeting-states/interfaceVid.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-video-caption">
+            User interacting with the interface
+          </div>
+        </div>
 
         <div class="inline-img-grid">
           <div class="inline-img-container">
@@ -272,6 +288,7 @@
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-img-caption">Interface prototype</div>
           </div>
 
           <div class="inline-img-container">
@@ -285,6 +302,7 @@
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-img-caption">Interface components</div>
           </div>
         </div>
 
@@ -299,74 +317,18 @@
             <div></div>
             <div></div>
           </figure>
+          <div class="inline-img-caption">Working of the user interface</div>
         </div>
 
-        <div class="inline-img-grid">
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/fleeting-states/quibitStructure.jpg"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
+        <p>
+          These changes appear immediately in the fleeting states world as
+          shifts in color, intensity, and light movement. In the measured values
+          world, changes appear only as statistical probabilities after
+          measurement, revealing classical probability values. By exploring the
+          interface and interacting with the physical installation in real time,
+          users playfully gain insights into quantum principles.
+        </p>
 
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/fleeting-states/quibitFabrication.jpg"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-        </div>
-        <div class="inline-img-grid">
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/fleeting-states/quibits.jpg"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/fleeting-states/quibitLED.jpg"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/fleeting-states/setup.jpg"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-        </div>
         <div class="inline-video-grid">
           <div class="inline-video-container">
             <figure>
@@ -418,6 +380,9 @@
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-video-caption">
+              Quibits reacting to the user's interactions
+            </div>
           </div>
           <div class="inline-video-container">
             <figure>
@@ -443,6 +408,84 @@
               <div></div>
               <div></div>
             </figure>
+          </div>
+        </div>
+
+        <div class="inline-img-grid">
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/fleeting-states/quibitStructure.jpg"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">
+              Structures to get the desired quibit form
+            </div>
+          </div>
+
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/fleeting-states/quibitFabrication.jpg"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">Vacuum forming the quibits</div>
+          </div>
+        </div>
+        <div class="inline-img-grid">
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/fleeting-states/quibits.jpg"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">
+              Quibit forms after vacuum forming
+            </div>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/fleeting-states/quibitLED.jpg"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">Assembled quibit</div>
+          </div>
+        </div>
+
+        <div class="inline-img-container">
+          <figure>
+            <img
+              class="inline-img"
+              src="../assets/images/project-pages/fleeting-states/setup.jpg"
+            />
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </figure>
+          <div class="inline-img-caption">
+            Setting up the quibits with the programmable LEDs
           </div>
         </div>
       </div>
