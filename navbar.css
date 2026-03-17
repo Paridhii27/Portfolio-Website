@@ -24,6 +24,25 @@
   --menu-font-size: 20px;
   --menu-link-gap: 4rem; /* Spacing between menu links */
 
+  /* Shared spacing scale (used across pages) */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+
+  /* Shared responsive spacing */
+  --site-page-margin: clamp(1rem, 5vw, 5%);
+  --site-section-spacing: clamp(1.5rem, 5vw, 3rem);
+  --site-section-gap: clamp(1.25rem, 4vw, 2rem);
+
+  /* Back-compat / default hooks used across pages */
+  --page-margin: var(--site-page-margin);
+  --section-spacing: var(--site-section-spacing);
+  --section-gap: var(--site-section-gap);
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;

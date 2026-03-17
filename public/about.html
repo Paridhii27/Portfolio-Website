@@ -81,28 +81,31 @@
         <!-- CONTENT ON THE RIGHT SIDE OF THE PAGE (SCROLLABLE)-->
         <div class="content-right">
           <!-- ABOUT TEXT -->
-          <!-- <h2 class="about-text-title">GET TO KNOW ME</h2> -->
           <div class="about-text">
             <p>
-              Hi, I'm Paridhi — a creative technologist and experiential
-              designer based in New York. I graduated with a Bachelor's in
-              Design and Technology from Parsons School of Design. My creative
-              practice revolves around designing and developing experimental web
-              interfaces and interactions, as well as sensor-based physical
-              immersive experiences, with the intent of bringing people together
-              and introducing creative ways of thinking.
+              Hi! I’m Paridhi — a creative technologist and experiential
+              designer based in New York. I graduated with a Bachelor’s in
+              Design and Technology from Parsons School of Design.
             </p>
             <p>
-              Through this work, I aim to encourage people to engage with their
-              physical surroundings, using technology to deepen their connection
-              to the physical world rather than distancing them from it. I often
-              find myself tinkering with emerging technologies and researching
-              human-machine interactions.
+              My work centers on designing encounters with technology: moments
+              where interfaces feel less like utilities and more like spaces for
+              reflection, play, and learning. I enjoy tinkering with emerging
+              tools and researching human–machine interactions.
             </p>
             <p>
-              I've previously collaborated with scientists from IBM Quantum and
-              the DLR Institute for AI Safety and Security to create interactive
-              exhibits to represent quantum computing.
+              I design and build AI-based web interfaces, interactive
+              installations, narrative 3D environments, and sensor-driven
+              immersive experiences that bring people together, spark new ways
+              of thinking, and translate complex systems into human-scale
+              interactions—often encouraging observation, connection, and
+              curiosity in the physical world.
+            </p>
+            <p>
+              I’ve previously collaborated with IBM Quantum and the DLR
+              Institute for AI Safety and Security to create interactive
+              exhibits that make quantum computing tangible for broader
+              audiences.
             </p>
           </div>
 
@@ -158,13 +161,35 @@
     // Toggle exhibitions dropdown
     function toggleExhibitions() {
       const dropdown = document.querySelector(".exhibitions-dropdown");
+      const contentRight = document.querySelector(".content-right");
+      const isOpening = !dropdown.classList.contains("active");
+
       dropdown.classList.toggle("active");
+
+      if (!isOpening) return;
+
+      const content = dropdown.querySelector("#exhibitions-content");
+      requestAnimationFrame(() => {
+        const target = content || dropdown;
+        target.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
     }
 
     // Toggle toolkit dropdown
     function toggleToolkit() {
       const dropdown = document.querySelector(".toolkit-dropdown");
+      const contentRight = document.querySelector(".content-right");
+      const isOpening = !dropdown.classList.contains("active");
+
       dropdown.classList.toggle("active");
+
+      if (!isOpening) return;
+
+      const content = dropdown.querySelector("#toolkit-content");
+      requestAnimationFrame(() => {
+        const target = content || dropdown;
+        target.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
     }
 
     // Download resume PDF

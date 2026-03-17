@@ -25,19 +25,19 @@
   --font-size-button-large: 1.1rem;
 
   /* Spacing - Consistent System */
-  --spacing-xs: 0.5rem; /* 8px */
-  --spacing-sm: 0.75rem; /* 12px */
-  --spacing-md: 1rem; /* 16px */
-  --spacing-lg: 1.5rem; /* 24px */
-  --spacing-xl: 2rem; /* 32px */
-  --spacing-2xl: 2.5rem; /* 40px */
-  --spacing-3xl: 3rem; /* 48px */
+  --spacing-xs: var(--space-xs, 0.5rem); /* 8px */
+  --spacing-sm: var(--space-sm, 0.75rem); /* 12px */
+  --spacing-md: var(--space-md, 1rem); /* 16px */
+  --spacing-lg: var(--space-lg, 1.5rem); /* 24px */
+  --spacing-xl: var(--space-xl, 2rem); /* 32px */
+  --spacing-2xl: var(--space-2xl, 2.5rem); /* 40px */
+  --spacing-3xl: var(--space-3xl, 3rem); /* 48px */
 
   /* Container Spacing */
-  --container-padding: clamp(1rem, 5vw, 5%);
+  --container-padding: var(--page-margin, clamp(1rem, 5vw, 5%));
   --content-padding: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
-  --section-spacing: clamp(1.5rem, 5vw, 3rem);
-  --section-gap: clamp(1.25rem, 4vw, 2rem);
+  --section-spacing: var(--section-spacing, clamp(1.5rem, 5vw, 3rem));
+  --section-gap: var(--section-gap, clamp(1.25rem, 4vw, 2rem));
 
   /* Title text scaling */
   --title-margin-inline: clamp(var(--spacing-sm), 3vw, var(--spacing-xl));

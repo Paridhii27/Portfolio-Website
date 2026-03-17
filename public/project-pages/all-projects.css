@@ -22,18 +22,18 @@
   --font-size-button-small: 0.8rem;
   --font-size-button-large: 1.1rem;
 
-  --spacing-xs: 0.5rem; /* 8px */
-  --spacing-sm: 0.75rem; /* 12px */
-  --spacing-md: 1rem; /* 16px */
-  --spacing-lg: 1.5rem; /* 24px */
-  --spacing-xl: 2rem; /* 32px */
-  --spacing-2xl: 2.5rem; /* 40px */
-  --spacing-3xl: 3rem; /* 48px */
+  --spacing-xs: var(--space-xs, 0.5rem); /* 8px */
+  --spacing-sm: var(--space-sm, 0.75rem); /* 12px */
+  --spacing-md: var(--space-md, 1rem); /* 16px */
+  --spacing-lg: var(--space-lg, 1.5rem); /* 24px */
+  --spacing-xl: var(--space-xl, 2rem); /* 32px */
+  --spacing-2xl: var(--space-2xl, 2.5rem); /* 40px */
+  --spacing-3xl: var(--space-3xl, 3rem); /* 48px */
 
   /* Container Spacing */
-  --page-margin: clamp(1rem, 5vw, 5%);
-  --container-gap: clamp(1rem, 3vw, 2rem);
-  --gallery-spacing: clamp(1rem, 2vw, 1.5rem);
+  --page-margin: var(--site-page-margin, clamp(1rem, 5vw, 5%));
+  --container-gap: var(--section-gap, clamp(1.25rem, 4vw, 2rem));
+  --gallery-spacing: clamp(var(--space-md, 1rem), 2vw, var(--space-lg, 1.5rem));
   --mobile-padding: var(--spacing-md);
   --border-radius: 10px;
 

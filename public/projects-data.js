@@ -66,17 +66,6 @@ const ProjectsData = {
       tools: ["3D modelling and rendering", "Procedural Shaders", "Memories"],
     },
     {
-      id: "postcards-between-worlds",
-      title: "Postcards Between Worlds",
-      year: "2023",
-      description:
-        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
-      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
-      url: "./project-pages/postcards-between-worlds.html",
-      categories: ["narrative"],
-      tools: ["3D Environments", "Speculative futures", "Writing"],
-    },
-    {
       id: "sights-and-insights",
       title: "Sights and Insights",
       year: "2025",
@@ -86,6 +75,17 @@ const ProjectsData = {
       url: "./project-pages/sights-and-insights.html",
       categories: ["aiweb"],
       tools: ["AI Web Application", "Camera Detection", "Image to Speech"],
+    },
+    {
+      id: "postcards-between-worlds",
+      title: "Postcards Between Worlds",
+      year: "2023",
+      description:
+        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
+      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
+      url: "./project-pages/postcards-between-worlds.html",
+      categories: ["narrative"],
+      tools: ["3D Environments", "Speculative futures", "Writing"],
     },
 
     {
@@ -232,7 +232,7 @@ const ProjectsData = {
     const categoriesClass = project.categories.join(" ");
     const projectClass = project.class ? project.class : "";
     const toolsHTML = project.tools
-      .map((tool) => `<span>${tool}</span>`)
+      .map((tool) => `<li class="project-tag">${tool}</li>`)
       .join(" ");
 
     return `
@@ -242,8 +242,11 @@ const ProjectsData = {
         aria-label="View ${project.title} project"
       >
         <span class="arrow-link" aria-hidden="true">&nearr;</span>
-        <div class="project-title">
-          ${project.title} <span class="project-year">${project.year}</span>
+        <div class="project-header">
+          <div class="project-title">
+            ${project.title}
+            <span class="project-year">${project.year}</span>
+          </div>
         </div>
         <div class="thumbnail">
           <img
@@ -254,8 +257,10 @@ const ProjectsData = {
             fetchpriority="${project.id === "machine-stranger" || project.id === "fleeting-states" ? "high" : "auto"}"
           />
         </div>
-        <p>${project.description}</p>
-        <p class="tool-name">${toolsHTML}</p>
+        <p class="project-description">${project.description}</p>
+        <ul class="project-tags" aria-label="Project tags">
+          ${toolsHTML}
+        </ul>
       </a>
     `;
   },
