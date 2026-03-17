@@ -55,12 +55,12 @@ const AboutData = {
       location: "Microscope Gallery, New York, NY",
     },
     {
-      number: "03.",
+      number: "02.",
       name: "How to show off quantum computing",
       location: "KISD, Cologne, Germany",
     },
     {
-      number: "04.",
+      number: "03.",
       name: "Mosaic Pop Up Show",
       location: "Parsons School of Design, New York, NY",
     },
