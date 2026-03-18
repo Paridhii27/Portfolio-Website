@@ -72,26 +72,31 @@ const AboutData = {
   toolkit: [
     {
       number: "01.",
-      category: "Frameworks",
+      category: "Design Tools",
       description:
-        "Figma · Adobe Creative Suite (AI, PSD, ID, PR, LR) · Touchdesigner · Blender 3D · Unity · Madmapper · Isadora · Framer · Webflow · Git/GitHub · Microsoft Suite",
+        "Adobe Creative Suite (AI, PSD, ID, PR, LR) · Touchdesigner · Blender 3D · Unity · Madmapper · Isadora",
     },
     {
       number: "02.",
-      category: "Programming Languages",
+      category: "Web Design and Development",
       description:
-        "Python · JavaScript (Node.js, Deno, Express.js) · C++ (Arduino) · C# (Unity) · SQL · HTML/CSS",
+        "Figma · Webflow · Framer · HTML/CSS · Javascript (Node.js, Express.js, Deno) · Git/GitHub",
     },
     {
       number: "03.",
-      category: "Digital Fabrication",
-      description: "Laser Cutting · 3D Printing",
+      category: "Programming Languages",
+      description: "Python · C++ (Arduino) · C# (Unity) · SQL",
     },
     {
       number: "04.",
+      category: "Fabrication",
+      description: "Laser Cutting · 3D Printing",
+    },
+    {
+      number: "05.",
       category: "Advanced Computing",
       description:
-        "APIs (OpenAI, Anthropic, Google's Gemini) · Training text generation models · prompt engineering for text generation · Image generation · ElevenLabs · text-to-speech · speech-to-text · Runway ML · Stable Diffusion · Gesture Recognition · Object Detection",
+        "APIs (OpenAI, Anthropic, Google's Gemini) ·  Prompt Engineering · Image Generation · Stable Diffusion · ElevenLabs · Runway ML · Gesture Recognition · Object Detection",
     },
   ],
 

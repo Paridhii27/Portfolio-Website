@@ -193,7 +193,7 @@ const ProjectsData = {
         "Physical Computing",
         "LED Mapping",
         "Speculative Device",
-        "Research Communication",
+        "Research",
       ],
     },
     // {

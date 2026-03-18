@@ -136,9 +136,7 @@
 
           <!-- RESUME BUTTON -->
           <div class="resume-button">
-            <button class="button" onclick="downloadResume()">
-              Download Resume
-            </button>
+            <button class="button" onclick="downloadResume()">Resume</button>
           </div>
         </div>
       </div>
@@ -194,12 +192,9 @@
 
     // Download resume PDF
     function downloadResume() {
-      const link = document.createElement("a");
-      link.href = "./assets/Paridhi-Resume-2026.pdf";
-      link.download = "Paridhi-Garg-Resume-2026.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const url = "./assets/Paridhi-Resume-2026.pdf";
+      // Open the resume in a new tab/window (avoids forcing a download).
+      window.open(url, "_blank", "noopener,noreferrer");
     }
 
     // Download PDF function for modal (used by skills modal)
