@@ -73,7 +73,7 @@ const ProjectsData = {
         "Sights and Insights is a voice-based AI web application that transforms ordinary walks into ones filled with curious interventions.",
       thumbnail: "./assets/images/thumbnails/sights-and-insights.png",
       url: "./project-pages/sights-and-insights.html",
-      categories: ["aiweb"],
+      categories: ["aiweb", "research"],
       tools: ["AI Web Application", "Camera Detection", "Image to Speech"],
     },
     {
@@ -103,6 +103,18 @@ const ProjectsData = {
       ],
     },
     {
+      id: "granny-bytes",
+      title: "Granny Bytes",
+      class: "research",
+      year: "2024",
+      description:
+        "Granny Bytes explores intergenerational connections and how they can manifest within our interactions with technology.",
+      thumbnail: "./assets/images/thumbnails/granny-bytes.png",
+      url: "./project-pages/granny-bytes.html",
+      categories: ["aiweb"],
+      tools: ["AI application", "Text Generation", "Image Analysis"],
+    },
+    {
       id: "warped-memories",
       title: "Warped Memories of Digital Ghosts",
       year: "2023",
@@ -116,18 +128,6 @@ const ProjectsData = {
         "Materials and Textures",
         "Interactive Environments",
       ],
-    },
-    {
-      id: "granny-bytes",
-      title: "Granny Bytes",
-      class: "research",
-      year: "2024",
-      description:
-        "Granny Bytes explores intergenerational connections and how they can manifest within our interactions with technology.",
-      thumbnail: "./assets/images/thumbnails/granny-bytes.png",
-      url: "./project-pages/granny-bytes.html",
-      categories: ["aiweb"],
-      tools: ["AI application", "Text Generation", "Image Analysis"],
     },
     {
       id: "hivemind",
@@ -144,17 +144,17 @@ const ProjectsData = {
         "Emergent systems",
       ],
     },
-    {
-      id: "audiovisual",
-      title: "Audiovisual",
-      year: "2023",
-      description:
-        "Audio-reactive visuals with dynamic particle systems that respond in real-time to the kicks and snares in the song.",
-      thumbnail: "./assets/images/thumbnails/audiovisual.jpg",
-      url: "./project-pages/audiovisual.html",
-      categories: ["others"],
-      tools: ["Sound reactive", "Generative visuals", "Particle systems"],
-    },
+    // {
+    //   id: "audiovisual",
+    //   title: "Audiovisual",
+    //   year: "2023",
+    //   description:
+    //     "Audio-reactive visuals with dynamic particle systems that respond in real-time to the kicks and snares in the song.",
+    //   thumbnail: "./assets/images/thumbnails/audiovisual.jpg",
+    //   url: "./project-pages/audiovisual.html",
+    //   categories: ["others"],
+    //   tools: ["Sound reactive", "Generative visuals", "Particle systems"],
+    // },
     {
       id: "echoes",
       title: "Echoes",
