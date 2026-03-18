@@ -11,7 +11,7 @@ const ProjectsData = {
       class: "research",
       year: "2025",
       description:
-        '"This Machine is a Stranger" investigates how one can navigate life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
+        '"This Machine is a Stranger" is a thought experiment that investigates how one navigates life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
       thumbnail: "./assets/images/thumbnails/machine-stranger.jpg",
       url: "./project-pages/this-machine-is-a-stranger.html",
       categories: ["interactive", "aiweb"],
@@ -35,7 +35,7 @@ const ProjectsData = {
         "Multimedia",
         "Interactive Installation",
         "LED Mapping",
-        "Science communication",
+        "Science Communication",
       ],
     },
     {
@@ -48,9 +48,10 @@ const ProjectsData = {
       url: "./project-pages/move-a-bit.html",
       categories: ["interactive"],
       tools: [
-        "Quantum computing",
-        "Motion capture",
+        "Quantum Computing",
+        "Motion Capture",
         "Interactive Installation",
+        "Science Communication",
       ],
     },
     {
@@ -63,7 +64,7 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/computerized-memories.jpg",
       url: "./project-pages/computerized-memories.html",
       categories: ["narrative"],
-      tools: ["3D modelling and rendering", "Procedural Shaders", "Memories"],
+      tools: ["3D Environments", "Procedural Shaders", "Memories", "Research"],
     },
     {
       id: "sights-and-insights",
@@ -74,7 +75,12 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/sights-and-insights.png",
       url: "./project-pages/sights-and-insights.html",
       categories: ["aiweb", "research"],
-      tools: ["AI Web Application", "Camera Detection", "Image to Speech"],
+      tools: [
+        "Camera Feed Interaction",
+        "Image Analysis",
+        "Speech Synthesis",
+        "Podcast Generation",
+      ],
     },
     {
       id: "postcards-between-worlds",
@@ -85,7 +91,7 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
       url: "./project-pages/postcards-between-worlds.html",
       categories: ["narrative"],
-      tools: ["3D Environments", "Speculative futures", "Writing"],
+      tools: ["3D Environments", "Speculative Futures", "Writing"],
     },
 
     {
@@ -97,8 +103,10 @@ const ProjectsData = {
       url: "./project-pages/a-firefly-symphony.html",
       categories: ["others"],
       tools: [
+        "Speculative",
+        "Multimedia",
+        "Design Thinking",
         "3D Modelling",
-        "Materials and Textures",
         "Interactive Environments",
       ],
     },
@@ -108,7 +116,7 @@ const ProjectsData = {
       class: "research",
       year: "2024",
       description:
-        "Granny Bytes explores intergenerational connections and how they can manifest within our interactions with technology.",
+        "Granny Bytes is an AI application that explores intergenerational connections and how they can manifest within our interactions with technology.",
       thumbnail: "./assets/images/thumbnails/granny-bytes.png",
       url: "./project-pages/granny-bytes.html",
       categories: ["aiweb"],
@@ -124,6 +132,7 @@ const ProjectsData = {
       url: "./project-pages/warped-memories-of-digital-ghosts.html",
       categories: ["narrative"],
       tools: [
+        "Speculative",
         "3D Modelling",
         "Materials and Textures",
         "Interactive Environments",
@@ -133,16 +142,11 @@ const ProjectsData = {
       id: "hivemind",
       title: "Hivemind",
       year: "2023",
-      description:
-        "A game about understanding emergent behavior with a playful spirit.",
+      description: "A game about understanding emergent behaviour.",
       thumbnail: "./assets/images/thumbnails/hivemind.png",
       url: "./project-pages/hivemind.html",
       categories: ["others"],
-      tools: [
-        "Multiplayer game",
-        "Collaborative game mechanics",
-        "Emergent systems",
-      ],
+      tools: ["Collaborative", "Multiplayer", "Conversational Gameplay"],
     },
     // {
     //   id: "audiovisual",
@@ -159,12 +163,11 @@ const ProjectsData = {
       id: "echoes",
       title: "Echoes",
       year: "2023",
-      description:
-        "A visual narrative investigating the idea of alternate parallel realities.",
+      description: "A visual narrative on alternate parallel realities.",
       thumbnail: "./assets/images/thumbnails/echoes.jpg",
       url: "./project-pages/echoes.html",
       categories: ["others"],
-      tools: ["Visual Effects", "Typography"],
+      tools: ["Interactive Type", "Procedural Noise", "Storytelling"],
     },
     {
       id: "intermittent",
@@ -175,7 +178,7 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/intermittent.png",
       url: "./project-pages/intermittent.html",
       categories: ["aiweb"],
-      tools: ["Machine Learning", "Text Generation", "StyleGANs", "Graphics"],
+      tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
     },
     {
       id: "temperature-of-emotions",
@@ -186,7 +189,12 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/temperaure-of-emotions.png",
       url: "./project-pages/temperature-of-emotions.html",
       categories: ["others"],
-      tools: ["Physical computing", "LED Mapping", "Sensors based data"],
+      tools: [
+        "Physical Computing",
+        "LED Mapping",
+        "Speculative Device",
+        "Research Communication",
+      ],
     },
     // {
     //   id: "Moving Light",
