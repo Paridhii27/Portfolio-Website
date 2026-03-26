@@ -509,7 +509,9 @@ p {
   gap: var(--space-xl);
 }
 
-.documentation.documentation--longform .project-section > .project-content-container {
+.documentation.documentation--longform
+  .project-section
+  > .project-content-container {
   flex: 0 1 auto;
   width: 100%;
   max-width: min(70ch, 100%);
