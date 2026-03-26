@@ -280,7 +280,10 @@ html {
 }
 
 #main-featured-media-container::after {
-  content: "\2197";
+  content: none;
+}
+
+.main-media-arrow {
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
@@ -299,19 +302,24 @@ html {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
   z-index: 10;
-  pointer-events: none;
+  pointer-events: auto;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   line-height: 1;
+  border: 0.5px solid transparent;
 }
 
-#main-featured-media-container:hover::after {
+.main-featured-project:hover .main-media-arrow {
   opacity: 1;
+}
+
+.main-media-arrow:hover {
+  border: 0.5px solid var(--border-color);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
-#main-featured-media-container:active::after {
+.main-media-arrow:active {
   opacity: 0.9;
   transform: translateY(-2px) scale(0.95);
   background: rgba(255, 255, 255, 0.15);
@@ -531,7 +539,10 @@ html {
 }
 
 .project-thumbnail::after {
-  content: "\21A9";
+  content: none;
+}
+
+.thumbnail-arrow {
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
@@ -553,18 +564,25 @@ html {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
-  pointer-events: none;
+  pointer-events: auto;
   line-height: 1;
+  border: 0.5px solid transparent;
 }
 
-.project-thumbnail:hover::after,
-.project-thumbnail.active::after {
+.project-thumbnail:hover .thumbnail-arrow,
+.project-thumbnail.active .thumbnail-arrow {
   opacity: 1;
+}
+
+.thumbnail-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border: 0.5px solid var(--border-color);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
-.project-thumbnail:active::after {
+.thumbnail-arrow:active {
   opacity: 0.9;
   transform: translateY(-2px) scale(0.95);
   background: rgba(255, 255, 255, 0.15);
@@ -1007,9 +1025,17 @@ html {
     content: none;
   }
 
+  .main-media-arrow {
+    display: none;
+  }
+
   .project-thumbnail::after {
     display: none;
     content: none;
+  }
+
+  .thumbnail-arrow {
+    display: none;
   }
 
   a,

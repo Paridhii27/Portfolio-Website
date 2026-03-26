@@ -380,6 +380,7 @@ p {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
+  border: 0.5px solid transparent;
 }
 
 .container:hover .arrow-link {
@@ -391,6 +392,7 @@ p {
 .arrow-link:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-color);
+  border: 0.5px solid var(--border-color);
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
 }
 
@@ -458,14 +460,14 @@ p {
 .project-year {
   font-size: var(--font-size-project-year);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff99;
   font-family: var(--content-font);
   flex-shrink: 0;
 }
 
 .project-description {
   margin: 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: #ffffffc7;
   line-height: var(--line-height-normal);
   font-size: var(--projects-description-size);
 }
@@ -521,7 +523,7 @@ p {
   font-family: var(--subheading-font);
   background: transparent;
   backdrop-filter: none;
-  border: none;
+  border: 0.5px solid transparent;
   opacity: 0;
   transform: translateY(20px);
   line-height: 1;
@@ -537,6 +539,7 @@ p {
 #back-to-top:hover {
   background: transparent;
   color: var(--text-color);
+  border: 0.5px solid var(--border-color);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
 }
