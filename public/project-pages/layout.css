@@ -2,12 +2,14 @@
   /* Color Palette */
   --bg-color: #000000;
   --text-color: #ffffff;
-  --highlight-color: #3d479c;
+  --project-desc-text-color: #ffffffd0;
+  --image-caption-text-color: #ffffffb6;
+  --credits-text-color: #ffffffd9;
   --border-color: #ffffffab;
   --image-border-color: #ffffffab;
-  --project-desc-text-color: rgba(255, 255, 255, 0.78);
   --button-color: #e6e6e0;
   --hover-color: #a7dbeb;
+  --highlight-color: #3d479c;
 
   /* Font Families */
   --heading-font: "Inter", sans-serif;
@@ -16,12 +18,12 @@
   /* Font Sizes */
   --font-size-h1: clamp(1.8rem, 4.5vw, 2.5rem);
   --font-size-h2: clamp(1.5rem, 3vw, 2rem);
-  --font-size-h3: clamp(1.25rem, 3vw, 1.75rem);
+  --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
   --font-size-h4: clamp(1rem, 2.5vw, 1.25rem);
   --font-size-paragraph: 1rem;
-  --font-size-button: 1rem;
+  --font-size-button: 0.9rem;
   --font-size-button-small: 0.8rem;
-  --font-size-button-large: 1.1rem;
+  --font-size-button-large: 1rem;
   --font-size-details-titles: clamp(0.85rem, 2.5vw, 1rem);
 
   /* Consistent spacing scale */
@@ -167,10 +169,16 @@ p {
 }
 
 .project-link {
+  font-family: var(--content-font);
+  font-size: var(--font-size-button);
   border-radius: 10px;
-  border: 1px dashed white;
-  color: #fff;
+  border: 1px dashed var(--border-color);
+  color: var(--text-color);
   display: inline-flex;
+  /* Prevent "shrink-to-fit" behavior so hover growth wraps cleanly */
+  flex: 0 0 auto;
+  max-width: 100%;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   gap: 0;
@@ -211,7 +219,6 @@ p {
 .project-link:hover {
   background-color: var(--hover-color);
   color: var(--bg-color);
-  border-color: transparent;
 }
 
 .project-link:active {
@@ -536,7 +543,7 @@ p {
 .documentation ul:not(.credits-list) li {
   margin-bottom: var(--space-sm);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--project-desc-text-color);
   font-size: var(--font-size-paragraph);
   font-family: var(--content-font);
   padding-left: 1.5rem;
@@ -856,7 +863,7 @@ p {
 .documentation .inline-img-container .inline-img-caption {
   font-family: var(--content-font);
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  color: var(--project-desc-text-color);
+  color: var(--image-caption-text-color);
   opacity: 0.7;
   text-align: center;
   line-height: 1.4;
@@ -941,7 +948,7 @@ p {
 .documentation .inline-video-container .inline-video-caption {
   font-family: var(--content-font);
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  color: var(--project-desc-text-color);
+  color: var(--image-caption-text-color);
   opacity: 0.7;
   text-align: center;
   line-height: 1.4;
@@ -997,13 +1004,12 @@ p {
   display: block;
   margin: 0 auto;
   background-color: #d74b4b;
-  vertical-align: middle;
 }
 
 .documentation .inline-audio-container .inline-audio-caption {
   font-family: var(--content-font);
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  color: var(--project-desc-text-color);
+  color: var(--image-caption-text-color);
   opacity: 0.7;
   text-align: center;
   line-height: 1.4;
@@ -1071,7 +1077,7 @@ p {
 
 .documentation .credits-list .credits-category {
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--credits-text-color);
   margin-bottom: 0.35rem;
   margin-top: 0.2rem;
   font-size: clamp(0.7rem, 1.2vw, 0.8rem);
@@ -1085,7 +1091,7 @@ p {
 }
 
 .documentation .credits-list .credits-detail {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffffcc;
   margin-bottom: 0.5rem;
   font-size: clamp(0.7rem, 1.2vw, 0.8rem);
   line-height: 1.5;
@@ -1098,12 +1104,12 @@ p {
 
 .documentation .credits-list .credits-detail em {
   font-style: italic;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffffcc;
   opacity: 0.8;
 }
 
 .documentation .credits-list .credits-detail a {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffffe6;
   text-decoration: none;
   transition:
     color 0.3s ease,
@@ -1112,7 +1118,7 @@ p {
 }
 
 .documentation .credits-list .credits-detail a:hover {
-  color: rgba(255, 255, 255, 1);
+  color: #ffffff;
   opacity: 1;
   text-decoration: underline;
 }
@@ -1339,7 +1345,7 @@ p {
 .documentation .inline-img-gallery .gallery-caption {
   font-family: var(--content-font);
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  color: var(--project-desc-text-color);
+  color: var(--image-caption-text-color);
   opacity: 0.7;
   text-align: center;
   line-height: 1.4;
@@ -1540,6 +1546,7 @@ p {
 .project-content-container p {
   font-size: var(--font-size-paragraph);
   font-family: var(--content-font);
+  color: var(--project-desc-text-color);
   margin-bottom: var(--space-md);
 }
 

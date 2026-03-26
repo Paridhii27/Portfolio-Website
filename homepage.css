@@ -650,7 +650,7 @@ html {
 }
 
 .nav-button:hover {
-  background-color: var(--text-color);
+  background-color: var(--hover-color);
   color: var(--bg-color);
 }
 

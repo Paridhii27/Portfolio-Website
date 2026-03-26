@@ -63,13 +63,13 @@ const AboutData = {
       number: "01.",
       category: "Design Tools",
       description:
-        "Adobe Creative Suite (AI, PSD, ID, PR, LR) · Touchdesigner · Blender 3D · Unity · Madmapper · Isadora",
+        "Adobe Creative Suite (AI, PSD, ID, PR, LR) · Touchdesigner · Madmapper · Isadora · Blender 3D · Unity ",
     },
     {
       number: "02.",
       category: "Web Design and Development",
       description:
-        "Figma · Webflow · Framer · HTML/CSS · Javascript (Node.js, Express.js, Deno) · Git/GitHub",
+        "Figma · Webflow · Framer · HTML/CSS · Javascript · Git/GitHub",
     },
     {
       number: "03.",

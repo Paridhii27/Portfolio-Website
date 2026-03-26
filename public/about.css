@@ -5,6 +5,7 @@
   /* Color Palette */
   --bg-color: #000000;
   --text-color: #ffffff;
+  --desc-text-color: #ffffffd0;
   --border-color: #ffffffab;
   --hover-color: #a7dbeb;
   --secondary-color: #a49ce0;
@@ -18,10 +19,10 @@
   --heading-bold: 700;
 
   /* Font Sizes */
-  --font-size-paragraph: 0.9rem;
   --font-size-h1: clamp(1.85rem, 4.15vw, 3.2rem);
   --font-size-h2: clamp(1.4rem, 3.2vw, 2.3rem);
   --font-size-h3: clamp(1.15rem, 2.75vw, 1.6rem);
+  --font-size-paragraph: 1rem;
   --font-size-button: 0.9rem;
   --font-size-button-large: 1rem;
 
@@ -156,9 +157,8 @@ html {
 .about-page-content {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: clamp(var(--spacing-lg), 3vw, var(--spacing-xl));
+  gap: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl));
   width: 100%;
   min-width: 0;
   flex-wrap: wrap;
@@ -475,6 +475,7 @@ html {
   flex: 1;
   min-width: 0;
   gap: var(--spacing-xs);
+  color: var(--desc-text-color);
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -482,6 +483,7 @@ html {
 .exhibition-item strong {
   font-family: var(--heading-font);
   text-transform: uppercase;
+  color: var(--text-color);
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   display: block;
   margin: 0;
@@ -527,6 +529,7 @@ html {
   gap: var(--spacing-sm);
   width: 100%;
   padding: var(--spacing-md);
+  color: var(--desc-text-color);
   border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
   background: transparent;
@@ -581,6 +584,7 @@ html {
 .toolkit-item strong {
   font-family: var(--heading-font);
   text-transform: uppercase;
+  color: var(--text-color);
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   display: block;
   margin: 0;

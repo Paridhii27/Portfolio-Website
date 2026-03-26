@@ -76,6 +76,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentGalleryItems = [];
   let currentGalleryIndex = -1;
   let isGalleryMode = false;
+  let fullscreenSourceVideo = null;
+  let fullscreenSourceWasMuted = null;
+
+  function syncInlineVideoMuteForFullscreen(sourceVideo) {
+    // Restore previously tracked inline video before switching sources.
+    if (fullscreenSourceVideo && fullscreenSourceVideo !== sourceVideo) {
+      if (typeof fullscreenSourceWasMuted === "boolean") {
+        fullscreenSourceVideo.muted = fullscreenSourceWasMuted;
+      }
+      fullscreenSourceVideo = null;
+      fullscreenSourceWasMuted = null;
+    }
+
+    if (sourceVideo && sourceVideo.tagName === "VIDEO") {
+      fullscreenSourceVideo = sourceVideo;
+      fullscreenSourceWasMuted = sourceVideo.muted;
+      sourceVideo.muted = true;
+    }
+  }
 
   function showFullscreen(
     mediaElement,
@@ -106,11 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (mediaElement.tagName === "IMG") {
+      syncInlineVideoMuteForFullscreen(null);
       imgElement.src = mediaElement.src;
       imgElement.alt = mediaElement.alt || "";
       imgElement.style.display = "block";
       videoElement.style.display = "none";
     } else if (mediaElement.tagName === "VIDEO") {
+      syncInlineVideoMuteForFullscreen(mediaElement);
+      const resumeTime = Number.isFinite(mediaElement.currentTime)
+        ? mediaElement.currentTime
+        : 0;
       // Clone video element to preserve all attributes
       const source = mediaElement.querySelector("source");
       videoElement.innerHTML = "";
@@ -123,11 +147,29 @@ document.addEventListener("DOMContentLoaded", function () {
       videoElement.setAttribute("controls", "");
       videoElement.style.display = "block";
       imgElement.style.display = "none";
-      // Try to play the video
+
+      // Keep fullscreen playback in sync with inline playback position.
+      const playFromResumeTime = () => {
+        if (resumeTime > 0) {
+          try {
+            videoElement.currentTime = resumeTime;
+          } catch {
+            // Ignore seek failures on streams/unsupported formats.
+          }
+        }
+        videoElement.play().catch(() => {
+          // Ignore autoplay errors
+        });
+      };
+
       videoElement.load();
-      videoElement.play().catch(() => {
-        // Ignore autoplay errors
-      });
+      if (videoElement.readyState >= 1) {
+        playFromResumeTime();
+      } else {
+        videoElement.addEventListener("loadedmetadata", playFromResumeTime, {
+          once: true,
+        });
+      }
     }
 
     // Set caption if available
@@ -149,6 +191,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (videoElement) {
       videoElement.pause();
       videoElement.currentTime = 0;
+    }
+    if (fullscreenSourceVideo) {
+      if (typeof fullscreenSourceWasMuted === "boolean") {
+        fullscreenSourceVideo.muted = fullscreenSourceWasMuted;
+      }
+      fullscreenSourceVideo = null;
+      fullscreenSourceWasMuted = null;
     }
     // Reset gallery state
     isGalleryMode = false;
