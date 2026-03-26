@@ -124,7 +124,7 @@ const ProjectsData = {
     },
     {
       id: "warped-memories",
-      title: "Warped Memories of Digital Ghosts",
+      title: "Warped Memories",
       year: "2023",
       description:
         "This speculative environment draws a poetic parallel between human memories and browser cookies, inviting participants into a data store where personal memories become uniquely flavored cookies.",
@@ -136,6 +136,33 @@ const ProjectsData = {
         "3D Modelling",
         "Materials and Textures",
         "Interactive Environments",
+      ],
+    },
+    {
+      id: "intermittent",
+      title: "Intermittent",
+      year: "2023",
+      description:
+        "How can we capture the intermittent phases between Light and Darkness through making an image generation model?",
+      thumbnail: "./assets/images/thumbnails/intermittent.png",
+      url: "./project-pages/intermittent.html",
+      categories: ["aiweb"],
+      tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
+    },
+    {
+      id: "temperature-of-emotions",
+      title: "Temperature of Emotions",
+      year: "2022",
+      description:
+        "A speculative device that measures external temperature and gives a corresponding response in the form of different color mappings representing varied emotions.",
+      thumbnail: "./assets/images/thumbnails/temperaure-of-emotions.png",
+      url: "./project-pages/temperature-of-emotions.html",
+      categories: ["others"],
+      tools: [
+        "Physical Computing",
+        "LED Mapping",
+        "Speculative Device",
+        "Research",
       ],
     },
     {
@@ -169,33 +196,7 @@ const ProjectsData = {
       categories: ["others"],
       tools: ["Interactive Type", "Procedural Noise", "Storytelling"],
     },
-    {
-      id: "intermittent",
-      title: "Intermittent",
-      year: "2023",
-      description:
-        "How can we capture the intermittent phases between Light and Darkness through making an image generation model?",
-      thumbnail: "./assets/images/thumbnails/intermittent.png",
-      url: "./project-pages/intermittent.html",
-      categories: ["aiweb"],
-      tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
-    },
-    {
-      id: "temperature-of-emotions",
-      title: "Temperature of Emotions",
-      year: "2022",
-      description:
-        "A speculative device that measures external temperature and gives a corresponding response in the form of different color mappings representing varied emotions.",
-      thumbnail: "./assets/images/thumbnails/temperaure-of-emotions.png",
-      url: "./project-pages/temperature-of-emotions.html",
-      categories: ["others"],
-      tools: [
-        "Physical Computing",
-        "LED Mapping",
-        "Speculative Device",
-        "Research",
-      ],
-    },
+
     // {
     //   id: "Moving Light",
     //   title: "Moving Light",

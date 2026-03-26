@@ -5,14 +5,13 @@
   /* Color Palette */
   --bg-color: #000000;
   --text-color: #ffffff;
-  --border-color: rgba(255, 255, 255, 0.669);
+  --border-color: #ffffffab;
+  --hover-color: #a7dbeb;
   --secondary-color: #a49ce0;
-  --hover-color: #3d479c;
-  --skills-color: #3d479c;
 
   /* Font Families */
   --heading-font: "Inter", sans-serif;
-  --subheading-font: "Inter", sans-serif;
+  --button-font: "Inter", sans-serif;
   --content-font: "Open Sans", sans-serif;
 
   /* Font Weights */
@@ -39,8 +38,8 @@
   --spacing-3xl: var(--space-3xl, 3rem);
 
   /* Container Spacing */
-  --pg-margin: var(--page-margin, clamp(1rem, 5vw, 5%));
-  --container-padding: var(--page-margin, clamp(1rem, 5vw, 5%));
+  --pg-margin: var(--page-margin, clamp(1.5rem, 7vw, 7%));
+  --container-padding: var(--page-margin, clamp(1.5rem, 7vw, 7%));
   --section-spacing: var(--section-spacing, clamp(1.5rem, 5vw, 3rem));
   --section-gap: var(--section-gap, clamp(1.25rem, 4vw, 2rem));
 
@@ -316,22 +315,6 @@ html {
 /* ============================================================================
    ABOUT ME TEXT
    ============================================================================ */
-.about-text-title {
-  font-family: var(--subheading-font);
-  font-size: var(--font-size-h2);
-  font-weight: var(--heading-bold);
-  color: var(--text-color);
-  margin: 0 0 var(--spacing-xs) 0;
-  text-transform: none;
-  letter-spacing: 0.2px;
-  line-height: var(--line-height-tight);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.5s forwards;
-  width: 100%;
-  max-width: 68ch;
-  margin-inline: auto;
-  text-wrap: balance;
-}
 
 .about-text {
   display: flex;
@@ -398,7 +381,7 @@ html {
 }
 
 .button:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--hover-color);
   color: var(--bg-color);
 }
 
@@ -478,7 +461,7 @@ html {
 .exhibition-number {
   font-family: var(--heading-font);
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
-  color: var(--secondary-color);
+  color: var(--hover-color);
   flex-shrink: 0;
   font-weight: 600;
 }
@@ -577,7 +560,7 @@ html {
 .toolkit-number {
   font-family: var(--heading-font);
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
-  color: var(--secondary-color);
+  color: var(--hover-color);
   flex-shrink: 0;
   font-weight: 600;
 }
@@ -682,8 +665,8 @@ html {
 /* Mobile and small tablets (768px and below) */
 @media (max-width: 768px) {
   body {
-    padding: calc(var(--nav-height, 75px) + 1rem) clamp(0.75rem, 3vw, 1rem)
-      clamp(0.75rem, 3vw, 1rem);
+    padding: calc(var(--nav-height, 75px) + 1rem) var(--pg-margin)
+      var(--pg-margin);
   }
 
   .about-page-container {
@@ -832,8 +815,8 @@ html {
 /* Small mobile devices (480px and below) */
 @media (max-width: 480px) {
   body {
-    padding: calc(var(--nav-height, 75px) + 1rem) var(--spacing-xs)
-      var(--spacing-xs);
+    padding: calc(var(--nav-height, 75px) + 1rem) var(--pg-margin)
+      var(--pg-margin);
   }
 
   .about-page-container {
@@ -926,8 +909,8 @@ html {
 /* Very small screens (360px and below) */
 @media (max-width: 360px) {
   body {
-    padding: calc(var(--nav-height, 75px) + 1rem) var(--spacing-xs)
-      var(--spacing-xs);
+    padding: calc(var(--nav-height, 75px) + 1rem) var(--pg-margin)
+      var(--pg-margin);
   }
 
   .content-left {

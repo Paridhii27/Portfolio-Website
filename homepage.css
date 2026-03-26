@@ -33,14 +33,19 @@
   --spacing-2xl: var(--space-2xl, 2.5rem); /* 40px */
   --spacing-3xl: var(--space-3xl, 3rem); /* 48px */
 
-  /* Container Spacing */
-  --container-padding: var(--page-margin, clamp(1rem, 5vw, 5%));
-  --content-padding: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
+  /* Homepage — padding/rhythm on 4px & 8px grid (rem @ 16px root) */
+  --home-section-padding-y: var(--spacing-xl); /* 32px */
+  --home-section-padding-y-loose: var(--spacing-2xl); /* 40px */
+  --home-featured-card-padding: var(--spacing-lg); /* 24px — inside dashed border */
+  --home-featured-stack-gap: var(--spacing-lg); /* 24px — main card vs thumbnails */
+  --home-featured-inner-gap: var(--spacing-md); /* 16px — title / media / text */
+  --home-media-inset: var(--spacing-md); /* 16px — padding around hero media */
+
+  /* Container Spacing (match other pages via navbar --page-margin) */
+  --container-padding: var(--page-margin, clamp(1.5rem, 7vw, 7%));
+  --content-padding: var(--page-margin, clamp(1.5rem, 7vw, 7%));
   --section-spacing: var(--section-spacing, clamp(1.5rem, 5vw, 3rem));
   --section-gap: var(--section-gap, clamp(1.25rem, 4vw, 2rem));
-
-  /* Title text scaling */
-  --title-margin-inline: clamp(var(--spacing-sm), 3vw, var(--spacing-xl));
 
   /* Line Heights */
   --line-height-tight: 1.2;
@@ -67,6 +72,14 @@ body.home-page {
   overflow-x: hidden;
 }
 
+/* Navbar adds horizontal body padding below 900px; welcome/featured already use --page-margin */
+@media screen and (max-width: 900px) {
+  body.home-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 ::selection {
   background: var(--highlight-color);
 }
@@ -80,10 +93,10 @@ html {
    WELCOME SECTION
    ============================================================================ */
 .welcome-section {
-  margin-top: calc(var(--nav-height) + clamp(1rem, 2.5vw, 2rem));
+  margin-top: calc(var(--nav-height) + var(--spacing-xl));
   min-height: 25vh;
-  padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl))
-    var(--content-padding) clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+  padding: var(--home-section-padding-y) var(--content-padding)
+    var(--home-section-padding-y-loose);
   text-align: left;
   opacity: 0;
   animation: fadeInUp 0.4s ease-out 0.05s forwards;
@@ -107,8 +120,9 @@ html {
   color: var(--text-color);
   font-style: normal;
   line-height: 1.3;
-  max-width: min(900px, calc(100% - var(--title-margin-inline) * 2));
-  margin-inline: var(--title-margin-inline) auto;
+  /* Horizontal inset comes only from .welcome-section padding (page margin) */
+  max-width: min(900px, 100%);
+  margin-inline: 0;
   text-wrap: balance;
 }
 
@@ -116,7 +130,7 @@ html {
   animation: slideInText 0.35s ease-out 0.1s both;
   position: relative;
   text-align: left;
-  padding-inline-end: var(--title-margin-inline);
+  padding-inline-end: 0;
 }
 
 @keyframes slideInText {
@@ -145,7 +159,7 @@ html {
    FEATURED PROJECTS SECTION
    ============================================================================ */
 .featured-projects-section {
-  padding: 2rem var(--container-padding);
+  padding: var(--home-section-padding-y) var(--container-padding);
   margin-bottom: var(--spacing-3xl);
   opacity: 0;
   animation: fadeInUp 0.4s ease-out 0.2s forwards;
@@ -159,12 +173,13 @@ html {
   text-transform: uppercase;
   color: var(--secondary-text-color);
   margin: 0 0 var(--spacing-md) 0;
+  padding: 0;
 }
 
 .featured-projects-container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--home-featured-stack-gap);
   max-width: 1400px;
   margin: 0 auto var(--spacing-xl);
   align-items: stretch;
@@ -175,10 +190,12 @@ html {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--home-featured-inner-gap);
   width: 100%;
+  padding: var(--home-featured-card-padding);
   border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
+  box-sizing: border-box;
 }
 
 .main-featured-project-link {
@@ -229,7 +246,7 @@ html {
   align-items: center;
   cursor: pointer;
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
+  padding: var(--home-media-inset);
   box-sizing: border-box;
   overflow: hidden;
   transition:
@@ -259,8 +276,8 @@ html {
 #main-featured-media-container::after {
   content: "\2197";
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
   width: 32px;
   height: 32px;
   font-size: var(--font-size-paragraph);
@@ -343,7 +360,7 @@ html {
    ============================================================================ */
 .project-info {
   position: relative;
-  padding-right: 40px;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
   opacity: 0;
@@ -355,8 +372,7 @@ html {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: baseline;
-  padding-left: 15px;
-  padding-bottom: var(--spacing-lg);
+  padding: 0 0 var(--spacing-lg) 0;
   gap: var(--spacing-md);
   border-radius: var(--border-radius);
 }
@@ -418,7 +434,7 @@ html {
   .featured-projects-container {
     flex-direction: row;
     align-items: stretch;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-xl); /* 32px */
   }
 
   .main-featured-project {
@@ -511,8 +527,8 @@ html {
 .project-thumbnail::after {
   content: "\21A9";
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
   width: 32px;
   height: 28px;
   font-size: var(--font-size-paragraph);
@@ -654,15 +670,15 @@ html {
   .welcome-title {
     gap: clamp(1rem, 2vw, 1.5rem);
     font-size: var(--font-size-h2);
-    margin-inline: var(--title-margin-inline) auto;
+    margin-inline: 0;
   }
 
   .featured-projects-section {
-    padding: var(--spacing-lg) var(--container-padding);
+    padding: var(--spacing-xl) var(--container-padding);
   }
 
   .featured-projects-container {
-    gap: var(--spacing-md);
+    gap: var(--home-featured-stack-gap);
     margin-bottom: var(--spacing-lg);
     max-width: 100%;
   }
@@ -696,7 +712,7 @@ html {
 
   .project-info {
     width: 100%;
-    padding-right: 20px;
+    padding: 0;
   }
 
   .featured-project-title {
@@ -739,7 +755,7 @@ html {
   }
 
   .view-all-projects-container {
-    margin-top: 1.25rem;
+    margin-top: var(--spacing-lg);
   }
 }
 
@@ -774,7 +790,7 @@ html {
   }
 
   .welcome-title {
-    max-width: min(1100px, calc(100% - var(--title-margin-inline) * 2));
+    max-width: min(1100px, 100%);
   }
 
   .featured-projects-thumbnails {
@@ -803,7 +819,7 @@ html {
   }
 
   .welcome-title {
-    max-width: min(1200px, calc(100% - var(--title-margin-inline) * 2));
+    max-width: min(1200px, 100%);
     font-size: clamp(2.2rem, 2.5vw, 3.5rem);
   }
 
@@ -877,13 +893,13 @@ html {
   }
 
   .featured-projects-container {
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-2xl); /* 40px */
   }
 
   .featured-projects-thumbnails {
     width: 520px;
     min-width: 460px;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-lg); /* 24px */
   }
 
   #main-featured-media-container video,
@@ -913,13 +929,15 @@ html {
   .welcome-title {
     font-size: var(--font-size-h2);
     line-height: 1.3;
-    max-width: min(1000px, calc(100% - var(--title-margin-inline) * 2));
+    max-width: min(1000px, 100%);
   }
 }
 
 /* For mobile devices */
 @media screen and (max-width: 768px) {
   body.home-page {
+    --home-featured-card-padding: var(--spacing-md);
+    --home-media-inset: var(--spacing-sm);
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
@@ -1038,8 +1056,8 @@ html {
   }
 
   .welcome-section {
-    padding: 1.25rem var(--container-padding) 1.5rem;
-    margin-top: calc(var(--nav-height) + 1rem);
+    padding: var(--spacing-lg) var(--container-padding);
+    margin-top: calc(var(--nav-height) + var(--spacing-md));
   }
 
   .welcome-title {
@@ -1047,7 +1065,7 @@ html {
     line-height: 1.35;
     flex-wrap: wrap;
     max-width: 100%;
-    margin-inline: 0 auto;
+    margin-inline: 0;
     padding: 0;
   }
 
@@ -1062,13 +1080,13 @@ html {
   }
 
   .featured-projects-section {
-    padding: 1.5rem var(--container-padding);
+    padding: var(--spacing-lg) var(--container-padding);
   }
 
   .featured-projects-container {
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
+    gap: var(--home-featured-stack-gap);
+    margin-bottom: var(--spacing-lg);
   }
 
   .featured-projects-thumbnails {
@@ -1083,9 +1101,9 @@ html {
 
   .project-thumbnail:nth-child(1),
   .project-thumbnail:nth-child(2) {
-    flex: 0 1 calc(50% - 0.375rem);
-    min-width: calc(50% - 0.375rem);
-    max-width: calc(50% - 0.375rem);
+    flex: 0 1 calc(50% - var(--spacing-sm) / 2);
+    min-width: calc(50% - var(--spacing-sm) / 2);
+    max-width: calc(50% - var(--spacing-sm) / 2);
   }
 
   .main-featured-project {
@@ -1137,9 +1155,9 @@ html {
 
   .project-thumbnail:nth-child(1),
   .project-thumbnail:nth-child(2) {
-    flex: 0 1 calc(50% - 0.375rem);
-    min-width: calc(50% - 0.375rem);
-    max-width: calc(50% - 0.375rem);
+    flex: 0 1 calc(50% - var(--spacing-sm) / 2);
+    min-width: calc(50% - var(--spacing-sm) / 2);
+    max-width: calc(50% - var(--spacing-sm) / 2);
   }
 
   .project-thumbnail:nth-child(3) {
@@ -1178,11 +1196,11 @@ html {
   }
 
   .view-all-projects-container {
-    margin-top: 1.25rem;
+    margin-top: var(--spacing-lg);
   }
 
   .nav-button {
-    padding: 0.75rem 1.75rem;
+    padding: var(--spacing-sm) var(--spacing-xl);
     font-size: clamp(1rem, 1.5vw, 1.1rem);
     min-height: 44px; /* Minimum touch target size */
     display: inline-flex;
@@ -1195,7 +1213,7 @@ html {
 /* Small Screens */
 @media screen and (max-width: 480px) {
   :root {
-    --container-padding: 1rem;
+    --container-padding: var(--page-margin, clamp(1.5rem, 7vw, 7%));
   }
 
   body.home-page {
@@ -1210,7 +1228,7 @@ html {
 
   .welcome-section,
   .featured-projects-section {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--page-margin, clamp(1.5rem, 7vw, 7%));
     width: 100%;
     max-width: 100vw;
   }
@@ -1314,8 +1332,8 @@ html {
   }
 
   .welcome-section {
-    padding: 1.125rem var(--spacing-md) 1.25rem;
-    margin-top: calc(var(--nav-height) + 0.875rem);
+    padding: var(--spacing-md) var(--container-padding) var(--spacing-lg);
+    margin-top: calc(var(--nav-height) + var(--spacing-sm));
   }
 
   .welcome-title {
@@ -1324,7 +1342,7 @@ html {
     line-height: 1.4;
     flex-wrap: wrap;
     max-width: 100%;
-    margin-inline: 0 auto;
+    margin-inline: 0;
   }
 
   .title-text {
@@ -1333,16 +1351,16 @@ html {
   }
 
   .featured-projects-section {
-    padding: 1.25rem 1rem;
+    padding: var(--spacing-lg) var(--container-padding);
   }
 
   .featured-projects-container {
-    gap: 1rem;
-    margin-bottom: 1.25rem;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .main-featured-project {
-    gap: 1rem;
+    gap: var(--home-featured-inner-gap);
   }
 
   .main-featured-project a {
@@ -1391,7 +1409,7 @@ html {
   }
 
   .project-info {
-    margin-top: 0.5rem;
+    margin-top: var(--spacing-xs);
   }
 
   .featured-projects-thumbnails {
@@ -1406,9 +1424,9 @@ html {
 
   .project-thumbnail:nth-child(1),
   .project-thumbnail:nth-child(2) {
-    flex: 0 1 calc(50% - 0.375rem);
-    min-width: calc(50% - 0.375rem);
-    max-width: calc(50% - 0.375rem);
+    flex: 0 1 calc(50% - var(--spacing-sm) / 2);
+    min-width: calc(50% - var(--spacing-sm) / 2);
+    max-width: calc(50% - var(--spacing-sm) / 2);
   }
 
   .project-thumbnail:nth-child(3) {
@@ -1429,7 +1447,7 @@ html {
 
   .featured-project-title {
     font-size: clamp(1rem, 3.5vw, 1.25rem);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
   }
 
   .featured-project-description {
@@ -1438,11 +1456,11 @@ html {
   }
 
   .view-all-projects-container {
-    margin-top: 1rem;
+    margin-top: var(--spacing-md);
   }
 
   .nav-button {
-    padding: 0.75rem 1.5rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
     font-size: clamp(0.95rem, 2.5vw, 1.05rem);
     min-height: 44px; /* Minimum touch target size */
     display: inline-flex;
@@ -1467,23 +1485,24 @@ html {
 /* Extra Small Mobile (320px and below) */
 @media screen and (max-width: 320px) {
   :root {
-    --container-padding: 0.75rem;
+    --container-padding: var(--page-margin, clamp(1.5rem, 7vw, 7%));
   }
 
   .welcome-section {
-    padding: 1rem 0.75rem 1.25rem;
-    margin-top: calc(var(--nav-height) + 0.75rem);
+    padding: var(--spacing-md) var(--page-margin, clamp(1.5rem, 7vw, 7%))
+      var(--spacing-lg);
+    margin-top: calc(var(--nav-height) + var(--spacing-sm));
   }
 
   .featured-projects-section {
-    padding: var(--spacing-md) 0.75rem;
+    padding: var(--spacing-md) var(--page-margin, clamp(1.5rem, 7vw, 7%));
   }
 
   .welcome-title {
     font-size: clamp(1rem, 7vw, 1.5rem);
     line-height: 1.4;
     gap: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
-    margin-inline: 0 auto;
+    margin-inline: 0;
     max-width: 100%;
   }
 
@@ -1501,7 +1520,7 @@ html {
   }
 
   .nav-button {
-    padding: 0.7rem 1.25rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
     font-size: clamp(0.9rem, 3vw, 1rem);
   }
 

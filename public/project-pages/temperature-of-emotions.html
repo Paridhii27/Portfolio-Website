@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <style>
       html,
       body {
@@ -8,23 +8,22 @@
       }
     </style>
     <meta
-      name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+      name="viewport"
     />
-    <link rel="stylesheet" href="../../navbar.css" />
-    <link rel="stylesheet" href="./all-projects.css" />
+    <link href="../../navbar.css" rel="stylesheet" />
+    <link href="./layout.css" rel="stylesheet" />
     <link
+      href="../assets/images/logos/favicon.ico"
       rel="icon"
       type="image/x-icon"
-      href="../assets/images/logos/favicon.ico"
     />
     <title>Temperature of Emotions</title>
   </head>
-
   <!-- Google Analytics -->
   <!-- Google tag (gtag.js) -->
   <script
-    async
+    async=""
     src="https://www.googletagmanager.com/gtag/js?id=G-6F7Y5HSK0Z"
   ></script>
   <script>
@@ -36,121 +35,112 @@
 
     gtag("config", "G-6F7Y5HSK0Z");
   </script>
-
   <body>
-    <!-- Project Visual -->
-    <div class="project-visual">
-      <img
-        src="../assets/images/thumbnails/temperaure-of-emotions.png"
-        id="main-img"
-      />
-    </div>
-
-    <!-- Project Title -->
-    <div class="title">
-      <h1>Temperature of Emotions</h1>
-    </div>
-
     <div class="project-container">
-      <!-- Project Details -->
-      <div class="details">
-        <div class="keywords">
-          <h2 style="color: #cee4eb">Physical computing</h2>
-          <h2 style="color: #6096a7">Speculative Device</h2>
-          <h2 style="color: #1a7691">Research Communication</h2>
+      <div class="project-header">
+        <div class="project-title">
+          <h1>Temperature of Emotions</h1>
+          <div class="project-links">
+            <a
+              class="project-link"
+              href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8174739/#:~:text=For%20example%2C%20being%20accompanied%20by,efficient%20%5B31%E2%80%9333%5D"
+              target=" "
+              >Research Reference
+            </a>
+          </div>
         </div>
-
-        <!-- Tools Used Section -->
-        <div class="tools-container">
+        <div class="spacer"></div>
+        <div class="details">
+          <div class="collaborators-list">
+            <p>
+              <span id="collaborators-title">COLLABORATORS:</span>
+            </p>
+          </div>
+          <div class="project-role">
+            <p>
+              <span id="project-role-title">PROJECT ROLE:</span>
+            </p>
+          </div>
+          <div class="tools-container">
+            <p>
+              <span id="toolkit-title">TOOLKIT</span>
+              <span>Physical computing</span>
+              <span>C++</span>
+              <span>Laser cutting and Engraving</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="project-visual">
+        <img
+          id="main-img"
+          src="../assets/images/thumbnails/temperaure-of-emotions.png"
+        />
+      </div>
+      <div class="keywords">
+        <h3 style="color: #cee4eb">Physical computing</h3>
+        <h3 style="color: #6096a7">Speculative Device</h3>
+        <h3 style="color: #1a7691">Research Communication</h3>
+      </div>
+      <div class="documentation">
+        <div class="project-section">
+          <h3>Concept</h3>
           <p>
-            <span id="toolkit-title">TOOLKIT</span>
-            <span>Physical computing</span>
-            <span>C++</span>
-            <span>Laser cutting and Engraving</span>
+            There is a close correlation between emotions and temperature
+            through embodied processes. We see evidence of this in how we
+            describe emotions using temperature language. Feeling warm or
+            heartwarming is associated with happiness and contentment. Being
+            cold with someone or chilled with fear, on the other hand, carries
+            negative connotations. Emotional temperature appears implicitly and
+            explicitly throughout our lives.
+          </p>
+          <p>
+            Research on this concept is still scarce, but findings show that the
+            hypothalamus—the brain region responsible for maintaining internal
+            balance—regulates temperature through homeostasis. Emotions are
+            homeostatic responses that help maintain our body's internal
+            balance. The theory of constructed emotions suggests that emotions
+            are categorizations of past experiences shaped by embodied
+            knowledge. Rather than coming from specific brain structures, the
+            brain creates emotions as concepts by interpreting sensory
+            information, affect, and physiological changes. The brain triggers
+            these responses based on how it interprets different sensory inputs
+            and physiological processes—a mechanism closely tied to homeostasis.
           </p>
         </div>
-
-        <!-- Project Links Section -->
-        <div class="project-links">
-          <a
-            class="project-link"
-            href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8174739/#:~:text=For%20example%2C%20being%20accompanied%20by,efficient%20%5B31%E2%80%9333%5D"
-            target=" "
-            >Research Reference
-          </a>
-        </div>
-      </div>
-
-      <!-- Project Documentation -->
-      <div class="documentation">
-        <h3>Concept</h3>
-        <p>
-          There is a close correlation between emotions and temperature through
-          embodied processes. We see evidence of this in how we describe
-          emotions using temperature language. Feeling warm or heartwarming is
-          associated with happiness and contentment. Being cold with someone or
-          chilled with fear, on the other hand, carries negative connotations.
-          Emotional temperature appears implicitly and explicitly throughout our
-          lives.
-        </p>
-        <p>
-          Research on this concept is still scarce, but findings show that the
-          hypothalamus—the brain region responsible for maintaining internal
-          balance—regulates temperature through homeostasis. Emotions are
-          homeostatic responses that help maintain our body's internal balance.
-          The theory of constructed emotions suggests that emotions are
-          categorizations of past experiences shaped by embodied knowledge.
-          Rather than coming from specific brain structures, the brain creates
-          emotions as concepts by interpreting sensory information, affect, and
-          physiological changes. The brain triggers these responses based on how
-          it interprets different sensory inputs and physiological processes—a
-          mechanism closely tied to homeostasis.
-        </p>
-        <h3>Speculative Device</h3>
-        <p>
-          I wanted to design a speculative device that showed this correlation
-          between emotions and temperature—a visualizer for temperature change
-          that reacts to your touch. I wanted the device to be able to sense a
-          change in temperature when a person holds the sensor in their hand.
-          The device displays a color visualization of the measured temperature.
-          Heat index controls the saturation and hue, while humidity affects the
-          transparency and blur of the colors. This color scheme reflects how
-          emotions and temperature are represented.
-        </p>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/temperature-of-emotions/t7.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">
-            The device displays warm colors when the temperature is high and
-            cold colors when the temperature is low.
-          </div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/temperature-of-emotions/t1.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-        </div>
-        <div class="inline-img-grid">
+        <div class="project-section">
+          <h3>Speculative Device</h3>
+          <p>
+            I wanted to design a speculative device that showed this correlation
+            between emotions and temperature—a visualizer for temperature change
+            that reacts to your touch. I wanted the device to be able to sense a
+            change in temperature when a person holds the sensor in their hand.
+            The device displays a color visualization of the measured
+            temperature. Heat index controls the saturation and hue, while
+            humidity affects the transparency and blur of the colors. This color
+            scheme reflects how emotions and temperature are represented.
+          </p>
           <div class="inline-img-container">
             <figure>
               <img
                 class="inline-img"
-                src="../assets/images/project-pages/temperature-of-emotions/t2.png"
+                src="../assets/images/project-pages/temperature-of-emotions/t7.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">
+              The device displays warm colors when the temperature is high and
+              cold colors when the temperature is low.
+            </div>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/temperature-of-emotions/t1.png"
               />
               <div></div>
               <div></div>
@@ -158,54 +148,64 @@
               <div></div>
             </figure>
           </div>
+          <div class="inline-img-grid">
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/temperature-of-emotions/t2.png"
+                />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/temperature-of-emotions/t3.png"
+                />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+          </div>
           <div class="inline-img-container">
             <figure>
               <img
                 class="inline-img"
-                src="../assets/images/project-pages/temperature-of-emotions/t3.png"
+                src="../assets/images/project-pages/temperature-of-emotions/t4.png"
               />
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </figure>
-          </div>
-        </div>
-
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/temperature-of-emotions/t4.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">
-            The device depicts transitions in temperature and humidity through
-            color changes.
+            <div class="inline-img-caption">
+              The device depicts transitions in temperature and humidity through
+              color changes.
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Next Previous Buttons Section -->
     <div class="nextPrev">
       <div class="prev-project">
-        <a href="./intermittent.html" class="previous">&#8592;</a>
+        <a class="previous" href="./intermittent.html">←</a>
         <p>Previous Project</p>
       </div>
       <div class="next-project">
         <p>Next Project</p>
-        <a href="./this-machine-is-a-stranger.html" class="next">&#8594;</a>
+        <a class="next" href="./this-machine-is-a-stranger.html">→</a>
       </div>
     </div>
-    <hr />
-
-    <script src="./projects.js"></script>
-    <script src="../navbar.js"></script>
-    <script src="../../script.js"></script>
   </body>
+  <script src="../navbar.js"></script>
+  <script src="../../script.js"></script>
+  <script src="./projects.js"></script>
 </html>

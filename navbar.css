@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 /* ============================================================================
    CSS VARIABLES
@@ -7,20 +7,17 @@
 :root {
   /* Color Palette */
   --nav-bg: #000000;
-  --nav-text: #ffffff;
-  --nav-hover-start: #a49ce0;
-  --nav-hover-end: #a7c3e7;
-  --nav-mobile-hover-start: #99bcf0;
-  --nav-mobile-hover-end: #36d1dc;
+  --nav-text-color: #ffffff;
+  --nav-hover-color: #a7c3e7;
 
   /* Typography */
-  --nav-font-primary: "Quicksand", sans-serif;
-  --nav-font-weight: 700;
+  --nav-font-family: "Inter", sans-serif;
+  --nav-font-weight: 400;
 
   /* Layout - Consistent across all pages */
   --nav-height: 75px;
   --nav-padding: 20px;
-  --logo-size: 50px;
+  --logo-size: 48px;
   --menu-font-size: 20px;
   --menu-link-gap: 4rem; /* Spacing between menu links */
 
@@ -34,12 +31,14 @@
   --space-3xl: 3rem;
 
   /* Shared responsive spacing */
-  --site-page-margin: clamp(1rem, 5vw, 5%);
   --site-section-spacing: clamp(1.5rem, 5vw, 3rem);
   --site-section-gap: clamp(1.25rem, 4vw, 2rem);
 
+  /* Site-wide horizontal gutter (all pages; override per page if needed) */
+  --site-page-margin: clamp(1.5rem, 7vw, 7%);
+
   /* Back-compat / default hooks used across pages */
-  --page-margin: var(--site-page-margin);
+  --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
   --section-spacing: var(--site-section-spacing);
   --section-gap: var(--site-section-gap);
 
@@ -47,6 +46,8 @@
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;
   --transition-slow: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  /* Must match --transition-slow duration (used for menu visibility delay on close) */
+  --nav-menu-duration: 0.5s;
 }
 
 /* ============================================================================
@@ -55,7 +56,7 @@
 
 body {
   padding-top: calc(var(--nav-height) + 1rem);
-} /* Consistent padding for navbar */
+}
 
 /* Instant blank screen when navigating away - no content bleed from previous page */
 body.navigating {
@@ -85,9 +86,9 @@ body.navigating > * {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   box-sizing: border-box;
-  /* Safe area insets for notched devices */
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  /* Align with page content; respect notches */
+  padding-left: max(var(--page-margin), env(safe-area-inset-left));
+  padding-right: max(var(--page-margin), env(safe-area-inset-right));
   padding-top: env(safe-area-inset-top);
   /* Prevent pull-to-refresh interference */
   overscroll-behavior-y: contain;
@@ -100,7 +101,6 @@ nav {
   height: 100%;
   max-width: 90vw;
   margin: 0 auto;
-  padding: 0 var(--nav-padding);
   font-family: var(--nav-font-primary);
   font-weight: var(--nav-font-weight);
   position: relative;
@@ -192,7 +192,7 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--menu-link-gap); /* Consistent spacing between menu links */
+  gap: var(--menu-link-gap);
 }
 
 #menu li {
@@ -200,25 +200,16 @@ nav {
 }
 
 #menu a {
-  color: var(--nav-text);
-  font-family: var(--nav-font-primary);
+  color: var(--nav-text-color);
+  font-family: var(--nav-font-family);
   font-size: var(--menu-font-size);
-  padding: 0.5rem var(--nav-padding); /* Added vertical padding for better spacing */
+  letter-spacing: 0.05em;
   text-decoration: none;
-  font-weight: 450;
   transition: all var(--transition-fast);
-  letter-spacing: 0.05em; /* Slight letter spacing for better readability */
 }
 
 #menu li:hover a {
-  background-image: linear-gradient(
-    to left,
-    var(--nav-hover-start),
-    var(--nav-hover-end)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--nav-hover-color);
 }
 
 /* ============================================================================
@@ -244,13 +235,12 @@ nav {
 
 @media screen and (max-width: 900px) {
   body {
-    margin: 5%;
-    padding: 0;
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top) + 1rem);
+    margin: 0;
     overflow-x: hidden;
     overscroll-behavior-y: contain; /* Prevent pull-to-refresh */
-    padding-left: max(5%, env(safe-area-inset-left)); /* Safe area insets */
-    padding-right: max(5%, env(safe-area-inset-right)); /* Safe area insets */
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top) + 1rem);
+    padding-left: max(var(--page-margin), env(safe-area-inset-left));
+    padding-right: max(var(--page-margin), env(safe-area-inset-right));
     padding-bottom: env(safe-area-inset-bottom); /* Safe area insets */
   }
 
@@ -259,27 +249,41 @@ nav {
     height: var(--nav-height);
   }
 
+  /* Full-width row inside container padding — avoids 90vw gap + extra right inset */
   nav {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
     height: 100%;
-    padding: 0 var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
   }
 
   #menuToggle {
-    display: block;
-    position: absolute;
-    top: 30px;
-    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
     z-index: 1001; /* Higher than the menu */
     user-select: none;
   }
 
   #menuToggle input {
     display: block;
-    width: 50px;
-    height: 44px;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     cursor: pointer;
     opacity: 0;
     z-index: 1002; /* Highest z-index */
@@ -290,31 +294,32 @@ nav {
   /* Hamburger Icon */
   #menuToggle span {
     display: block;
-    width: 25px;
+    width: 24px;
     height: 3px;
     margin-bottom: 4px;
     position: relative;
-    background: var(--nav-text);
+    background: var(--nav-text-color);
     border-radius: 3px;
     z-index: 1001;
-    transform-origin: 4px 0;
     transition:
       transform var(--transition-slow),
       background var(--transition-slow),
       opacity var(--transition-slow);
   }
 
-  #menuToggle span:first-child {
+  #menuToggle span:last-of-type {
+    margin-bottom: 0;
+  }
+
+  #menuToggle span:nth-child(2) {
     transform-origin: 0% 0%;
   }
 
   #menuToggle span:nth-child(3) {
-    /* Second span (middle line) */
     transform-origin: 0% 50%;
   }
 
   #menuToggle span:nth-child(4) {
-    /* Third span (bottom line) */
     transform-origin: 0% 100%;
   }
 
@@ -322,7 +327,7 @@ nav {
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: var(--nav-text);
+    background: var(--nav-text-color);
   }
 
   #menuToggle input:checked ~ span:nth-child(3) {
@@ -335,7 +340,6 @@ nav {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
-  /* Mobile Menu */
   #menu {
     position: fixed;
     top: 0;
@@ -344,7 +348,6 @@ nav {
     height: 100vh;
     height: 100dvh; /* Dynamic viewport height for mobile browsers */
     margin: 0;
-    padding: 0;
     background: var(--nav-bg);
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
@@ -358,16 +361,20 @@ nav {
     align-items: center;
     gap: 2rem;
 
-    /* Animation */
     transform: translateX(100%);
-    transition: transform var(--transition-slow);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* Slide + fade together; delay visibility:hidden until panel finishes (avoids bg vanishing before links) */
+    transition:
+      transform var(--transition-slow),
+      opacity var(--transition-slow),
+      visibility 0s linear var(--nav-menu-duration);
     z-index: 999;
     /* Prevent scrolling when menu is open */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    visibility: hidden;
-    pointer-events: none;
   }
 
   #menu li {
@@ -378,12 +385,13 @@ nav {
 
   #menu a {
     display: block;
-    padding: 1rem;
     font-size: 1.2rem;
-    color: var(--nav-text);
+    color: var(--nav-text-color);
     text-decoration: none;
     font-weight: 450;
-    transition: all var(--transition-fast);
+    transition:
+      color var(--transition-fast),
+      transform var(--transition-fast);
     margin: 0;
     border: none;
     outline: none;
@@ -408,21 +416,20 @@ nav {
   }
 
   #menu li:hover a {
-    background-image: linear-gradient(
-      to right,
-      var(--nav-mobile-hover-start),
-      var(--nav-mobile-hover-end)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--nav-hover-color);
   }
 
   /* Show menu when checkbox is checked */
   #menuToggle input:checked ~ ul {
     transform: translateX(0);
+    opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transition:
+      transform var(--transition-slow),
+      opacity var(--transition-slow),
+      visibility 0s linear 0s;
+    will-change: transform, opacity;
   }
 
   .logo {

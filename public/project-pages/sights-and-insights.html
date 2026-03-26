@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <style>
       html,
       body {
@@ -8,23 +8,22 @@
       }
     </style>
     <meta
-      name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+      name="viewport"
     />
-    <link rel="stylesheet" href="../../navbar.css" />
-    <link rel="stylesheet" href="./all-projects.css" />
+    <link href="../../navbar.css" rel="stylesheet" />
+    <link href="./layout.css" rel="stylesheet" />
     <link
+      href="../assets/images/logos/favicon.ico"
       rel="icon"
       type="image/x-icon"
-      href="../assets/images/logos/favicon.ico"
     />
     <title>Sights and Insights</title>
   </head>
-
   <!-- Google Analytics -->
   <!-- Google tag (gtag.js) -->
   <script
-    async
+    async=""
     src="https://www.googletagmanager.com/gtag/js?id=G-6F7Y5HSK0Z"
   ></script>
   <script>
@@ -36,350 +35,343 @@
 
     gtag("config", "G-6F7Y5HSK0Z");
   </script>
-
   <body>
-    <!-- Project Visual -->
-    <div class="project-visual">
-      <img
-        src="../assets/images/project-pages/sights-and-insights/main.png"
-        id="main-img"
-      />
-    </div>
-
-    <!-- Project Title -->
-    <div class="title">
-      <h1>Sights and Insights</h1>
-    </div>
-
     <div class="project-container">
-      <!-- Project Details -->
-      <div class="details">
-        <div class="keywords">
-          <h2 style="color: #aab970">AI Application</h2>
-          <h2 style="color: #77b0c0">Speech Synthesis</h2>
-          <h2 style="color: #d9b050">Podcast Generation</h2>
+      <div class="project-header">
+        <div class="project-title">
+          <h1>Sights and Insights</h1>
+          <div class="project-links">
+            <a
+              class="project-link"
+              href="https://sights-and-insights.onrender.com"
+              target=" "
+              >Web Application
+            </a>
+            <a
+              class="project-link"
+              href="https://github.com/Paridhii27/AI-in-Nature"
+              target=" "
+              >Github Repository
+            </a>
+          </div>
         </div>
-
-        <!-- Project Links Section -->
-        <div class="project-links">
-          <a
-            class="project-link"
-            href="https://sights-and-insights.onrender.com"
-            target=" "
-            >Web Application
-          </a>
-          <a
-            class="project-link"
-            href="https://github.com/Paridhii27/AI-in-Nature"
-            target=" "
-            >Github Repository
-          </a>
-        </div>
-
-        <div class="collaborators-list">
-          <p>
-            <span id="collaborators-title">COLLABORATOR</span>
-            <span>Christine Chang</span>
-          </p>
-        </div>
-
-        <div class="project-role">
-          <p>
-            <span id="project-role-title">PROJECT ROLE</span>
-            <span>UI/UX Designer</span>
-            <span>Web Developer</span>
-            <span>Prompt Engineer</span>
-          </p>
-        </div>
-
-        <!-- Tools Used Section -->
-        <div class="tools-container">
-          <p>
-            <span id="toolkit-title">TOOLKIT</span>
-            <span>Figma</span>
-            <span>HTML/CSS</span>
-            <span>JavaScript (Node.js, Express.js)</span>
-            <span>ElevenLabs API</span>
-            <span>OpenAI API</span>
-            <span>Render</span>
-          </p>
+        <div class="spacer"></div>
+        <div class="details">
+          <div class="collaborators-list">
+            <p>
+              <span id="collaborators-title">COLLABORATOR</span>
+              <span>Christine Chang</span>
+            </p>
+          </div>
+          <div class="project-role">
+            <p>
+              <span id="project-role-title">PROJECT ROLE</span>
+              <span>UI/UX Designer</span>
+              <span>Web Developer</span>
+              <span>Prompt Engineer</span>
+            </p>
+          </div>
+          <div class="tools-container">
+            <p>
+              <span id="toolkit-title">TOOLKIT</span>
+              <span>Figma</span>
+              <span>HTML/CSS</span>
+              <span>JavaScript (Node.js, Express.js)</span>
+              <span>ElevenLabs API</span>
+              <span>OpenAI API</span>
+              <span>Render</span>
+            </p>
+          </div>
         </div>
       </div>
-
-      <!-- Project Documentation -->
+      <div class="project-visual">
+        <img
+          id="main-img"
+          src="../assets/images/project-pages/sights-and-insights/main.png"
+        />
+      </div>
+      <div class="keywords">
+        <h3 style="color: #aab970">AI Application</h3>
+        <h3 style="color: #77b0c0">Speech Synthesis</h3>
+        <h3 style="color: #d9b050">Podcast Generation</h3>
+      </div>
       <div class="documentation">
-        <h3>Design Problem</h3>
-        <p>
-          How can AI encourage us to engage directly with our physical
-          surroundings rather than confining us to digital spaces? As technology
-          increasingly mediates our daily experiences, there's an opportunity to
-          leverage AI not as a barrier, but as a bridge which prompts us to
-          observe, question, and connect with the spaces we move through. The
-          core design problem is:
-          <strong
-            >Can we create AI-based experiences that reinforce curiosity and
-            active engagement with the real world around us?</strong
-          >
-        </p>
-
-        <h3>Transforming ordinary walks</h3>
-        <p>
-          Sights and Insights is a web-based application that transforms
-          ordinary walks into ones filled with curious interventions and
-          meaningful discoveries. This voice-based AI application encourages
-          users to actively engage with the spaces they find themselves
-          in—whether navigating familiar neighborhoods, exploring new cities, or
-          walking through nature. Rather than passively consuming content, users
-          are prompted to observe, question, and connect with their physical
-          environment in dynamic ways.
-        </p>
-        <div class="inline-video-grid">
-          <div class="inline-video-container">
-            <figure>
-              <video
-                class="inline-video"
-                controls
-                muted
-                loop
-                playsinline
-                autoplay
-                preload="auto"
-              >
-                <source
-                  src="../assets/videos/sights-insights-demo-1.mp4"
-                  type="video/mp4"
+        <div class="project-section">
+          <h3>Design Problem</h3>
+          <p>
+            How can AI encourage us to engage directly with our physical
+            surroundings rather than confining us to digital spaces? As
+            technology increasingly mediates our daily experiences, there's an
+            opportunity to leverage AI not as a barrier, but as a bridge which
+            prompts us to observe, question, and connect with the spaces we move
+            through. The core design problem is:
+            <strong
+              >Can we create AI-based experiences that reinforce curiosity and
+              active engagement with the real world around us?</strong
+            >
+          </p>
+        </div>
+        <div class="project-section">
+          <h3>Transforming ordinary walks</h3>
+          <p>
+            Sights and Insights is a web-based application that transforms
+            ordinary walks into ones filled with curious interventions and
+            meaningful discoveries. This voice-based AI application encourages
+            users to actively engage with the spaces they find themselves
+            in—whether navigating familiar neighborhoods, exploring new cities,
+            or walking through nature. Rather than passively consuming content,
+            users are prompted to observe, question, and connect with their
+            physical environment in dynamic ways.
+          </p>
+          <div class="inline-video-grid">
+            <div class="inline-video-container">
+              <figure>
+                <video
+                  autoplay=""
+                  class="inline-video"
+                  controls=""
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  preload="auto"
+                >
+                  <source
+                    src="../assets/videos/sights-insights-demo-1.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-video-container">
+              <figure>
+                <video
+                  autoplay=""
+                  class="inline-video"
+                  controls=""
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  preload="auto"
+                >
+                  <source
+                    src="../assets/videos/sights-insights-demo-2.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-video-container">
+              <figure>
+                <video
+                  autoplay=""
+                  class="inline-video"
+                  controls=""
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  preload="auto"
+                >
+                  <source
+                    src="../assets/videos/sights-insights-demo-3.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+          </div>
+          <p>
+            The application offers different interaction modes—speculative
+            thinking, playful wordplay, mindfulness, and learning—adapting to
+            your context and intentions. It creates personalized podcasts that
+            respond to what you see, what you want to know more about, and where
+            you are. Every walk becomes an opportunity for curiosity, learning,
+            and deeper connection with the world around you.
+          </p>
+        </div>
+        <div class="project-section">
+          <h3>User Interaction</h3>
+          <p>
+            When you first open the application, you're prompted to click
+            anywhere on your video feed to start interacting with the space
+            around you. Clicking on the real-time feed captures a snapshot and
+            marks the area you selected. The image is then analyzed to identify
+            what you clicked on and its surrounding context. For example,
+            clicking on a cloud prompts questions like: Is it an overcast day or
+            sunny? What kind of location are you in? Is there anything else in
+            the image? These factors are shaped into a specific tone—whether it
+            highlights the scientific aspects of cloud formation, grounds you in
+            your surroundings, or weaves fictional narratives around it.
+          </p>
+          <div class="inline-img-grid-three">
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/sights-and-insights/sight-insight-1.png"
                 />
-                Your browser does not support the video tag.
-              </video>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-
-          <div class="inline-video-container">
-            <figure>
-              <video
-                class="inline-video"
-                controls
-                muted
-                loop
-                playsinline
-                autoplay
-                preload="auto"
-              >
-                <source
-                  src="../assets/videos/sights-insights-demo-2.mp4"
-                  type="video/mp4"
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/sights-and-insights/sight-insight-2.png"
                 />
-                Your browser does not support the video tag.
-              </video>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-
-          <div class="inline-video-container">
-            <figure>
-              <video
-                class="inline-video"
-                controls
-                muted
-                loop
-                playsinline
-                autoplay
-                preload="auto"
-              >
-                <source
-                  src="../assets/videos/sights-insights-demo-3.mp4"
-                  type="video/mp4"
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/sights-and-insights/sight-insight-3.png"
                 />
-                Your browser does not support the video tag.
-              </video>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+          </div>
+          <p>
+            The web application offers four modes—funny, educational,
+            speculative, and mindful—each shaping the kind of podcast you
+            receive. Each mode uses a specific prompt to define the content,
+            with a token limit to control podcast segment length. As you click
+            through your environment, you receive podcasts in tones that match
+            your intention that day, helping you connect more deeply with the
+            world around you.
+          </p>
+          <div class="inline-img-grid">
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/sights-and-insights/sight-insight-4.png"
+                />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
+            <div class="inline-img-container">
+              <figure>
+                <img
+                  class="inline-img"
+                  src="../assets/images/project-pages/sights-and-insights/sight-insight-5.png"
+                />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </figure>
+            </div>
           </div>
         </div>
-        <p>
-          The application offers different interaction modes—speculative
-          thinking, playful wordplay, mindfulness, and learning—adapting to your
-          context and intentions. It creates personalized podcasts that respond
-          to what you see, what you want to know more about, and where you are.
-          Every walk becomes an opportunity for curiosity, learning, and deeper
-          connection with the world around you.
-        </p>
-
-        <h3>User Interaction</h3>
-        <p>
-          When you first open the application, you're prompted to click anywhere
-          on your video feed to start interacting with the space around you.
-          Clicking on the real-time feed captures a snapshot and marks the area
-          you selected. The image is then analyzed to identify what you clicked
-          on and its surrounding context. For example, clicking on a cloud
-          prompts questions like: Is it an overcast day or sunny? What kind of
-          location are you in? Is there anything else in the image? These
-          factors are shaped into a specific tone—whether it highlights the
-          scientific aspects of cloud formation, grounds you in your
-          surroundings, or weaves fictional narratives around it.
-        </p>
-        <div class="inline-img-grid-three">
+        <div class="project-section">
+          <h3>Making of Sights and Insights</h3>
+          <p>
+            The application is built with HTML/CSS and JavaScript, hosted on
+            Render. It uses the OpenAI API to generate podcast content and the
+            ElevenLabs API to create natural voice tones.
+          </p>
           <div class="inline-img-container">
             <figure>
               <img
                 class="inline-img"
-                src="../assets/images/project-pages/sights-and-insights/sight-insight-1.png"
+                src="../assets/images/project-pages/sights-and-insights/UI-kit.png"
               />
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-img-caption">Color palette and font choices</div>
           </div>
           <div class="inline-img-container">
             <figure>
               <img
                 class="inline-img"
-                src="../assets/images/project-pages/sights-and-insights/sight-insight-2.png"
+                src="../assets/images/project-pages/sights-and-insights/Ui-components.png"
               />
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-img-caption">
+              UI components and design system
+            </div>
           </div>
           <div class="inline-img-container">
             <figure>
               <img
                 class="inline-img"
-                src="../assets/images/project-pages/sights-and-insights/sight-insight-3.png"
+                src="../assets/images/project-pages/sights-and-insights/Settings-pg.png"
               />
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </figure>
+            <div class="inline-img-caption">Settings page interface</div>
           </div>
         </div>
-
-        <p>
-          The web application offers four modes—funny, educational, speculative,
-          and mindful—each shaping the kind of podcast you receive. Each mode
-          uses a specific prompt to define the content, with a token limit to
-          control podcast segment length. As you click through your environment,
-          you receive podcasts in tones that match your intention that day,
-          helping you connect more deeply with the world around you.
-        </p>
-        <div class="inline-img-grid">
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/sights-and-insights/sight-insight-4.png"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-          <div class="inline-img-container">
-            <figure>
-              <img
-                class="inline-img"
-                src="../assets/images/project-pages/sights-and-insights/sight-insight-5.png"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
+        <div class="project-section">
+          <h3>Further Iterations</h3>
+          <p>
+            Sights and Insights is designed for exploration, with a younger
+            audience as its initial focus. By combining AI-generated audio with
+            real-time environmental engagement, it reimagines how we interact
+            with our surroundings—turning passive observation into active
+            discovery.
+          </p>
+          <p>
+            It's an idea that can be expanded in many directions: highlighting
+            history embedded in city landmarks, providing context while
+            wandering through museums, identifying plants and birds in national
+            parks, or simply helping you navigate everyday neighborhoods with
+            fresh curiosity.
+          </p>
         </div>
-
-        <h3>Making of Sights and Insights</h3>
-        <p>
-          The application is built with HTML/CSS and JavaScript, hosted on
-          Render. It uses the OpenAI API to generate podcast content and the
-          ElevenLabs API to create natural voice tones.
-        </p>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/sights-and-insights/UI-kit.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">Color palette and font choices</div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/sights-and-insights/Ui-components.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">UI components and design system</div>
-        </div>
-        <div class="inline-img-container">
-          <figure>
-            <img
-              class="inline-img"
-              src="../assets/images/project-pages/sights-and-insights/Settings-pg.png"
-            />
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
-          <div class="inline-img-caption">Settings page interface</div>
-        </div>
-
-        <h3>Further Iterations</h3>
-        <p>
-          Sights and Insights is designed for exploration, with a younger
-          audience as its initial focus. By combining AI-generated audio with
-          real-time environmental engagement, it reimagines how we interact with
-          our surroundings—turning passive observation into active discovery.
-        </p>
-        <p>
-          It's an idea that can be expanded in many directions: highlighting
-          history embedded in city landmarks, providing context while wandering
-          through museums, identifying plants and birds in national parks, or
-          simply helping you navigate everyday neighborhoods with fresh
-          curiosity.
-        </p>
       </div>
     </div>
-
     <!-- Next Previous Buttons Section -->
     <div class="nextPrev">
       <div class="prev-project">
-        <a href="./postcards-between-worlds.html" class="previous">&#8592;</a>
+        <a class="previous" href="./postcards-between-worlds.html">←</a>
         <p>Previous Project</p>
       </div>
       <div class="next-project">
         <p>Next Project</p>
-        <a href="./a-firefly-symphony.html" class="next">&#8594;</a>
+        <a class="next" href="./a-firefly-symphony.html">→</a>
       </div>
     </div>
-    <hr />
-
-    <script src="./projects.js"></script>
-    <script src="../navbar.js"></script>
-    <script src="../../script.js"></script>
   </body>
+  <script src="../navbar.js"></script>
+  <script src="../../script.js"></script>
+  <script src="./projects.js"></script>
 </html>

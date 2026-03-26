@@ -2,6 +2,24 @@
 // BFCache recovery: project pages also load script.js, which reloads on back/forward
 // (same behavior as projects.html) so back navigation between project pages works.
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure all <p> elements inside the documentation block are wrapped in
+  // .project-content-container so the layout/typography CSS applies.
+  // (Migration scripts sometimes leave <p> directly under .documentation.)
+  document.querySelectorAll(".documentation").forEach((doc) => {
+    const paragraphs = Array.from(doc.querySelectorAll("p"));
+    paragraphs.forEach((p) => {
+      if (p.closest(".project-content-container")) return;
+      const wrapper = document.createElement("div");
+      wrapper.className = "project-content-container";
+
+      // Prefer keeping the wrapper inside the closest .project-section so
+      // spacing/layout remains consistent.
+      const section = p.closest(".project-section") || doc;
+      section.insertBefore(wrapper, p);
+      wrapper.appendChild(p);
+    });
+  });
+
   // Create fullscreen overlay if it doesn't exist
   let overlay = document.querySelector(".inline-fullscreen");
   if (!overlay) {

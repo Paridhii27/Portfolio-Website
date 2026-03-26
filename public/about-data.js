@@ -1,12 +1,5 @@
-/**
- * About Page Data Structure
- * Contains gallery images and contact information
- */
-
 const AboutData = {
-  /**
-   * Contact links data
-   */
+  /* Contact links data*/
   contactLinks: [
     {
       id: "email",
@@ -45,9 +38,7 @@ const AboutData = {
     },
   ],
 
-  /**
-   * Exhibitions data
-   */
+  /* Exhibitions data */
   exhibitions: [
     {
       number: "01.",
@@ -66,9 +57,7 @@ const AboutData = {
     },
   ],
 
-  /**
-   * Toolkit data
-   */
+  /* Toolkit data */
   toolkit: [
     {
       number: "01.",
@@ -100,46 +89,7 @@ const AboutData = {
     },
   ],
 
-  /**
-   * Render gallery images
-   */
-  renderGallery() {
-    const galleryContent = document.getElementById("gallery-content");
-    if (!galleryContent) return;
-
-    const columns = ["column1", "column2", "column3"];
-    const columnsHTML = columns
-      .map((columnKey) => {
-        const images = this.galleryImages[columnKey];
-        const imagesHTML = images
-          .map((img) => {
-            const widthAttr = img.width ? `width="${img.width}"` : "";
-            const heightAttr = img.height ? `height="${img.height}"` : "";
-            return `
-          <div class="grid-item">
-            <img
-              src="${img.src}"
-              alt="${img.alt}"
-              loading="lazy"
-              decoding="async"
-              ${widthAttr}
-              ${heightAttr}
-            />
-          </div>
-        `;
-          })
-          .join("");
-
-        return `<div class="grid-column">${imagesHTML}</div>`;
-      })
-      .join("");
-
-    galleryContent.innerHTML = `<div class="image-grid">${columnsHTML}</div>`;
-  },
-
-  /**
-   * Render contact links
-   */
+  /* Render contact links function */
   renderContactLinks() {
     const contactLinksContainer = document.querySelector(".contact-links");
     if (!contactLinksContainer) return;
@@ -176,9 +126,7 @@ const AboutData = {
     contactLinksContainer.innerHTML = linksHTML;
   },
 
-  /**
-   * Render exhibitions dropdown
-   */
+  /* Render exhibitions dropdown function */
   renderExhibitions() {
     const exhibitionsContent = document.getElementById("exhibitions-content");
     if (!exhibitionsContent) return;
@@ -200,9 +148,7 @@ const AboutData = {
     exhibitionsContent.innerHTML = exhibitionsHTML;
   },
 
-  /**
-   * Render toolkit dropdown
-   */
+  /* Render toolkit dropdown function */
   renderToolkit() {
     const toolkitContent = document.getElementById("toolkit-content");
     if (!toolkitContent) return;
@@ -224,12 +170,14 @@ const AboutData = {
     toolkitContent.innerHTML = toolkitHTML;
   },
 
-  /**
-   * Render skills in resume modal
-   */
+  /* Render resume function */
   renderSkills() {
     const resumeContent = document.getElementById("resume-content");
     if (!resumeContent) return;
+    if (!Array.isArray(this.skills) || this.skills.length === 0) {
+      resumeContent.innerHTML = "";
+      return;
+    }
 
     const skillsHTML = this.skills
       .map((skill, index) => {

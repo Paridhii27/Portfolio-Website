@@ -88,18 +88,14 @@
               Design and Technology from Parsons School of Design.
             </p>
             <p>
-              My work centers on designing encounters with technology: moments
-              where interfaces feel less like utilities and more like spaces for
-              reflection, play, and learning. I enjoy tinkering with emerging
-              tools and researching human–machine interactions.
-            </p>
-            <p>
-              I design and build AI-based web interfaces, interactive
-              installations, narrative 3D environments, and sensor-driven
-              immersive experiences that bring people together, spark new ways
-              of thinking, and translate complex systems into human-scale
-              interactions—often encouraging observation, connection, and
-              curiosity in the physical world.
+              I design and develop interactive interfaces and experiences that
+              prompt observation, connection, and curiosity in the physical
+              world and translate complex systems into human-scale interactions.
+              I also focus on designing encounters with technology—moments where
+              interfaces feel less like utilities and more like spaces for
+              reflection, play, and learning. These works take many different
+              forms, from AI-based web interfaces and narrative 3D worlds to
+              spatial installations and sensor-based physical experiences.
             </p>
             <p>
               I’ve previously collaborated with IBM Quantum and the DLR
@@ -148,18 +144,19 @@
   <script>
     // Initialize about page when DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
-      // Render contact links, gallery, exhibitions, toolkit, and skills
+      // Render page content driven by AboutData
       AboutData.renderContactLinks();
-      AboutData.renderGallery();
       AboutData.renderExhibitions();
       AboutData.renderToolkit();
-      AboutData.renderSkills();
+
+      // Only render modal-driven content if the relevant containers exist.
+      AboutData.renderGallery?.();
+      AboutData.renderSkills?.();
     });
 
     // Toggle exhibitions dropdown
     function toggleExhibitions() {
       const dropdown = document.querySelector(".exhibitions-dropdown");
-      const contentRight = document.querySelector(".content-right");
       const isOpening = !dropdown.classList.contains("active");
 
       dropdown.classList.toggle("active");
@@ -176,7 +173,6 @@
     // Toggle toolkit dropdown
     function toggleToolkit() {
       const dropdown = document.querySelector(".toolkit-dropdown");
-      const contentRight = document.querySelector(".content-right");
       const isOpening = !dropdown.classList.contains("active");
 
       dropdown.classList.toggle("active");
