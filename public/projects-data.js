@@ -96,7 +96,7 @@ const ProjectsData = {
 
     {
       id: "firefly-symphony",
-      title: "A Firefly Symphony",
+      title: "Firefly Symphony",
       year: "2025",
       description: "What would a festival for fireflies be?",
       thumbnail: "./assets/images/thumbnails/firefly-symphony.png",
