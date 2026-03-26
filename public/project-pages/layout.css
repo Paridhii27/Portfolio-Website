@@ -502,6 +502,29 @@ p {
   min-width: 0;
 }
 
+/* Longform docs: interleaved paragraphs and figures — stack in one column on all viewports */
+.documentation.documentation--longform .project-section {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-xl);
+}
+
+.documentation.documentation--longform .project-section > .project-content-container {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: min(70ch, 100%);
+  align-self: center;
+}
+
+.documentation.documentation--longform .project-section > .inline-img-container,
+.documentation.documentation--longform .project-section > .inline-img-grid {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: stretch;
+}
+
 /* Direct row siblings only (not grids/galleries nested inside a section) */
 .documentation .project-section > .inline-video-container {
   flex: 1 1 280px;
