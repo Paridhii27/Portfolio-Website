@@ -124,7 +124,7 @@ const ProjectsData = {
     },
     {
       id: "warped-memories",
-      title: "Warped Memories",
+      title: "Warped Memories of Digital Ghosts",
       year: "2023",
       description:
         "This speculative environment draws a poetic parallel between human memories and browser cookies, inviting participants into a data store where personal memories become uniquely flavored cookies.",

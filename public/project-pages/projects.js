@@ -2,22 +2,48 @@
 // BFCache recovery: project pages also load script.js, which reloads on back/forward
 // (same behavior as projects.html) so back navigation between project pages works.
 document.addEventListener("DOMContentLoaded", function () {
-  // Ensure all <p> elements inside the documentation block are wrapped in
-  // .project-content-container so the layout/typography CSS applies.
-  // (Migration scripts sometimes leave <p> directly under .documentation.)
-  document.querySelectorAll(".documentation").forEach((doc) => {
-    const paragraphs = Array.from(doc.querySelectorAll("p"));
-    paragraphs.forEach((p) => {
-      if (p.closest(".project-content-container")) return;
+  // Wrap loose <h3> and <p> in .documentation (not captions) in
+  // .project-content-container, grouping consecutive siblings per parent.
+  const CAPTION_SELECTOR =
+    ".inline-img-caption, .inline-video-caption, .inline-audio-caption, .gallery-caption, figcaption";
+
+  function shouldWrapDocText(el) {
+    if (!["H3", "P"].includes(el.tagName)) return false;
+    if (!el.closest(".documentation")) return false;
+    if (el.closest(".project-content-container")) return false;
+    if (el.closest(CAPTION_SELECTOR)) return false;
+    if (el.closest(".nextPrev")) return false;
+    return true;
+  }
+
+  function wrapConsecutiveRuns(parent) {
+    let child = parent.firstElementChild;
+    while (child) {
+      if (!shouldWrapDocText(child)) {
+        child = child.nextElementSibling;
+        continue;
+      }
+      const run = [];
+      let n = child;
+      while (n && shouldWrapDocText(n)) {
+        const nx = n.nextElementSibling;
+        run.push(n);
+        n = nx;
+      }
       const wrapper = document.createElement("div");
       wrapper.className = "project-content-container";
+      parent.insertBefore(wrapper, run[0]);
+      run.forEach((node) => wrapper.appendChild(node));
+      child = wrapper.nextElementSibling;
+    }
+  }
 
-      // Prefer keeping the wrapper inside the closest .project-section so
-      // spacing/layout remains consistent.
-      const section = p.closest(".project-section") || doc;
-      section.insertBefore(wrapper, p);
-      wrapper.appendChild(p);
+  document.querySelectorAll(".documentation").forEach((doc) => {
+    const parents = new Set();
+    doc.querySelectorAll("h3, p").forEach((el) => {
+      if (shouldWrapDocText(el)) parents.add(el.parentElement);
     });
+    parents.forEach((parent) => wrapConsecutiveRuns(parent));
   });
 
   // Create fullscreen overlay if it doesn't exist
