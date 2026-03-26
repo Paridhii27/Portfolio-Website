@@ -36,9 +36,15 @@
   /* Homepage — padding/rhythm on 4px & 8px grid (rem @ 16px root) */
   --home-section-padding-y: var(--spacing-xl); /* 32px */
   --home-section-padding-y-loose: var(--spacing-2xl); /* 40px */
-  --home-featured-card-padding: var(--spacing-lg); /* 24px — inside dashed border */
-  --home-featured-stack-gap: var(--spacing-lg); /* 24px — main card vs thumbnails */
-  --home-featured-inner-gap: var(--spacing-md); /* 16px — title / media / text */
+  --home-featured-card-padding: var(
+    --spacing-lg
+  ); /* 24px — inside dashed border */
+  --home-featured-stack-gap: var(
+    --spacing-lg
+  ); /* 24px — main card vs thumbnails */
+  --home-featured-inner-gap: var(
+    --spacing-md
+  ); /* 16px — title / media / text */
   --home-media-inset: var(--spacing-md); /* 16px — padding around hero media */
 
   /* Container Spacing (match other pages via navbar --page-margin) */
@@ -412,7 +418,7 @@ html {
 .featured-project-description {
   font-family: var(--content-font);
   font-size: var(--font-size-paragraph);
-  color: var(--text-color);
+  color: #ffffffc7;
   line-height: var(--line-height-normal);
   margin: 0;
   flex: 1;

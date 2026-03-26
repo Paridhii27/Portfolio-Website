@@ -33,16 +33,13 @@
   --space-2xl: 2.5rem; /* 40px */
   --space-3xl: 3rem; /* 48px */
 
-  --border-radius: 15px;
   --content-line-height: 1.4;
+  --border-radius: 15px;
+  --touch-target-min: 44px;
 
   --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
 
   --layout-content-max: 90vw;
-
-  /* Match all-projects touch targets when navbar vars are present */
-  --touch-target-min: 44px;
-
   --layout-nextprev-h: 65px;
   /* Scroll clearance above fixed next/prev (matches bar min-height + vertical padding + gap) */
   --layout-body-pad-bottom: calc(
@@ -292,7 +289,7 @@ p {
   padding-bottom: 0;
 }
 
-/* Section labels (first row in each block) */
+/* Section labels */
 #project-role-title,
 .project-role p span:first-child,
 #collaborators-title,
@@ -323,14 +320,12 @@ p {
   max-width: 100%;
   min-width: 0;
   border-radius: var(--border-radius);
-  /* Do not clip: Vimeo/iframe controls sit at the bottom of the player rect */
   overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-/* Hero embed (Vimeo, etc.): same width as the rest of the project column; 16×9 height */
 .project-visual .video-container {
   position: relative;
   width: 100%;
@@ -359,7 +354,6 @@ p {
   animation: none !important;
 }
 
-/* Legacy embed box model when aspect-ratio is unavailable */
 @supports not (aspect-ratio: 16 / 9) {
   .project-visual .video-container {
     width: 100%;
@@ -379,7 +373,6 @@ p {
   filter: none;
 }
 
-/* Full column width; height follows intrinsic aspect ratio (no max-height — avoids narrowing) */
 .project-visual img,
 .project-visual #main-visual,
 .project-visual #main-img {
@@ -392,7 +385,7 @@ p {
 
 /* ============================================================================
      KEYWORDS CONTAINER STYLING
-     ============================================================================ */
+============================================================================ */
 .keywords {
   display: flex;
   flex-direction: row;
@@ -435,10 +428,59 @@ p {
   border-radius: var(--border-radius);
   padding: var(--space-2xl);
   padding-bottom: var(--space-md);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: calc(var(--space-3xl) + 2rem);
 }
 
-/* Lists in doc body (from all-projects.css; exclude credits grid ul) */
+.project-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-3xl);
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Inline Image Layouts */
+.project-section .inline-img-container {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 100%;
+  align-self: flex-start;
+}
+
+.documentation .project-section > .inline-img-container {
+  margin-top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.project-section > .inline-img-grid {
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.project-section > .inline-img-gallery {
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Inline Video Layout */
+.documentation .project-section > .inline-video-container {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 100%;
+  width: auto;
+  align-self: flex-start;
+  align-items: stretch;
+}
+
+/* Credits List */
 .documentation ul:not(.credits-list) {
   margin: 1.25rem 0;
   padding-left: 0;
@@ -470,75 +512,8 @@ p {
   margin-bottom: 1.25rem;
 }
 
-.project-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--space-3xl);
-  align-items: flex-start;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-.project-section .inline-img-container {
-  flex: 1 1 280px;
-  min-width: 0;
-  max-width: 100%;
-}
-
-/* Full-width image grid as the only row child */
-.project-section > .inline-img-grid {
-  flex: 1 1 100%;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-.project-section > .inline-img-gallery {
-  flex: 1 1 100%;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-/* Longform docs: interleaved paragraphs and figures — stack in one column on all viewports */
-.documentation.documentation--longform .project-section {
-  flex-direction: column;
-  align-items: stretch;
-  gap: var(--space-xl);
-}
-
-.documentation.documentation--longform
-  .project-section
-  > .project-content-container {
-  flex: 0 1 auto;
-  width: 100%;
-  max-width: min(70ch, 100%);
-  align-self: center;
-}
-
-.documentation.documentation--longform .project-section > .inline-img-container,
-.documentation.documentation--longform .project-section > .inline-img-grid {
-  flex: 0 1 auto;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  align-self: stretch;
-}
-
-/* Direct row siblings only (not grids/galleries nested inside a section) */
-.documentation .project-section > .inline-video-container {
-  flex: 1 1 280px;
-  min-width: 0;
-  max-width: 100%;
-  width: auto;
-  align-self: flex-start;
-  align-items: stretch;
-}
-
 /* ============================================================================
-   INLINE IMAGE + HOVER INTERACTION
+   INLINE IMAGE AND VIDEO + HOVER INTERACTION
    ============================================================================ */
 
 .project-container .inline-img-container {
@@ -671,7 +646,7 @@ p {
   transition: all 0.3s ease;
 }
 
-/* Inline video: corner-bracket hover (all-projects.css; needs empty divs in figure) */
+/* Inline video hover */
 .project-container .inline-video-container figure:hover {
   position: relative;
   object-fit: contain;
@@ -740,7 +715,6 @@ p {
   transition: all 0.3s ease;
 }
 
-/* Same hover behavior scoped to .documentation (matches all-projects.css) */
 .documentation .inline-img-container figure:hover,
 .documentation .inline-video-container figure:hover {
   position: relative;
@@ -822,7 +796,9 @@ p {
   max-height: none;
 }
 
-/* Singular inline images (not grid/gallery — those override below): full height, width obeys column */
+/* ============================================================================
+   SINGLE INLINE IMAGE
+   ============================================================================ */
 .documentation .inline-img-container .inline-img {
   max-width: 100%;
   width: auto;
@@ -848,7 +824,9 @@ p {
   hyphens: auto;
 }
 
-/* Inline video block + caption (for pages that use .inline-video-container) */
+/* ============================================================================
+   INLINE VIDEO CONTAINER
+   ============================================================================ */
 .documentation .inline-video-container {
   display: flex;
   flex-direction: column;
@@ -882,7 +860,7 @@ p {
   box-sizing: border-box;
 }
 
-/* Standalone inline video: narrower column, full frame visible (no crop) */
+/* Standalone inline video: narrower column */
 .documentation .inline-video {
   width: 100%;
   max-width: min(100%, 520px);
@@ -901,14 +879,13 @@ p {
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-/* In a project-section row, fill the flex slot (drop 520px cap) */
+/* In a project-section row, fill the flex slot */
 .documentation .project-section > .inline-video-container .inline-video {
   width: 100%;
   max-width: 100%;
   margin-inline: 0;
 }
 
-/* Figure fills the flex column width */
 .documentation .project-section > .inline-video-container figure {
   width: 100%;
   max-width: 100%;
@@ -998,6 +975,11 @@ p {
    CREDITS AND REFERENCES SECTION STYLING
    ============================================================================ */
 .documentation .credits-container {
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: stretch;
   margin-top: 1.5rem;
   padding-top: 1rem;
 }
@@ -1127,7 +1109,8 @@ p {
 .documentation .inline-img-grid-three .inline-img-container figure {
   width: auto;
   height: 400px;
-  padding: 0;
+  /* Keep hover corners evenly inset around image */
+  padding: clamp(4px, 1vw, 10px);
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -1136,7 +1119,8 @@ p {
 .documentation .inline-img-grid .inline-img,
 .documentation .inline-img-grid-three .inline-img {
   width: auto;
-  height: 400px;
+  /* subtract symmetric figure padding (top+bottom) */
+  height: calc(400px - (2 * clamp(4px, 1vw, 10px)));
   object-fit: cover;
   display: block;
 }
@@ -1491,6 +1475,9 @@ p {
   flex: 0 1 auto;
 }
 
+/* ============================================================================
+   PROJECT CONTENT CONTAINER
+   ============================================================================ */
 .project-content-container {
   flex: 1 1 280px;
   min-width: 0;
@@ -1822,6 +1809,8 @@ p {
   }
 
   .project-link {
+    font-family: var(--content-font);
+    font-size: var(--font-size-paragraph);
     padding: var(--space-xs) var(--space-sm);
     font-size: clamp(0.8rem, 2.8vw, 1rem);
   }
@@ -1849,11 +1838,6 @@ p {
     letter-spacing: 0.02em;
   }
 
-  .project-links {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   .project-link {
     width: 100%;
     max-width: 100%;
@@ -1875,10 +1859,81 @@ p {
   }
 }
 
-/* Narrow screens: stack doc rows; avoid flex overflow */
 @media screen and (max-width: 768px) {
+  .project-container {
+    gap: var(--space-lg);
+  }
+
+  .documentation {
+    padding: var(--space-md);
+    padding-bottom: var(--space-sm);
+    gap: var(--space-xl);
+  }
+
+  .project-link {
+    width: auto;
+    max-width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: var(--touch-target-min, 44px);
+  }
+
+  .collaborators-list,
+  .project-role,
+  .tools-container {
+    display: none;
+  }
+
+  .keywords {
+    flex-direction: column;
+    padding: var(--space-sm);
+  }
+
+  .keywords h3 {
+    flex: 1 1 auto;
+    min-width: 0;
+    line-height: 1.3;
+    padding: 0.15rem 0;
+    overflow-wrap: anywhere;
+    align-self: center;
+    text-align: left;
+  }
+
   .project-section {
     flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  /* Text-only rows: tighten spacing when a section has no media blocks */
+  .project-section:has(> .project-content-container):not(
+      :has(> :not(.project-content-container))
+    ) {
+    gap: 0;
+  }
+
+  .project-section:has(> .project-content-container):not(
+      :has(> :not(.project-content-container))
+    )
+    > .project-content-container {
+    flex: 0 1 auto;
+  }
+
+  .project-section:has(> .project-content-container):not(
+      :has(> :not(.project-content-container))
+    )
+    > .project-content-container
+    :is(h3, p):last-child {
+    margin-bottom: 0;
+  }
+
+  .documentation img,
+  .documentation video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .documentation .inline-audio-container audio {
+    max-width: 100%;
   }
 
   .project-section .inline-img-container,
@@ -1886,6 +1941,45 @@ p {
   .project-content-container {
     flex: 1 1 auto;
     width: 100%;
+  }
+
+  /* Mobile: center media blocks and keep them inside documentation width */
+  .documentation .inline-img-container,
+  .documentation .inline-video-container,
+  .documentation .inline-img-grid .inline-img-container,
+  .documentation .inline-img-grid-three .inline-img-container,
+  .documentation .inline-video-grid .inline-video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .documentation .inline-img-container figure,
+  .documentation .inline-video-container figure,
+  .documentation .inline-img-grid .inline-img-container figure,
+  .documentation .inline-img-grid-three .inline-img-container figure,
+  .documentation .inline-video-grid .inline-video-container figure {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .documentation .inline-img,
+  .documentation .inline-video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .project-container .inline-img {
@@ -1958,7 +2052,7 @@ p {
   }
 
   .documentation .inline-img-gallery .gallery-slides {
-    min-height: 300px;
+    min-height: min(300px, 55vh);
   }
 
   .documentation .inline-img-gallery .gallery-dots {
@@ -1986,7 +2080,6 @@ p {
     padding: 0.5rem;
   }
 
-  /* Keep full image height visible; scale width only (grids/galleries use more specific rules) */
   .documentation > .inline-img-container .inline-img,
   .documentation .project-section > .inline-img-container .inline-img {
     width: auto;
@@ -1994,6 +2087,28 @@ p {
     height: auto;
     max-height: none;
     object-fit: contain;
+  }
+}
+
+/* Phones: tighten spacing after tablet-wide rules above */
+@media screen and (max-width: 480px) {
+  .documentation {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .project-container {
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .keywords {
+    padding: var(--space-xs) var(--space-sm);
+    gap: 0.35rem 0.5rem;
+  }
+
+  .keywords h3 {
+    font-size: clamp(0.76rem, 3.6vw, 0.88rem);
   }
 }
 

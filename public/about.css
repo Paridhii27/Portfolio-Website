@@ -119,7 +119,7 @@ html {
   width: 100%;
   min-width: 0;
   min-height: calc(100vh - 80px);
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-3xl);
   margin-top: var(--spacing-md);
   content-visibility: auto;
   box-sizing: border-box;
@@ -154,7 +154,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
   gap: clamp(var(--spacing-lg), 3vw, var(--spacing-xl));
   width: 100%;
   min-width: 0;
@@ -678,6 +678,23 @@ html {
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-md);
+  }
+
+  /* Mobile flow: show contacts after all right-column content */
+  .content-left {
+    display: contents;
+  }
+
+  .about-page-image {
+    order: 1;
+  }
+
+  .content-right {
+    order: 2;
+  }
+
+  .contacts {
+    order: 3;
   }
 
   .content-left,
