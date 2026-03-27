@@ -50,6 +50,19 @@
   --nav-menu-duration: 0.5s;
 }
 
+/* Tighter horizontal gutters on small screens (nav bar + body padding use --page-margin) */
+@media screen and (max-width: 768px) {
+  :root {
+    --site-page-margin: clamp(0.75rem, 4vw, 1.125rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --site-page-margin: clamp(0.625rem, 3.5vw, 1rem);
+  }
+}
+
 /* ============================================================================
    BASE STYLES
    ============================================================================ */

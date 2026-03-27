@@ -53,8 +53,6 @@
   /* Same width as inner nav row: min(90vw, padded viewport) */
   --projects-align-width: min(90vw, 100%);
 
-  --projects-side-gap: 0.25rem;
-
   /* Animation Variables */
   --animation-duration: 0.5s;
   --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -980,12 +978,10 @@ p {
     --projects-align-width: 100%;
   }
 
+  /* Match navbar.css: symmetric gutters so filters/grid align with logo + menu row */
   body {
-    padding-left: calc(max(var(--page-margin), env(safe-area-inset-left)));
-    padding-right: calc(
-      max(var(--page-margin), env(safe-area-inset-right)) +
-        var(--nav-padding, 20px) + var(--projects-side-gap)
-    );
+    padding-left: max(var(--page-margin), env(safe-area-inset-left));
+    padding-right: max(var(--page-margin), env(safe-area-inset-right));
   }
 
   #filterBtns,
