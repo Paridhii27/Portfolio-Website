@@ -19,7 +19,7 @@
   --font-size-h1: clamp(1.8rem, 4.5vw, 2.5rem);
   --font-size-h2: clamp(1.5rem, 3vw, 2rem);
   --font-size-h3: clamp(1.1rem, 3vw, 1.5rem);
-  --font-size-h4: clamp(1rem, 2.5vw, 1.25rem);
+  --font-size-h4: clamp(0.9rem, 2.5vw, 1.1rem);
   --font-size-paragraph: 1rem;
   --font-size-button: 0.9rem;
   --font-size-button-small: 0.8rem;
@@ -42,11 +42,10 @@
   --touch-target-min: 44px;
 
   --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
-
   --layout-content-max: min(90vw, 75rem);
-  /* Documentation: 8-column alignment (e.g. 3×2-col media + 1-col gutters) */
   --doc-layout-columns: 8;
   --layout-nextprev-h: 65px;
+
   /* Scroll clearance above fixed next/prev (matches bar min-height + vertical padding + gap) */
   --layout-body-pad-bottom: calc(
     var(--layout-nextprev-h) + var(--space-sm) +
@@ -149,6 +148,7 @@ p {
    ============================================================================ */
 .project-header {
   display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   flex-direction: row;
   flex-wrap: nowrap;
   gap: var(--space-sm);
@@ -257,11 +257,9 @@ p {
   flex: 1 1 0;
   flex-direction: column;
   gap: var(--space-sm);
-  width: 50%;
-  max-width: 60%;
   min-width: 0;
   box-sizing: border-box;
-  border-radius: var(--border-radius);
+  justify-items: flex-start;
 }
 
 .collaborators-list,
@@ -271,9 +269,11 @@ p {
   flex-direction: row;
   gap: var(--space-xs);
   margin: 0;
+  padding: 0;
+  padding-bottom: var(--space-xs);
   min-width: 0;
-  padding: clamp(var(--space-xs), 1.8vw, var(--space-xs));
-  border-radius: calc(var(--border-radius) - 4px);
+  justify-items: flex-end;
+  justify-content: flex-end;
 }
 
 .collaborators-list p,
@@ -285,7 +285,9 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: baseline;
-  width: 100%;
+  justify-content: flex-start;
+  width: 85%;
+  padding-right: 0;
   gap: var(--space-xs);
 }
 
@@ -304,7 +306,6 @@ p {
     opacity 0.2s ease,
     padding-left 0.2s ease;
   border-left: none;
-  padding-left: 0;
 }
 
 .collaborators-list p span:not(:last-child),
@@ -1065,7 +1066,8 @@ p {
 }
 
 .documentation .credits-container h3 {
-  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-family: var(--content-font);
+  font-size: var(--font-size-h4);
   font-weight: 400;
   margin-bottom: 0.75rem;
   opacity: 0.6;
