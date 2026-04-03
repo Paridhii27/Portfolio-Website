@@ -110,8 +110,6 @@
         <div class="project-section">
           <div class="project-content-container">
             <h3>Design Problem</h3>
-          </div>
-          <div class="project-content-container">
             <p>
               How can we create an interactive art experience that visualizes
               quantum states in real-time at the intersection of quantum physics
@@ -125,11 +123,10 @@
             </p>
           </div>
         </div>
+
         <div class="project-section">
           <div class="project-content-container">
             <h3>Quantum Entanglement</h3>
-          </div>
-          <div class="project-content-container">
             <p>
               Move a Bit is a live motion capture project showcasing quantum
               entanglement and the messiness of quantum noise. Quantum
@@ -144,27 +141,33 @@
             </p>
           </div>
         </div>
-        <div class="inline-video-container">
-          <figure>
-            <video
-              autoplay=""
-              class="inline-video"
-              controls=""
-              height="700"
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              width="700"
-            >
-              <source src="../assets/videos/MABInteract.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </figure>
+
+        <div class="project-section">
+          <div class="inline-video-container">
+            <figure>
+              <video
+                autoplay=""
+                class="inline-video"
+                controls=""
+                height="700"
+                loop=""
+                muted=""
+                playsinline=""
+                preload="auto"
+                width="700"
+              >
+                <source
+                  src="../assets/videos/MABInteract.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
         </div>
 
         <div class="project-section">
@@ -181,7 +184,9 @@
               collapse into a classical, definite state.
             </p>
           </div>
+        </div>
 
+        <div class="project-section">
           <div class="inline-img-grid-three">
             <div class="inline-img-container">
               <figure>
@@ -223,89 +228,80 @@
               </figure>
             </div>
           </div>
+        </div>
 
-          <div class="project-section">
-            <div class="project-content-container">
-              <p>
-                This creates an intuitive parallel between participant and
-                observer. When you move, you're actively entangled with the
-                quantum system. Raise your arm, and particles burst into
-                superposition. Hold still, and they settle into classical
-                certainty. The particles don't exist independently; they emerge
-                from and respond to your physical presence.
-              </p>
+        <div class="project-section">
+          <div class="project-content-container">
+            <p>
+              This creates an intuitive parallel between participant and
+              observer. When you move, you're actively entangled with the
+              quantum system. Raise your arm, and particles burst into
+              superposition. Hold still, and they settle into classical
+              certainty. The particles don't exist independently; they emerge
+              from and respond to your physical presence.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-content-container">
+            <p>
+              The immediate feedback loop was crucial. There's no delay
+              between gesture and quantum response. To achieve this effect, we
+              use a live camera feed in TouchDesigner combined with quantum
+              data generated through IBM's Qiskit platform, creating an
+              interactive experience that brings quantum entanglement to life
+              through motion. To generate the quantum data to guide the
+              properties of our motion-reactive particles, we used the quantum
+              concept of W-state to entangle three qubits.
+            </p>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/move-a-bit/data.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">
+              Quantum circuit used to generate the quantum data
             </div>
           </div>
+        </div>
 
-          <div class="project-section">
-            <div class="project-content-container">
-              <p>
-                The immediate feedback loop was crucial. There's no delay
-                between gesture and quantum response. To achieve this effect, we
-                use a live camera feed in TouchDesigner combined with quantum
-                data generated through IBM's Qiskit platform, creating an
-                interactive experience that brings quantum entanglement to life
-                through motion. To generate the quantum data to guide the
-                properties of our motion-reactive particles, we used the quantum
-                concept of W-state to entangle three qubits.
-              </p>
-            </div>
-            <div class="inline-img-container">
-              <figure>
-                <img
-                  class="inline-img"
-                  src="../assets/images/project-pages/move-a-bit/data.png"
-                />
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </figure>
-              <div class="inline-img-caption">
-                Quantum circuit used to generate the quantum data
-              </div>
+        <div class="project-section">
+          <div class="project-content-container">
+            <p>
+              The three qubit value shots were then used to control the RGB
+              color values of the particles. These particles are generated
+              using particle systems in TouchDesigner. The particles that
+              aren't of the original RGB colors (red: (1,0,0), green: (0,1,0),
+              blue: (0,0,1)) are a demonstration of quantum noise, or quantum
+              computation errors.
+            </p>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/move-a-bit/colorRamp.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">
+              RGB color ramp for the particles
             </div>
           </div>
+        </div>
 
-          <div class="project-section">
-            <div class="project-content-container">
-              <p>
-                The three qubit value shots were then used to control the RGB
-                color values of the particles. These particles are generated
-                using particle systems in TouchDesigner. The particles that
-                aren't of the original RGB colors (red: (1,0,0), green: (0,1,0),
-                blue: (0,0,1)) are a demonstration of quantum noise, or quantum
-                computation errors.
-              </p>
-            </div>
-            <div class="inline-img-container">
-              <figure>
-                <img
-                  class="inline-img"
-                  src="../assets/images/project-pages/move-a-bit/colorRamp.png"
-                />
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </figure>
-              <div class="inline-img-caption">
-                RGB color ramp for the particles
-              </div>
-            </div>
-          </div>
-
-          <div class="project-section">
-            <div class="project-content-container">
-              <p>
-                The experience teaches through doing, transforming intimidating
-                quantum concepts into something playful and accessible. This
-                project was done as part of a collaboration between Parsons
-                School of Design and IBM.
-              </p>
-            </div>
-          </div>
-
+        <div class="project-section">
           <div class="inline-img-grid-three">
             <div class="inline-img-container">
               <figure>
@@ -345,6 +341,19 @@
               </figure>
             </div>
           </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-content-container">
+              <p>
+                The experience teaches through doing, transforming intimidating
+                quantum concepts into something playful and accessible. This
+                project was done as part of a collaboration between Parsons
+                School of Design and IBM Quantum.
+              </p>
+            </div>
+          </div>
+
           <div class="project-section">
             <div class="credits-container">
               <h3>Credits</h3>
@@ -378,7 +387,7 @@
     <!-- Next Previous Buttons Section -->
     <div class="nextPrev">
       <div class="prev-project">
-        <a class="previous" href="./fleeting-states.html">←</a>
+        <a class="previous" href="./on-my-radar.html">←</a>
         <p>Previous Project</p>
       </div>
       <div class="next-project">

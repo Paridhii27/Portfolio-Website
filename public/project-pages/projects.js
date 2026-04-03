@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!["H3", "P"].includes(el.tagName)) return false;
     if (!el.closest(".documentation")) return false;
     if (el.closest(".project-content-container")) return false;
+    if (el.closest(".credits-container")) return false;
     if (el.closest(CAPTION_SELECTOR)) return false;
     if (el.closest(".nextPrev")) return false;
     return true;

@@ -18,7 +18,7 @@
   /* Font Sizes */
   --font-size-h1: clamp(1.8rem, 4.5vw, 2.5rem);
   --font-size-h2: clamp(1.5rem, 3vw, 2rem);
-  --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
+  --font-size-h3: clamp(1.1rem, 3vw, 1.5rem);
   --font-size-h4: clamp(1rem, 2.5vw, 1.25rem);
   --font-size-paragraph: 1rem;
   --font-size-button: 0.9rem;
@@ -35,19 +35,36 @@
   --space-2xl: 2.5rem; /* 40px */
   --space-3xl: 3rem; /* 48px */
 
-  --content-line-height: 1.4;
+  --content-line-height: 1.6;
+  --prose-max-width: 42rem;
+  --project-text-only-max: 45rem; /* 720px */
   --border-radius: 15px;
   --touch-target-min: 44px;
 
   --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
 
-  --layout-content-max: 90vw;
+  --layout-content-max: min(90vw, 75rem);
+  /* Documentation: 8-column alignment (e.g. 3×2-col media + 1-col gutters) */
+  --doc-layout-columns: 8;
   --layout-nextprev-h: 65px;
   /* Scroll clearance above fixed next/prev (matches bar min-height + vertical padding + gap) */
   --layout-body-pad-bottom: calc(
     var(--layout-nextprev-h) + var(--space-sm) +
       max(var(--space-sm), env(safe-area-inset-bottom, 0px)) + var(--space-lg)
   );
+}
+
+/* Scroll targets (focus, hash links) clear fixed nav + next/prev bar */
+html {
+  scroll-padding-top: calc(var(--nav-height, 75px) + 1.25rem);
+  scroll-padding-bottom: var(--layout-body-pad-bottom);
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* ============================================================================
@@ -60,6 +77,7 @@ body {
   margin: 0;
   padding-left: max(var(--page-margin), env(safe-area-inset-left, 0px));
   padding-right: max(var(--page-margin), env(safe-area-inset-right, 0px));
+  padding-bottom: var(--layout-body-pad-bottom);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -472,7 +490,7 @@ p {
 .documentation {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xl);
+  gap: clamp(var(--space-2xl), 5vw, var(--space-3xl));
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -480,8 +498,9 @@ p {
   border: 1px dashed var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--space-2xl);
-  padding-bottom: var(--space-md);
-  margin-bottom: calc(var(--space-3xl) + 2rem);
+  padding-bottom: clamp(var(--space-2xl), 4vw, var(--space-3xl));
+  margin-bottom: var(--space-xl);
+  /* background-color: rgba(255, 255, 255, 0.02); */
 }
 
 .project-section {
@@ -493,6 +512,7 @@ p {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  scroll-margin-top: calc(var(--nav-height, 75px) + 1.25rem);
 }
 
 /* Inline Image Layouts */
@@ -517,6 +537,13 @@ p {
 }
 
 .project-section > .inline-img-gallery {
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.project-section > .inline-video-grid {
   flex: 1 1 100%;
   width: 100%;
   max-width: 100%;
@@ -913,7 +940,7 @@ p {
   box-sizing: border-box;
 }
 
-/* Standalone inline video: narrower column */
+/* Standalone inline video: full frame visible (letterboxed), not cropped */
 .documentation .inline-video {
   width: 100%;
   max-width: min(100%, 520px);
@@ -927,8 +954,9 @@ p {
   opacity: 1;
   display: block;
   margin: 0 auto;
-  max-height: min(88vh, 960px);
+  max-height: min(92vh, 1200px);
   object-fit: contain;
+  object-position: center center;
   background-color: rgba(0, 0, 0, 0.35);
 }
 
@@ -1149,7 +1177,8 @@ p {
 }
 
 .documentation .inline-img-grid .inline-img-container,
-.documentation .inline-img-grid-three .inline-img-container {
+.documentation .inline-img-grid-three .inline-img-container,
+.documentation .inline-video-grid .inline-video-container {
   margin: 0;
   margin-bottom: 0;
   width: auto;
@@ -1178,7 +1207,7 @@ p {
 }
 
 /* ============================================================================
-   INLINE VIDEO GRID (3-column) 
+   INLINE VIDEO GRID — same layout + centering as .inline-img-grid-three
    ============================================================================ */
 .documentation .inline-video-grid {
   display: grid;
@@ -1187,34 +1216,31 @@ p {
   margin: 1rem 0;
   margin-bottom: var(--space-md);
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   justify-content: center;
   align-items: start;
 }
 
-.documentation .inline-video-grid .inline-video-container {
-  margin: 0;
-  margin-bottom: 0;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-}
-
 .documentation .inline-video-grid .inline-video-container figure {
   position: relative;
-  width: auto;
-  height: 400px;
-  padding: 0;
   display: flex;
   flex-direction: column;
   margin: 0;
+  box-sizing: border-box;
+  align-items: center;
 }
 
+/* Show full frame (no crop): intrinsic aspect ratio + letterboxing if needed */
 .documentation .inline-video-grid .inline-video {
   width: auto;
-  height: 400px;
-  max-width: none;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  max-height: min(96vh, 2000px);
+  object-fit: contain;
+  object-position: center center;
   display: block;
+  border-radius: 8px;
 }
 
 /* ============================================================================
@@ -1360,7 +1386,8 @@ p {
 }
 
 /* Grid / gallery: compact figure padding + smaller corner hovers*/
-.documentation .inline-img-grid .inline-img-container figure {
+.documentation .inline-img-grid .inline-img-container figure,
+.documentation .inline-video-grid .inline-video-container figure {
   padding: 0;
   width: 100%;
   height: auto;
@@ -1548,6 +1575,81 @@ p {
   font-family: var(--content-font);
   color: var(--project-desc-text-color);
   margin-bottom: var(--space-md);
+}
+
+/* Text-only blocks: centered column inside documentation (no embedded media) */
+.documentation
+  .project-content-container:not(
+    :has(
+      img,
+      video,
+      figure,
+      audio,
+      iframe,
+      .inline-img-container,
+      .inline-video-container,
+      .inline-audio-container
+    )
+  ) {
+  max-width: min(100%, var(--project-text-only-max));
+  margin-inline: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Credits & references: never use the narrow centered prose column */
+.documentation .credits-container .project-content-container,
+.documentation .credits-container {
+  max-width: none;
+  margin-inline: unset;
+  width: 100%;
+}
+
+/* Keep full-width text column when paired with a sibling media column */
+.documentation
+  .project-section:has(> .project-content-container + .inline-img-container)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .project-content-container + .inline-video-container)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .project-content-container + .inline-img-grid)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .project-content-container + .inline-img-grid-three)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .project-content-container + .inline-video-grid)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .project-content-container + .inline-img-gallery)
+  > .project-content-container:first-child,
+.documentation
+  .project-section:has(> .inline-img-container + .project-content-container)
+  > .project-content-container:last-child,
+.documentation
+  .project-section:has(> .inline-video-container + .project-content-container)
+  > .project-content-container:last-child {
+  max-width: none;
+  margin-inline: unset;
+}
+
+/* Media nested in a second .project-content-container (same row) */
+.documentation
+  .project-section:has(
+    > .project-content-container:nth-child(2)
+      :is(
+        .inline-img-container,
+        .inline-video-container,
+        .inline-audio-container,
+        img,
+        video,
+        figure
+      )
+  )
+  > .project-content-container:first-child {
+  max-width: none;
+  margin-inline: unset;
 }
 
 /* ============================================================================
@@ -2058,18 +2160,21 @@ p {
   }
 
   .documentation .inline-video-container .inline-video {
-    max-height: 55vh;
+    max-height: min(90vh, 1200px);
     min-height: 180px;
     border-radius: 6px;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    object-fit: contain;
+    object-position: center center;
   }
 
   /* Project-section row videos: stay within flex slot on small screens */
   .documentation .project-section > .inline-video-container .inline-video {
     max-width: 100%;
-    max-height: min(88vh, 960px);
+    max-height: min(92vh, 1200px);
     object-fit: contain;
+    object-position: center center;
   }
 
   .documentation .inline-img-grid {
@@ -2088,23 +2193,66 @@ p {
     object-fit: contain;
   }
 
-  .documentation .inline-img-grid-three,
-  .documentation .inline-video-grid {
+  .documentation .inline-img-grid-three {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
   }
 
+  .documentation .inline-video-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .documentation .inline-img-grid-three .inline-img-container figure,
-  .documentation .inline-img-grid-three .inline-img,
-  .documentation .inline-video-grid .inline-video-container figure,
-  .documentation .inline-video-grid .inline-video {
+  .documentation .inline-img-grid-three .inline-img {
     height: auto;
     width: 100%;
     max-height: 70vh;
   }
 
-  .documentation .inline-img-grid-three .inline-img,
+  /* Stacked grid: shrink-wrap cell to video; cap size without full-bleed bars */
+  .documentation .inline-video-grid .inline-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    width: -moz-fit-content;
+    max-width: min(100%, 34rem);
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .documentation .inline-video-grid .inline-video-container figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    width: -moz-fit-content;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
   .documentation .inline-video-grid .inline-video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: clamp(12.5rem, 54dvh, 26rem);
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .documentation .inline-img-grid-three .inline-img {
     object-fit: contain;
   }
 
