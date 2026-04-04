@@ -44,6 +44,8 @@
   --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
   --layout-content-max: min(90vw, 75rem);
   --doc-layout-columns: 8;
+  /* Inline 2/3-col image grids + video grid — modest cap so rows stay compact */
+  --doc-inline-media-max-height: min(50vh, 24rem);
   --layout-nextprev-h: 65px;
 
   /* Scroll clearance above fixed next/prev (matches bar min-height + vertical padding + gap) */
@@ -260,20 +262,19 @@ p {
   min-width: 0;
   box-sizing: border-box;
   justify-items: flex-start;
+  border: 1px dashed #ffffff;
+  border-radius: var(--border-radius);
+  padding: 20px;
 }
 
 .collaborators-list,
 .project-role,
 .tools-container {
-  display: flex;
   flex-direction: row;
   gap: var(--space-xs);
   margin: 0;
   padding: 0;
-  padding-bottom: var(--space-xs);
   min-width: 0;
-  justify-items: flex-end;
-  justify-content: flex-end;
 }
 
 .collaborators-list p,
@@ -286,7 +287,6 @@ p {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: flex-start;
-  width: 85%;
   padding-right: 0;
   gap: var(--space-xs);
 }
@@ -1158,24 +1158,26 @@ p {
    ============================================================================ */
 .documentation .inline-img-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(var(--space-xs), 1vw, var(--space-sm));
   margin: 1rem 0;
   margin-bottom: var(--space-md);
   width: 100%;
+  max-width: 100%;
   justify-content: center;
-  align-items: start;
+  align-items: stretch;
 }
 
 .documentation .inline-img-grid-three {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(var(--space-xs), 1vw, var(--space-sm));
   margin: 1rem 0;
   margin-bottom: var(--space-md);
   width: 100%;
+  max-width: 100%;
   justify-content: center;
-  align-items: start;
+  align-items: stretch;
 }
 
 .documentation .inline-img-grid .inline-img-container,
@@ -1183,29 +1185,81 @@ p {
 .documentation .inline-video-grid .inline-video-container {
   margin: 0;
   margin-bottom: 0;
-  width: auto;
   display: flex;
   flex-direction: column;
+}
+
+.documentation .inline-img-grid .inline-img-container,
+.documentation .inline-img-grid-three .inline-img-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+  height: 100%;
+}
+
+.documentation .inline-video-grid .inline-video-container {
+  width: auto;
 }
 
 .documentation .inline-img-grid .inline-img-container figure,
 .documentation .inline-img-grid-three .inline-img-container figure {
-  width: auto;
-  height: 400px;
-  /* Keep hover corners evenly inset around image */
-  padding: clamp(4px, 1vw, 10px);
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 auto;
+  height: var(--doc-inline-media-max-height);
+  min-height: var(--doc-inline-media-max-height);
+  max-height: var(--doc-inline-media-max-height);
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .documentation .inline-img-grid .inline-img,
 .documentation .inline-img-grid-three .inline-img {
-  width: auto;
-  /* subtract symmetric figure padding (top+bottom) */
-  height: calc(400px - (2 * clamp(4px, 1vw, 10px)));
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: cover;
+  object-position: center center;
   display: block;
+  border-radius: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Sights and Insights — doc image grids: modestly shorter than global, uncropped */
+.documentation .sights-doc-img-grids {
+  gap: 0;
+  row-gap: 0.1rem;
+  column-gap: 0rem;
+}
+
+.documentation .sights-doc-img-grids .inline-img-container figure {
+  height: min(42vh, 19rem);
+  min-height: min(42vh, 19rem);
+  max-height: min(42vh, 19rem);
+  align-items: center;
+  justify-content: center;
+}
+
+.documentation .sights-doc-img-grids .inline-img-container .inline-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  flex: 0 1 auto;
 }
 
 /* ============================================================================
@@ -1231,6 +1285,10 @@ p {
   margin: 0;
   box-sizing: border-box;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
 }
 
 /* Show full frame (no crop): intrinsic aspect ratio + letterboxing if needed */
@@ -1238,7 +1296,7 @@ p {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: min(96vh, 2000px);
+  max-height: var(--doc-inline-media-max-height);
   object-fit: contain;
   object-position: center center;
   display: block;
@@ -1387,13 +1445,11 @@ p {
   hyphens: auto;
 }
 
-/* Grid / gallery: compact figure padding + smaller corner hovers*/
+/* Grid / gallery: compact figure padding + smaller corner hovers */
 .documentation .inline-img-grid .inline-img-container figure,
+.documentation .inline-img-grid-three .inline-img-container figure,
 .documentation .inline-video-grid .inline-video-container figure {
   padding: 0;
-  width: 100%;
-  height: auto;
-  max-height: none;
 }
 
 .documentation
@@ -2184,15 +2240,23 @@ p {
     gap: var(--space-md);
   }
 
-  .documentation .inline-img-grid .inline-img-container figure,
-  .documentation .inline-img-grid .inline-img {
-    height: auto;
+  .documentation .inline-img-grid .inline-img-container figure {
     width: 100%;
-    max-height: 70vh;
+    height: clamp(9rem, 38dvh, 16rem);
+    min-height: clamp(9rem, 38dvh, 16rem);
+    max-height: clamp(9rem, 38dvh, 16rem);
+    overflow: hidden;
+    border-radius: 8px;
   }
 
-  .documentation .inline-img-grid .inline-img {
-    object-fit: contain;
+  .documentation .inline-img-grid .inline-img-container .inline-img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 0;
   }
 
   .documentation .inline-img-grid-three {
@@ -2209,11 +2273,43 @@ p {
     max-width: 100%;
   }
 
-  .documentation .inline-img-grid-three .inline-img-container figure,
-  .documentation .inline-img-grid-three .inline-img {
-    height: auto;
+  .documentation .inline-img-grid-three .inline-img-container figure {
     width: 100%;
-    max-height: 70vh;
+    height: clamp(9rem, 38dvh, 16rem);
+    min-height: clamp(9rem, 38dvh, 16rem);
+    max-height: clamp(9rem, 38dvh, 16rem);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .documentation .inline-img-grid-three .inline-img-container .inline-img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 0;
+  }
+
+  .documentation .sights-doc-img-grids .inline-img-container figure {
+    height: clamp(7.5rem, 32dvh, 13.5rem);
+    min-height: clamp(7.5rem, 32dvh, 13.5rem);
+    max-height: clamp(7.5rem, 32dvh, 13.5rem);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .documentation .sights-doc-img-grids .inline-img-container .inline-img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .documentation .sights-doc-img-grids {
+    gap: 0.35rem;
+    row-gap: 0.35rem;
+    column-gap: 0.35rem;
   }
 
   /* Stacked grid: shrink-wrap cell to video; cap size without full-bleed bars */
@@ -2249,13 +2345,9 @@ p {
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: clamp(12.5rem, 54dvh, 26rem);
+    max-height: clamp(9rem, 38dvh, 16rem);
     object-fit: contain;
     object-position: center center;
-  }
-
-  .documentation .inline-img-grid-three .inline-img {
-    object-fit: contain;
   }
 
   .documentation .inline-img-gallery .gallery-slides {

@@ -42,7 +42,8 @@ const ProjectsData = {
       id: "on-my-radar",
       title: "What's on my radar?",
       year: "2026",
-      description: "A visual narrative on alternate parallel realities.",
+      description:
+        "An atmospheric interface that listens for subtle wonders and observations from nature, exploring memory and thought structures.",
       thumbnail: "./assets/images/thumbnails/on-my-radar.png",
       url: "./project-pages/on-my-radar.html",
       categories: ["aiweb"],
