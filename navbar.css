@@ -478,3 +478,47 @@ nav {
     gap: 2.5rem;
   }
 }
+
+/* ============================================================================
+   SITE FOOTER (injected by public/navbar.js)
+   ============================================================================ */
+
+.site-footer {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
+  padding-left: max(var(--page-margin), env(safe-area-inset-left));
+  padding-right: max(var(--page-margin), env(safe-area-inset-right));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.site-footer-inner {
+  max-width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs) var(--space-md);
+  font-family: var(--nav-font-family);
+  font-weight: var(--nav-font-weight);
+  font-size: clamp(0.8125rem, 2.2vw, 0.9375rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-footer-link {
+  color: var(--nav-text-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-footer-link:hover {
+  color: var(--nav-hover-color);
+}
+
+.site-footer-sep {
+  color: rgba(255, 255, 255, 0.35);
+  user-select: none;
+}

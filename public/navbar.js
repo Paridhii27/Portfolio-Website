@@ -144,6 +144,30 @@ const Navigation = {
 
     // Inserting the navigation at the beginning of body
     document.body.insertAdjacentHTML("afterbegin", navHTML);
+    this.renderFooter();
+  },
+
+  /**
+   * Site-wide footer (contact links)
+   */
+  renderFooter() {
+    const email = "mailto:paridhigarg27@gmail.com";
+    const github = "https://github.com/Paridhii27";
+    const linkedin = "https://www.linkedin.com/in/paridhi-garg-a15824234/";
+
+    const footerHTML = `
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer-inner">
+          <a class="site-footer-link" href="${email}">Email</a>
+          <span class="site-footer-sep" aria-hidden="true">·</span>
+          <a class="site-footer-link" href="${github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="site-footer-sep" aria-hidden="true">·</span>
+          <a class="site-footer-link" href="${linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    `;
+
+    document.body.insertAdjacentHTML("beforeend", footerHTML);
   },
 };
 

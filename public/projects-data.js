@@ -16,7 +16,8 @@ const ProjectsData = {
       url: "./project-pages/this-machine-is-a-stranger.html",
       categories: ["interactive", "aiweb"],
       tools: [
-        "Human-Machine Interactions",
+        "Human-Machine Interaction",
+        "Computational Autonomy",
         "AI Ethics",
         "Interactive Installation",
       ],
@@ -31,11 +32,11 @@ const ProjectsData = {
       url: "./project-pages/fleeting-states.html",
       categories: ["interactive"],
       tools: [
-        "Quantum physics",
         "Multimedia",
-        "Interactive Installation",
         "LED Mapping",
+        "Quantum Physics",
         "Science Communication",
+        "Interactive Installation",
       ],
     },
     {
@@ -47,12 +48,7 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/on-my-radar.png",
       url: "./project-pages/on-my-radar.html",
       categories: ["aiweb"],
-      tools: [
-        "Atmospheric Interaction",
-        "Spatial Navigation",
-        "Memories",
-        "Ambient Sounds",
-      ],
+      tools: ["Atmospheric Interaction", "Spatial Interface", "Memories"],
     },
     {
       id: "move-a-bit",
@@ -80,7 +76,12 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/computerized-memories.jpg",
       url: "./project-pages/computerized-memories.html",
       categories: ["narrative"],
-      tools: ["3D Environments", "Procedural Shaders", "Memories", "Research"],
+      tools: [
+        "3D Environments",
+        "Procedural Shaders",
+        "Memories",
+        "Research Communication",
+      ],
     },
     {
       id: "hivemind",
@@ -113,10 +114,11 @@ const ProjectsData = {
       url: "./project-pages/sights-and-insights.html",
       categories: ["aiweb", "research"],
       tools: [
-        "Camera Feed Interaction",
+        "Human-Machine-Nature Interaction",
+        "Live camera feed",
         "Image Analysis",
         "Speech Synthesis",
-        "Podcast Generation",
+        "Multimodal AI",
       ],
     },
 
@@ -130,7 +132,12 @@ const ProjectsData = {
       thumbnail: "./assets/images/thumbnails/granny-bytes.png",
       url: "./project-pages/granny-bytes.html",
       categories: ["aiweb"],
-      tools: ["AI application", "Text Generation", "Image Analysis"],
+      tools: [
+        "Cultural Technology",
+        "Conversational UI",
+        "Image Analysis",
+        "Multimodal AI",
+      ],
     },
     {
       id: "firefly-symphony",
@@ -141,9 +148,9 @@ const ProjectsData = {
       url: "./project-pages/a-firefly-symphony.html",
       categories: ["others"],
       tools: [
+        "Design Thinking",
         "Speculative",
         "Multimedia",
-        "Design Thinking",
         "3D Modelling",
         "Interactive Environments",
       ],
@@ -185,10 +192,9 @@ const ProjectsData = {
       url: "./project-pages/temperature-of-emotions.html",
       categories: ["others"],
       tools: [
-        "Physical Computing",
-        "LED Mapping",
         "Speculative Device",
-        "Research",
+        "Physical Computing",
+        "Research Communication",
       ],
     },
     // {
