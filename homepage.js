@@ -152,4 +152,31 @@ function renderAccordion() {
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function () {
   renderAccordion();
+  
+  // Add scroll reveal animation for the accordion container
+  const accordionContainer = document.querySelector(".featured-projects-accordion");
+  if (accordionContainer) {
+    // Check if IntersectionObserver is supported (for older browsers)
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            // Stop observing once the animation has been triggered
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        // Trigger when at least 10% of the container is visible
+        threshold: 0.1,
+        // Start animation slightly before it scrolls fully into view
+        rootMargin: "0px 0px -50px 0px"
+      });
+      
+      observer.observe(accordionContainer);
+    } else {
+      // Fallback for browsers that don't support IntersectionObserver
+      accordionContainer.classList.add("is-visible");
+    }
+  }
 });
