@@ -405,8 +405,10 @@ html {
   pointer-events: none;
 }
 
-.accordion-card:hover .arrow-link {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .accordion-card:hover .arrow-link {
+    opacity: 1;
+  }
 }
 
 /* Mobile responsive for Accordion */
