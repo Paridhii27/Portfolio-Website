@@ -51,7 +51,7 @@
   --project-grid-gap: var(--spacing-xl); /* 32px between cards */
 
   /* Same width as inner nav row: min(90vw, padded viewport) */
-  --projects-align-width: min(90vw, 100%);
+  --projects-align-width: min(90vw, var(--site-content-max, 75rem));
 
   /* Animation Variables */
   --animation-duration: 0.5s;

@@ -118,7 +118,7 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 90vw;
+  max-width: min(90vw, var(--site-content-max, 75rem));
   min-width: 0;
   min-height: calc(100vh - 80px);
   gap: var(--spacing-3xl);

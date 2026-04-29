@@ -37,6 +37,9 @@
   /* Site-wide horizontal gutter (all pages; override per page if needed) */
   --site-page-margin: clamp(2.5rem, 10vw, 10%);
 
+  /* Site-wide content max width (caps layouts on large monitors) */
+  --site-content-max: 75rem;
+
   /* Back-compat / default hooks used across pages */
   --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
   --section-spacing: var(--site-section-spacing);
@@ -112,7 +115,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  max-width: 90vw;
+  max-width: min(90vw, var(--site-content-max));
   margin: 0 auto;
   font-family: var(--nav-font-primary);
   font-weight: var(--nav-font-weight);
@@ -494,7 +497,7 @@ nav {
 }
 
 .site-footer-inner {
-  max-width: 90vw;
+  max-width: min(90vw, var(--site-content-max));
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
