@@ -67,9 +67,20 @@ const ProjectsData = {
       ],
     },
     {
+      id: "Limen",
+      title: "Limen",
+      class: "research",
+      year: "2026",
+      description:
+        "Limen is a device that enhances your connection with your surroundings by giving you multisensory prompts that help you draw parallels and find patterns",
+      thumbnail: "./assets/images/thumbnails/limen.png",
+      url: "./project-pages/limen.html",
+      categories: ["aiweb"],
+      tools: ["Multisensory", "AI Object", "Spatial Interaction"],
+    },
+    {
       id: "computerized-memories",
       title: "Computerized Memories",
-      class: "research",
       year: "2023",
       description:
         '"Computerized memories" explores the biological structure and psychological character of memory.',
@@ -82,16 +93,6 @@ const ProjectsData = {
         "Memories",
         "Research Communication",
       ],
-    },
-    {
-      id: "hivemind",
-      title: "Hivemind",
-      year: "2023",
-      description: "A game about understanding emergent behaviour.",
-      thumbnail: "./assets/images/thumbnails/hivemind.png",
-      url: "./project-pages/hivemind.html",
-      categories: ["others"],
-      tools: ["Collaborative", "Multiplayer", "Conversational Gameplay"],
     },
     {
       id: "postcards-between-worlds",
@@ -181,6 +182,16 @@ const ProjectsData = {
       url: "./project-pages/intermittent.html",
       categories: ["aiweb"],
       tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
+    },
+    {
+      id: "hivemind",
+      title: "Hivemind",
+      year: "2023",
+      description: "A game about understanding emergent behaviour.",
+      thumbnail: "./assets/images/thumbnails/hivemind.png",
+      url: "./project-pages/hivemind.html",
+      categories: ["others"],
+      tools: ["Collaborative", "Multiplayer", "Conversational Gameplay"],
     },
     {
       id: "temperature-of-emotions",
