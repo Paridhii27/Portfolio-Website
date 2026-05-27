@@ -16,7 +16,7 @@ const projects = {
     url: "./public/project-pages/this-machine-is-a-stranger.html",
   },
   limen: {
-    image: "./public/assets/images/thumbnails/limen.png",
+    image: "./public/assets/images/thumbnails/limen-tool.png",
     video: "./public/assets/images/project-pages/limen/prospect2.mp4",
     title: "Limen",
     year: "2026",
