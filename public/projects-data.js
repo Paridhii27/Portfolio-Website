@@ -73,7 +73,7 @@ const ProjectsData = {
       year: "2026",
       description:
         "Limen is a device that enhances your connection with your surroundings by giving you multisensory prompts that help you draw parallels and find patterns",
-      thumbnail: "./assets/images/thumbnails/limen.png",
+      thumbnail: "./assets/images/thumbnails/limen-tool.png",
       url: "./project-pages/limen.html",
       categories: ["aiweb"],
       tools: ["Multisensory", "AI Object", "Spatial Interaction"],
