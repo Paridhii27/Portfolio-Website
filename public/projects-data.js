@@ -172,17 +172,17 @@ const ProjectsData = {
     //     "Interactive Environments",
     //   ],
     // },
-    {
-      id: "intermittent",
-      title: "Intermittent",
-      year: "2023",
-      description:
-        "How can we capture the intermittent phases between Light and Darkness through making an image generation model?",
-      thumbnail: "./assets/images/thumbnails/intermittent.png",
-      url: "./project-pages/intermittent.html",
-      categories: ["aiweb"],
-      tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
-    },
+    // {
+    //   id: "intermittent",
+    //   title: "Intermittent",
+    //   year: "2023",
+    //   description:
+    //     "How can we capture the intermittent phases between Light and Darkness through making an image generation model?",
+    //   thumbnail: "./assets/images/thumbnails/intermittent.png",
+    //   url: "./project-pages/intermittent.html",
+    //   categories: ["aiweb"],
+    //   tools: ["StyleGANs", "Image Generation", "Text Generation", "Graphics"],
+    // },
     {
       id: "hivemind",
       title: "Hivemind",
