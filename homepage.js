@@ -12,7 +12,7 @@ const projects = {
       "Interactive Installation",
     ],
     description:
-      '"This Machine is a Stranger" investigates how one can navigate life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine..',
+      '<span class="project-title-italics">This Machine is a Stranger</span> investigates how one can navigate life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
     url: "./public/project-pages/this-machine-is-a-stranger.html",
   },
   limen: {

@@ -30,7 +30,7 @@ The portfolio contains **14 projects** organized into four main categories:
 
 Projects utilize a wide range of technologies including:
 - **UI/UX**: Figma, Adobe Creative Suite (AI, PSD, ID, PR, LR), HTML, CSS, JavaScript (node.js, next.js and express.js), Python
-- **Creative Technologies**: TouchDesigner, Madmapper, Isadora, Physical Computing Sensors, LED Mapping
+- **Creative Technologies**: TouchDesigner, MadMapper, Isadora, Physical Computing Sensors, LED Mapping
 - **3D & Rendering**: Unity, Blender
 - **AI/ML**: Machine Learning, StyleGANs, Text Generation, Image Generation, Prompt Engineering, Image Analysis, Sound Synthesis, text-to-speech · speech-to-text, Gesture Recognition · Object Detection
 - **Fabrication**: Laser Cutting, 3D printing

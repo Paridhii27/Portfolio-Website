@@ -63,13 +63,13 @@ const AboutData = {
       number: "01.",
       category: "Design Tools",
       description:
-        "Adobe Creative Suite (AI, PSD, ID, PR, LR) · Touchdesigner · Madmapper · Isadora · Blender 3D · Unity ",
+        "Adobe Creative Suite (AI, PSD, ID, PR, LR) · TouchDesigner · MadMapper · Isadora · Blender 3D · Unity",
     },
     {
       number: "02.",
       category: "Web Design and Development",
       description:
-        "Figma · Webflow · Framer · HTML/CSS · Javascript · Git/GitHub",
+        "Figma · Webflow · Framer · HTML/CSS · JavaScript · Git/GitHub",
     },
     {
       number: "03.",
@@ -85,7 +85,7 @@ const AboutData = {
       number: "05.",
       category: "Advanced Computing",
       description:
-        "APIs (OpenAI, Anthropic, Google's Gemini) ·  Prompt Engineering · Image Generation · Stable Diffusion · ElevenLabs · Runway ML · Gesture Recognition · Object Detection",
+        "APIs (OpenAI, Anthropic, Google's Gemini) · Prompt Engineering · Image Generation · Stable Diffusion · ElevenLabs · Runway ML · Gesture Recognition · Object Detection",
     },
   ],
 

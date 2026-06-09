@@ -11,7 +11,7 @@ const ProjectsData = {
       class: "research",
       year: "2025",
       description:
-        '"This Machine is a Stranger" is a thought experiment that investigates how one navigates life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
+        '<span class="project-title-italics">This Machine is a Stranger</span> is a thought experiment that investigates how one navigates life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
       thumbnail: "./assets/images/thumbnails/machine-stranger.jpg",
       url: "./project-pages/this-machine-is-a-stranger.html",
       categories: ["interactive", "aiweb"],
@@ -94,7 +94,7 @@ const ProjectsData = {
       title: "Computerized Memories",
       year: "2023",
       description:
-        '"Computerized memories" explores the biological structure and psychological character of memory.',
+        '<span class="project-title-italics">Computerized Memories</span> explores the biological structure and psychological character of memory.',
       thumbnail: "./assets/images/thumbnails/computerized-memories.jpg",
       url: "./project-pages/computerized-memories.html",
       categories: ["narrative"],

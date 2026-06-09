@@ -525,3 +525,8 @@ nav {
   color: rgba(255, 255, 255, 0.35);
   user-select: none;
 }
+
+/* Project title in running text (italic, replaces quotation marks where used) */
+.project-title-italics {
+  font-style: italic;
+}
