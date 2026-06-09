@@ -27,7 +27,7 @@ const ProjectsData = {
       title: "Fleeting States + Measured Values",
       year: "2024",
       description:
-        "Fleeting States + Measured Values depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.",
+        '<span class="project-title-italics">Fleeting States + Measured Values</span> depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.',
       thumbnail: "./assets/images/thumbnails/fleeting-states.jpg",
       url: "./project-pages/fleeting-states.html",
       categories: ["interactive"],
@@ -55,7 +55,7 @@ const ProjectsData = {
       title: "Move a Bit",
       year: "2022",
       description:
-        "Move a Bit features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.",
+        '<span class="project-title-italics">Move a Bit</span> features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.',
       thumbnail: "./assets/images/thumbnails/move-a-bit.jpg",
       url: "./project-pages/move-a-bit.html",
       categories: ["interactive", "research"],
@@ -72,7 +72,7 @@ const ProjectsData = {
       class: "research",
       year: "2026",
       description:
-        "Limen is a device that enhances your connection with your surroundings by giving you multisensory prompts that help you draw parallels and find patterns",
+        '<span class="project-title-italics">Limen</span> is a device that enhances your connection with your surroundings by giving you multisensory prompts that help you draw parallels and find patterns',
       thumbnail: "./assets/images/thumbnails/limen-tool.png",
       url: "./project-pages/limen.html",
       categories: ["aiweb"],
@@ -110,7 +110,7 @@ const ProjectsData = {
       title: "Sights and Insights",
       year: "2025",
       description:
-        "Sights and Insights is a voice-based AI web application that transforms ordinary journeys into ones filled with curious interventions.",
+        '<span class="project-title-italics">Sights and Insights</span> is a voice-based AI web application that transforms ordinary journeys into ones filled with curious interventions.',
       thumbnail: "./assets/images/thumbnails/sights-insights.png",
       url: "./project-pages/sights-insights.html",
       categories: ["aiweb", "research"],
@@ -129,7 +129,7 @@ const ProjectsData = {
       class: "research",
       year: "2024",
       description:
-        "Granny Bytes is an AI application that explores intergenerational connections and how they can manifest within our interactions with technology.",
+        '<span class="project-title-italics">Granny Bytes</span> is an AI application that explores intergenerational connections and how they can manifest within our interactions with technology.',
       thumbnail: "./assets/images/thumbnails/granny-bytes.png",
       url: "./project-pages/granny-bytes.html",
       categories: ["aiweb"],
