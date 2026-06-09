@@ -79,6 +79,17 @@ const ProjectsData = {
       tools: ["Multisensory", "AI Object", "Spatial Interaction"],
     },
     {
+      id: "postcards-between-worlds",
+      title: "Postcards Between Worlds",
+      year: "2023",
+      description:
+        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
+      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
+      url: "./project-pages/postcards-between-worlds.html",
+      categories: ["narrative"],
+      tools: ["3D Environments", "Speculative Futures", "Writing"],
+    },
+    {
       id: "computerized-memories",
       title: "Computerized Memories",
       year: "2023",
@@ -95,24 +106,13 @@ const ProjectsData = {
       ],
     },
     {
-      id: "postcards-between-worlds",
-      title: "Postcards Between Worlds",
-      year: "2023",
-      description:
-        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
-      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
-      url: "./project-pages/postcards-between-worlds.html",
-      categories: ["narrative"],
-      tools: ["3D Environments", "Speculative Futures", "Writing"],
-    },
-    {
       id: "sights-and-insights",
       title: "Sights and Insights",
       year: "2025",
       description:
-        "Sights and Insights is a voice-based AI web application that transforms ordinary walks into ones filled with curious interventions.",
-      thumbnail: "./assets/images/thumbnails/sights-and-insights.png",
-      url: "./project-pages/sights-and-insights.html",
+        "Sights and Insights is a voice-based AI web application that transforms ordinary journeys into ones filled with curious interventions.",
+      thumbnail: "./assets/images/thumbnails/sights-insights.png",
+      url: "./project-pages/sights-insights.html",
       categories: ["aiweb", "research"],
       tools: [
         "Human-Machine-Nature Interaction",
