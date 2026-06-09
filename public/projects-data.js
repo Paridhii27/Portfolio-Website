@@ -19,6 +19,7 @@ const ProjectsData = {
         "Human-Machine Interaction",
         "Computational Autonomy",
         "AI Ethics",
+        "Research",
         "Interactive Installation",
       ],
     },
@@ -44,7 +45,7 @@ const ProjectsData = {
       title: "What's on my radar?",
       year: "2026",
       description:
-        "An atmospheric interface that listens for subtle wonders and observations from nature, exploring memory and thought structures.",
+        "An atmospheric web experience tuned to nature, memory, and attention. It unfolds in three scenes—thoughts become clouds in a shifting sky, spatial gestures tune layered nature sounds, and hand motions surface fragments of personal memory.",
       thumbnail: "./assets/images/thumbnails/on-my-radar.png",
       url: "./project-pages/on-my-radar.html",
       categories: ["aiweb"],
@@ -67,45 +68,6 @@ const ProjectsData = {
       ],
     },
     {
-      id: "Limen",
-      title: "Limen",
-      class: "research",
-      year: "2026",
-      description:
-        '<span class="project-title-italics">Limen</span> is a device that enhances your connection with your surroundings by giving you multisensory prompts that help you draw parallels and find patterns',
-      thumbnail: "./assets/images/thumbnails/limen-tool.png",
-      url: "./project-pages/limen.html",
-      categories: ["aiweb"],
-      tools: ["Multisensory", "AI Object", "Spatial Interaction"],
-    },
-    {
-      id: "postcards-between-worlds",
-      title: "Postcards Between Worlds",
-      year: "2023",
-      description:
-        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
-      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
-      url: "./project-pages/postcards-between-worlds.html",
-      categories: ["narrative"],
-      tools: ["3D Environments", "Speculative Futures", "Writing"],
-    },
-    {
-      id: "computerized-memories",
-      title: "Computerized Memories",
-      year: "2023",
-      description:
-        '<span class="project-title-italics">Computerized Memories</span> explores the biological structure and psychological character of memory.',
-      thumbnail: "./assets/images/thumbnails/computerized-memories.jpg",
-      url: "./project-pages/computerized-memories.html",
-      categories: ["narrative"],
-      tools: [
-        "3D Environments",
-        "Procedural Shaders",
-        "Memories",
-        "Research Communication",
-      ],
-    },
-    {
       id: "sights-and-insights",
       title: "Sights and Insights",
       year: "2025",
@@ -121,6 +83,45 @@ const ProjectsData = {
         "Speech Synthesis",
         "Multimodal AI",
       ],
+    },
+    {
+      id: "computerized-memories",
+      title: "Computerized Memories",
+      year: "2023",
+      description:
+        '<span class="project-title-italics">Computerized Memories</span> is a speculative 3D world that explores the biological structure and psychological character of memory.',
+      thumbnail: "./assets/images/thumbnails/computerized-memories.jpg",
+      url: "./project-pages/computerized-memories.html",
+      categories: ["narrative"],
+      tools: [
+        "3D Environments",
+        "Procedural Shaders",
+        "Memories",
+        "Research Communication",
+      ],
+    },
+    {
+      id: "postcards-between-worlds",
+      title: "Postcards Between Worlds",
+      year: "2023",
+      description:
+        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
+      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
+      url: "./project-pages/postcards-between-worlds.html",
+      categories: ["narrative"],
+      tools: ["3D Environments", "Speculative Futures", "Writing"],
+    },
+    {
+      id: "Limen",
+      title: "Limen",
+      class: "research",
+      year: "2026",
+      description:
+        '<span class="project-title-italics">Limen</span> is a spatial tool that uses lightweight context—where you are, time of day, and weather—to send short multisensory prompts while you move through a place.',
+      thumbnail: "./assets/images/thumbnails/limen-tool.png",
+      url: "./project-pages/limen.html",
+      categories: ["aiweb"],
+      tools: ["Multisensory", "AI Object", "Spatial Interaction"],
     },
 
     {
@@ -187,7 +188,7 @@ const ProjectsData = {
       id: "hivemind",
       title: "Hivemind",
       year: "2023",
-      description: "A game about understanding emergent behaviour.",
+      description: "A game about understanding emergent behavior.",
       thumbnail: "./assets/images/thumbnails/hivemind.png",
       url: "./project-pages/hivemind.html",
       categories: ["others"],
@@ -198,7 +199,7 @@ const ProjectsData = {
       title: "Temperature of Emotions",
       year: "2022",
       description:
-        "A speculative device that measures external temperature and gives a corresponding response in the form of different color mappings representing varied emotions.",
+        "A speculative device that measures ambient temperature and responds with color mappings tied to different emotional tones.",
       thumbnail: "./assets/images/thumbnails/temperaure-of-emotions.png",
       url: "./project-pages/temperature-of-emotions.html",
       categories: ["others"],

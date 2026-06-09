@@ -22,7 +22,7 @@ const projects = {
     year: "2026",
     tools: ["Multisensory", "AI Object", "Spatial Interaction"],
     description:
-      "Limen is a device that enhances your connection with your surroundings through multisensory prompts that help you draw parallels and find patterns.",
+      "Limen is a spatial tool that uses lightweight context—where you are, time of day, and weather—to send short multisensory prompts while you move through a place.",
     url: "./public/project-pages/limen.html",
   },
   "fleeting-states": {
@@ -44,7 +44,7 @@ const projects = {
   "move-a-bit": {
     image: "./public/assets/images/thumbnails/move-a-bit.jpg",
     video: "./public/assets/videos/moveabit.mp4",
-    title: "Move A Bit",
+    title: "Move a Bit",
     year: "2022",
     tools: [
       "Quantum Computing",
