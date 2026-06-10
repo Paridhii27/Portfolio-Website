@@ -124,21 +124,51 @@
       <div class="documentation">
         <div class="project-section">
           <div class="project-content-container">
-            <h3>Concept</h3>
+            <h3>Overview</h3>
             <p>
-              <span class="project-title-italics">Granny Bytes</span> explores
-              intergenerational connections and how they can manifest within our
-              interactions with technology. It investigates how AI-mediated
-              interactions can either widen or close the gap between younger and
-              older generations.
+              <span class="project-title-italics">Granny Bytes</span> is a
+              web-based AI cooking companion that combines a small library of
+              real family recipes with a conversational “grandmother” guide. We
+              explored how reframing AI as a familiar, caring presence of
+              “Grandma” could create a sense of permanence in a relationship
+              that can feel fleeting, questioning the shift from transactional
+              to relational tools and their potential to support community,
+              preserve stories, and foster generational closeness.
             </p>
             <p>
-              We were interested in how reframing AI as the familiar, caring
-              presence of “Grandma” could create a sense of permanence in a
-              relationship that can feel fleeting. This reframing also asks what
-              shifts when a tool feels relational rather than transactional, and
-              whether it can support a shared sense of community, preserve
-              stories, and foster more lasting closeness across generations.
+              Users select a recipe, follow the steps, ask questions in plain
+              language, and optionally upload a photo for structured feedback.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="inline-img-container">
+            <figure>
+              <img
+                alt="Granny Bytes — grandmother guide animation"
+                class="inline-img"
+                src="../assets/images/project-pages/granny-bytes/grandma.gif"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-content-container">
+            <h3>Problem</h3>
+            <p>
+              Family recipes are often incomplete—missing amounts, assuming a
+              pan you do not own, or skipping “obvious” steps a grandparent
+              would have shown in person. Younger cooks also reach for phones
+              mid-task, where default LLM answers can feel cold, overly generic,
+              or unsafe for food handling. We wanted a constrained, step-based
+              flow that behaved more like a patient elder at the counter rather
+              than an AI dump.
             </p>
           </div>
         </div>
@@ -147,18 +177,78 @@
           <div class="project-content-container">
             <h3>An application for lasting connection</h3>
             <p>
-              Within the relationship of grandmothers and the youth, food is a
-              big factor of unification, and so we decided to use cooking as the
-              focus for mirroring this relationship– seeing how AI and cooking
-              can be a facet of our humanity.
+              Within the relationship of grandparents and younger generations,
+              food is a big factor of unification, and so we decided to use
+              cooking as the focus for mirroring this relationship– seeing how
+              AI and cooking can be a facet of our humanity.
             </p>
             <p>
-              <span class="project-title-italics">Granny Bytes</span> helps you
-              answer any questions you have as you cook recipes passed down
-              through different generations. As of now, users are presented with
-              4 pre-written cultural recipes that have been passed down by each
-              team members’ grandmothers.
+              The app features four family recipes, each from a team member's
+              grandmother, representing different cultures, with detailed
+              ingredients and steps. It provides warmth and guidance,
+              reminiscent of a grandmother’s presence, helping users recreate
+              cherished dishes, clarify quantities, and connect with cultural
+              roots.
             </p>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="inline-img-container">
+            <figure>
+              <img
+                alt="Granny Bytes — welcome animation"
+                class="inline-img"
+                src="../assets/images/project-pages/granny-bytes/wecome.gif"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="inline-img-container">
+            <figure>
+              <img
+                alt="Granny Bytes — recipe steps animation"
+                class="inline-img"
+                src="../assets/images/project-pages/granny-bytes/recipe.gif"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-content-container">
+            <h3>Visual &amp; UI System</h3>
+            <p>
+              Before coding, we finalised typography, colours, and component
+              design in Figma so the recipe layout, conversational guide and
+              imagery all felt like a cozy kitchen—not just another chatbot. All
+              UI assets and icons were hand-drawn to enhance the app’s warm tone
+              as well.
+            </p>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                alt="Granny Bytes — style sheet"
+                class="inline-img"
+                src="../assets/images/project-pages/granny-bytes/Style Sheet.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+            <div class="inline-img-caption">Style sheet for the app</div>
           </div>
         </div>
 
@@ -179,25 +269,6 @@
               Recipes passed down by each team member's grandmother
             </div>
           </div>
-        </div>
-
-        <div class="project-section">
-          <div class="inline-img-container">
-            <figure>
-              <img
-                alt="Granny Bytes — documentation image 2 of 10"
-                class="inline-img"
-                src="../assets/images/project-pages/granny-bytes/Style Sheet.png"
-              />
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="project-section">
           <div class="inline-img-container">
             <figure>
               <img
@@ -215,20 +286,27 @@
 
         <div class="project-section">
           <div class="project-content-container">
-            <h3>Cooking with Granny Bytes</h3>
+            <h3>User Flow</h3>
             <p>
-              When clicking on a recipe, users are greeted with an interactive
-              recipe guide with a section hosting the ingredients, the chat room
-              where the grandmother lists the steps of the recipe one at a time
-              and have users type in any questions they have about the step to
-              which the grandmother responds before proceeding to the next step.
+              1. Choose a Dish — Select from 4 pre-written cultural recipes from
+              each team member’s grandmother.
             </p>
             <p>
-              At the end the user can also send an image of their cooking for
-              feedback to the AI powered grandmother to know how well they
-              cooked it and things they could improve on. Chat with
-              <span class="project-title-italics">Granny Bytes</span>
-              on your next cooking adventure.
+              2. Prep & Steps — Ingredients stay pinned on the side; the
+              conversational guide shares one recipe step at a time. Users can
+              ask clarifying questions at each step and must receive an answer
+              before proceeding, minimizing hallucinated AI shortcuts.
+            </p>
+            <p>
+              3. Photo Feedback — After the final step, users upload a photo of
+              their prepared dish. Gemini Pro Vision provides concise feedback
+              on colour, doneness, garnish, and one or two actionable
+              tweaks—still in-character, within the recipe context.
+            </p>
+            <p>
+              Chat with
+              <span class="project-title-italics">Granny Bytes</span> on your
+              next cooking adventure.
             </p>
           </div>
         </div>
@@ -360,14 +438,33 @@
           <div class="project-content-container">
             <h3>How can AI provide warmth and care?</h3>
             <p>
-              The app simulates a sense of warmth, care and fostering in the way
-              the grandmother responds to you. For the moments when you’re
-              frantically searching how to make a recipe your grandmother used
-              to make for you when you were little. For when you don’t
-              understand the quantities required to make a dish because the
-              recipe doesn’t mention it clearly. Most of all, for when you’re
-              missing your grandmother or craving a connection to your cultural
-              roots.
+              In this app, “Warmth” is a concrete design output. We scripted the
+              guide to stay within the active recipe, acknowledge uncertainty,
+              and avoid inventing ingredients. System prompts combine step
+              explanations with shot examples of the desired tone—patient, warm,
+              specific, and lightly personal. The server attaches the active
+              dish and step index to each Gemini request to prevent context
+              leakage and stop the AI from rushing to the next step on its own.
+            </p>
+            <p>
+              The tone was crucial, requiring fine-tuning LLM responses. We
+              created a cohesive visual design to complement the warm responses.
+              Vision prompts comment on food presentation and doneness signals,
+              reinforcing effort, suggesting tweaks, or praising the dish’s
+              outcome.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-content-container">
+            <h3>Outcome &amp; Next Steps</h3>
+            <p>
+              We designed, user tested, and developed a stable demo on Render
+              with the four recipes, conversational guide, and image analysis.
+              Future plans include enabling users to add their own family
+              recipes and enhancing the model’s accuracy in handling edge cases
+              like allergen substitutions and missing tools.
             </p>
           </div>
         </div>

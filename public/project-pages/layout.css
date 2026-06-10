@@ -638,7 +638,9 @@ p {
 }
 
 .project-container .inline-img[src*=".png"],
-.project-container .inline-img[src*=".PNG"] {
+.project-container .inline-img[src*=".PNG"],
+.project-container .inline-img[src*=".gif"],
+.project-container .inline-img[src*=".GIF"] {
   border: none;
 }
 
