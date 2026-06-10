@@ -1,0 +1,6 @@
+# https://www.paridhiworks.com/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location (absolute URL recommended)
+Sitemap: https://www.paridhiworks.com/sitemap.xml
