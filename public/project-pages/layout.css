@@ -521,6 +521,78 @@ p {
   scroll-margin-top: calc(var(--nav-height, 75px) + 1.25rem);
 }
 
+/* Heading full width; body text + media share one row (media aligns with paragraphs, not title) */
+.project-section.project-section--heading-above-inline {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+}
+
+.project-section.project-section--heading-above-inline
+  > .project-section-inline-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-3xl);
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.documentation
+  .project-section--heading-above-inline
+  > .project-content-container:first-child {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: unset;
+}
+
+.documentation
+  .project-section--heading-above-inline
+  > .project-section-inline-row:has(
+    > .project-content-container + .inline-img-container
+  )
+  > .project-content-container:first-child,
+.documentation
+  .project-section--heading-above-inline
+  > .project-section-inline-row:has(
+    > .project-content-container + .inline-video-container
+  )
+  > .project-content-container:first-child {
+  max-width: none;
+  margin-inline: unset;
+}
+
+.documentation
+  .project-section--heading-above-inline
+  > .project-section-inline-row
+  > .inline-video-container {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 100%;
+  width: auto;
+  align-self: flex-start;
+  align-items: stretch;
+}
+
+.documentation
+  .project-section--heading-above-inline
+  .project-section-inline-row
+  > .inline-video-container
+  .inline-video,
+.documentation
+  .project-section--heading-above-inline
+  .project-section-inline-row
+  > .inline-video-container
+  figure {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
 /* Inline Image Layouts */
 .project-section .inline-img-container {
   flex: 1 1 280px;
@@ -2046,6 +2118,12 @@ body.page-fleeting-states .documentation .inline-video-grid .inline-video {
   }
 
   .project-section {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .project-section.project-section--heading-above-inline
+    > .project-section-inline-row {
     flex-direction: column;
     gap: var(--space-lg);
   }
