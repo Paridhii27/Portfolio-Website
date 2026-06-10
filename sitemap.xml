@@ -21,17 +21,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.paridhiworks.com/public/project-pages/audiovisual.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.paridhiworks.com/public/project-pages/computerized-memories.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.paridhiworks.com/public/project-pages/echoes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -47,11 +37,6 @@
   </url>
   <url>
     <loc>https://www.paridhiworks.com/public/project-pages/hivemind.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.paridhiworks.com/public/project-pages/intermittent.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -87,11 +72,6 @@
   </url>
   <url>
     <loc>https://www.paridhiworks.com/public/project-pages/this-machine-is-a-stranger.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.paridhiworks.com/public/project-pages/warped-memories-of-digital-ghosts.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -208,7 +208,9 @@ html {
   perspective-origin: bottom center;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    opacity 1s ease-out,
+    transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .featured-projects-accordion.is-visible {
@@ -260,9 +262,18 @@ html {
 }
 
 /* Fix hover transform by specifically targeting positions */
-.accordion-card[data-pos="1"]:hover { transform: translateX(0%) translateY(-100px) translateZ(-40px) scale(0.92); opacity: 1; }
-.accordion-card[data-pos="2"]:hover { transform: translateX(20%) translateY(-190px) translateZ(-80px) scale(0.85); opacity: 1; }
-.accordion-card[data-pos="3"]:hover { transform: translateX(40%) translateY(-280px) translateZ(-120px) scale(0.78); opacity: 1; }
+.accordion-card[data-pos="1"]:hover {
+  transform: translateX(0%) translateY(-100px) translateZ(-40px) scale(0.92);
+  opacity: 1;
+}
+.accordion-card[data-pos="2"]:hover {
+  transform: translateX(20%) translateY(-190px) translateZ(-80px) scale(0.85);
+  opacity: 1;
+}
+.accordion-card[data-pos="3"]:hover {
+  transform: translateX(40%) translateY(-280px) translateZ(-120px) scale(0.78);
+  opacity: 1;
+}
 
 .accordion-media-wrapper {
   position: relative;
@@ -297,7 +308,12 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   opacity: 1;
   transition: opacity 0.4s ease;
 }
@@ -416,34 +432,48 @@ html {
   .arrow-link {
     display: none;
   }
-  
+
   .featured-projects-accordion {
     height: 550px;
   }
-  
+
   .accordion-card {
     height: 75%;
     width: 85%;
   }
-  
-  .accordion-card[data-pos="0"] { transform: translateX(-8%) translateY(0) translateZ(0) scale(1); }
-  .accordion-card[data-pos="1"] { transform: translateX(2%) translateY(-80px) translateZ(-40px) scale(0.92); }
-  .accordion-card[data-pos="2"] { transform: translateX(12%) translateY(-150px) translateZ(-80px) scale(0.85); }
-  .accordion-card[data-pos="3"] { transform: translateX(22%) translateY(-220px) translateZ(-100px) scale(0.78); }
+
+  .accordion-card[data-pos="0"] {
+    transform: translateX(-8%) translateY(0) translateZ(0) scale(1);
+  }
+  .accordion-card[data-pos="1"] {
+    transform: translateX(2%) translateY(-80px) translateZ(-40px) scale(0.92);
+  }
+  .accordion-card[data-pos="2"] {
+    transform: translateX(12%) translateY(-150px) translateZ(-80px) scale(0.85);
+  }
+  .accordion-card[data-pos="3"] {
+    transform: translateX(22%) translateY(-220px) translateZ(-100px) scale(0.78);
+  }
 
   /* --- HOVER FIXES (mobile) --- */
-  .accordion-card[data-pos="1"]:hover { transform: translateX(2%) translateY(-90px) translateZ(-40px) scale(0.92); }
-  .accordion-card[data-pos="2"]:hover { transform: translateX(12%) translateY(-160px) translateZ(-80px) scale(0.85); }
-  .accordion-card[data-pos="3"]:hover { transform: translateX(22%) translateY(-230px) translateZ(-100px) scale(0.78); }
-  
+  .accordion-card[data-pos="1"]:hover {
+    transform: translateX(2%) translateY(-90px) translateZ(-40px) scale(0.92);
+  }
+  .accordion-card[data-pos="2"]:hover {
+    transform: translateX(12%) translateY(-160px) translateZ(-80px) scale(0.85);
+  }
+  .accordion-card[data-pos="3"]:hover {
+    transform: translateX(22%) translateY(-230px) translateZ(-100px) scale(0.78);
+  }
+
   .accordion-info {
     padding: var(--spacing-md);
   }
-  
+
   .accordion-info h2 {
     font-size: 1.5rem;
   }
-  
+
   .accordion-info p {
     font-size: 0.9rem;
     margin-bottom: var(--spacing-md);

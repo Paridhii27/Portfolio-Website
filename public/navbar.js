@@ -114,14 +114,14 @@ const Navigation = {
               <a href="${homePath}">
                 <img
                   src="${basePath}assets/images/logos/logo.png"
-                  alt="Logo"
+                  alt="Paridhi Garg — home"
                   class="default-logo"
                   width="150"
                   height="50"
                 />
                 <img
                   src="${basePath}assets/images/logos/logo hover.png"
-                  alt="Hover Logo"
+                  alt=""
                   class="hover-logo"
                   width="150"
                   height="50"
