@@ -1,5 +1,30 @@
 // Project data - content managed via JavaScript
 const projects = {
+  "move-a-bit": {
+    image: "./public/assets/images/thumbnails/move-a-bit.jpg",
+    video: "./public/assets/videos/moveabit.mp4",
+    title: "Move a Bit",
+    year: "2022",
+    tools: [
+      "Quantum Computing",
+      "Motion Capture",
+      "Interactive Installation",
+      "Science Communication",
+    ],
+    description:
+      "Move a Bit features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.",
+    url: "./public/project-pages/move-a-bit.html",
+  },
+  limen: {
+    image: "./public/assets/images/thumbnails/limen-tool.png",
+    video: "./public/assets/images/project-pages/limen/prospect2.mp4",
+    title: "Limen",
+    year: "2026",
+    tools: ["Multisensory", "AI Object", "Spatial Interaction"],
+    description:
+      "Limen is a spatial tool that uses lightweight context—where you are, time of day, and weather—to send short multisensory prompts while you move through a place.",
+    url: "./public/project-pages/limen.html",
+  },
   "machine-stranger": {
     image: "./public/assets/images/thumbnails/machine-stranger.jpg",
     video: "./public/assets/videos/thismachine.mp4",
@@ -14,16 +39,6 @@ const projects = {
     description:
       '<span class="project-title-italics">This Machine is a Stranger</span> investigates how one can navigate life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
     url: "./public/project-pages/this-machine-is-a-stranger.html",
-  },
-  limen: {
-    image: "./public/assets/images/thumbnails/limen-tool.png",
-    video: "./public/assets/images/project-pages/limen/prospect2.mp4",
-    title: "Limen",
-    year: "2026",
-    tools: ["Multisensory", "AI Object", "Spatial Interaction"],
-    description:
-      "Limen is a spatial tool that uses lightweight context—where you are, time of day, and weather—to send short multisensory prompts while you move through a place.",
-    url: "./public/project-pages/limen.html",
   },
   "fleeting-states": {
     image: "./public/assets/images/thumbnails/fleeting-states-two.png",
@@ -40,21 +55,6 @@ const projects = {
     description:
       "Fleeting States + Measured Values depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.",
     url: "./public/project-pages/fleeting-states.html",
-  },
-  "move-a-bit": {
-    image: "./public/assets/images/thumbnails/move-a-bit.jpg",
-    video: "./public/assets/videos/moveabit.mp4",
-    title: "Move a Bit",
-    year: "2022",
-    tools: [
-      "Quantum Computing",
-      "Motion Capture",
-      "Interactive Installation",
-      "Science Communication",
-    ],
-    description:
-      "Move a Bit features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.",
-    url: "./public/project-pages/move-a-bit.html",
   },
 };
 
