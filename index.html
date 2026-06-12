@@ -21,17 +21,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <!-- Subset fonts (homepage does not use Quicksand; avoids multi-MB variable font CSS) -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap"
     />
 
-    <!-- Preloading critical resources for faster loading -->
-    <link rel="preload" href="./public/assets/videos/moveabit.mp4" as="video" />
+    <!-- LCP: first accordion poster (tiny); do not preload large MP4s — they were competing with paint -->
     <link
       rel="preload"
-      href="./public/assets/images/project-pages/limen/prospect1.mp4"
-      as="video"
+      href="./public/assets/images/thumbnails/move-a-bit.jpg"
+      as="image"
+      fetchpriority="high"
     />
     <link rel="preload" href="./navbar.css" as="style" />
     <link rel="preload" href="./homepage.css" as="style" />
@@ -39,10 +40,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.paridhiworks.com/" />
-    <meta
-      property="og:title"
-      content="Paridhi Garg | Creative Technologist"
-    />
+    <meta property="og:title" content="Paridhi Garg | Creative Technologist" />
     <meta
       property="og:description"
       content="Portfolio: interactive installations, AI interfaces, and immersive worlds—work that prompts curiosity in physical space and makes complex ideas tangible. Parsons Design & Technology; based in NYC; exhibits with IBM Quantum and DLR."
@@ -56,10 +54,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Paridhi Garg | Creative Technologist"
-    />
+    <meta name="twitter:title" content="Paridhi Garg | Creative Technologist" />
     <meta
       name="twitter:description"
       content="Portfolio: interactive installations, AI interfaces, and immersive worlds—work that prompts curiosity in physical space and makes complex ideas tangible. Parsons Design & Technology; based in NYC; exhibits with IBM Quantum and DLR."
@@ -117,7 +112,7 @@
     <!-- Featured Projects Section -->
     <section class="featured-projects-section">
       <p class="featured-projects-category">Featured Projects</p>
-      
+
       <!-- Accordion Container -->
       <div class="featured-projects-accordion" id="projects-accordion">
         <!-- Cards will be injected here by JS -->
@@ -129,8 +124,8 @@
       </div>
     </section>
 
-    <script src="./public/navbar.js"></script>
-    <script src="./script.js"></script>
-    <script src="./homepage.js"></script>
+    <script src="./public/navbar.js" defer></script>
+    <script src="./script.js" defer></script>
+    <script src="./homepage.js" defer></script>
   </body>
 </html>

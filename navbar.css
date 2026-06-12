@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+/* Fonts: load via <link> on each page, or from layout.css on project pages (avoids duplicate Inter + @import chain). */
 
 /* ============================================================================
    CSS VARIABLES

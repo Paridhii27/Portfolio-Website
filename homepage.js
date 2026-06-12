@@ -16,7 +16,7 @@ const projects = {
     url: "./public/project-pages/move-a-bit.html",
   },
   limen: {
-    image: "./public/assets/images/thumbnails/limen-tool.png",
+    image: "./public/assets/images/project-pages/limen/thumbnail.png",
     video: "./public/assets/images/project-pages/limen/prospect2.mp4",
     title: "Limen",
     year: "2026",
@@ -62,6 +62,34 @@ const projects = {
 let currentFeaturedIndex = 0;
 const allProjectIds = Object.keys(projects);
 
+/** Only the active accordion card keeps a real video src; others use data-src to avoid ~50MB+ parallel downloads. */
+function setVideoElForPosition(videoEl, project, pos) {
+  const isActive = pos === 0;
+  if (!isActive) {
+    videoEl.removeAttribute("src");
+    videoEl.setAttribute("data-src", project.video);
+    videoEl.loop = true;
+    videoEl.muted = true;
+    videoEl.playsInline = true;
+    videoEl.setAttribute("playsinline", "");
+    videoEl.preload = "none";
+    videoEl.removeAttribute("autoplay");
+    videoEl.pause();
+    videoEl.load();
+    return;
+  }
+
+  videoEl.src = project.video;
+  videoEl.removeAttribute("data-src");
+  videoEl.poster = project.image;
+  videoEl.loop = true;
+  videoEl.muted = true;
+  videoEl.playsInline = true;
+  videoEl.setAttribute("playsinline", "");
+  videoEl.setAttribute("autoplay", "");
+  videoEl.preload = "metadata";
+}
+
 function renderAccordion() {
   const container = document.getElementById("projects-accordion");
   if (!container) return;
@@ -96,11 +124,15 @@ function renderAccordion() {
 
     let mediaHTML = "";
     if (hasVideo) {
-      mediaHTML = `<video src="${project.video}" poster="${project.image}" autoplay loop muted playsinline preload="auto"></video>`;
+      const videoTag =
+        pos === 0
+          ? `<video poster="${project.image}" loop muted playsinline preload="metadata" autoplay src="${project.video}"></video>`
+          : `<video poster="${project.image}" loop muted playsinline preload="none" data-src="${project.video}"></video>`;
+      mediaHTML = videoTag;
     } else if (isGif) {
-      mediaHTML = `<img src="${project.video}" alt="${project.title}" />`;
+      mediaHTML = `<img src="${project.video}" alt="${project.title}" loading="lazy" />`;
     } else {
-      mediaHTML = `<img src="${project.image}" alt="${project.title}" />`;
+      mediaHTML = `<img src="${project.image}" alt="${project.title}" loading="lazy" />`;
     }
 
     card.innerHTML = `
@@ -134,7 +166,7 @@ function renderAccordion() {
 
       currentFeaturedIndex = allProjectIds.indexOf(projectId);
 
-      // Update all cards' positions
+      // Update all cards' positions and video loading
       document.querySelectorAll(".accordion-card").forEach((c) => {
         const currentId = c.dataset.projectId;
         const originalIndex = allProjectIds.indexOf(currentId);
@@ -147,14 +179,30 @@ function renderAccordion() {
         if (newPos === 0) {
           c.classList.add("active");
           c.setAttribute("aria-expanded", "true");
+          const proj = projects[currentId];
           const video = c.querySelector("video");
-          if (video)
-            video.play().catch((e) => console.log("Video play prevented:", e));
+          if (
+            video &&
+            proj.video &&
+            !proj.video.toLowerCase().endsWith(".gif")
+          ) {
+            setVideoElForPosition(video, proj, 0);
+            video
+              .play()
+              .catch((err) => console.log("Video play prevented:", err));
+          }
         } else {
           c.classList.remove("active");
           c.setAttribute("aria-expanded", "false");
+          const proj = projects[currentId];
           const video = c.querySelector("video");
-          if (video) video.pause();
+          if (
+            video &&
+            proj.video &&
+            !proj.video.toLowerCase().endsWith(".gif")
+          ) {
+            setVideoElForPosition(video, proj, newPos);
+          }
         }
       });
     };
