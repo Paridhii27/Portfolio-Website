@@ -12,7 +12,7 @@ const projects = {
       "Science Communication",
     ],
     description:
-      "Move a Bit features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.",
+      '<span class="project-title-italics">Move a Bit</span> features a live motion capture experience bringing quantum computing to life through an interactive display that visually showcases entanglement.',
     url: "./public/project-pages/move-a-bit.html",
   },
   limen: {
@@ -22,7 +22,7 @@ const projects = {
     year: "2026",
     tools: ["Multisensory", "AI Object", "Spatial Interaction"],
     description:
-      "Limen is a spatial tool that uses lightweight context—where you are, time of day, and weather—to send short multisensory prompts while you move through a place.",
+      '<span class="project-title-italics">Limen</span> is a spatial tool that uses lightweight context—location, time and weather—to deliver brief multi-sensory prompts that encourage you to notice and observe your surroundings more deeply.',
     url: "./public/project-pages/limen.html",
   },
   "machine-stranger": {
@@ -37,7 +37,7 @@ const projects = {
       "Interactive Installation",
     ],
     description:
-      '<span class="project-title-italics">This Machine is a Stranger</span> investigates how one can navigate life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
+      '<span class="project-title-italics">This Machine is a Stranger</span> is a research-led experience designed to investigate how much a person implicitly trusts or mistrusts unfamiliar machines and algorithms.',
     url: "./public/project-pages/this-machine-is-a-stranger.html",
   },
   "fleeting-states": {
@@ -53,7 +53,7 @@ const projects = {
       "Interactive Installation",
     ],
     description:
-      "Fleeting States + Measured Values depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.",
+      '<span class="project-title-italics">Fleeting States + Measured Values</span> depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.',
     url: "./public/project-pages/fleeting-states.html",
   },
 };

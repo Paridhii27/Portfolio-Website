@@ -11,7 +11,7 @@ const ProjectsData = {
       class: "research",
       year: "2025",
       description:
-        '<span class="project-title-italics">This Machine is a Stranger</span> is a thought experiment that investigates how one navigates life at the intersection of human intuition and the quiet, calculated logic of autonomous machines, questioning how much a person implicitly trusts or mistrusts a machine.',
+        '<span class="project-title-italics">This Machine is a Stranger</span> is a research led experience designed to investigate how much a person implicitly trusts or mistrusts unfamiliar machines and algorithms.',
       thumbnail: "./assets/images/thumbnails/machine-stranger.jpg",
       url: "./project-pages/this-machine-is-a-stranger.html",
       categories: ["interactive", "aiweb"],
@@ -29,7 +29,7 @@ const ProjectsData = {
       year: "2024",
       description:
         '<span class="project-title-italics">Fleeting States + Measured Values</span> depicts the visible and invisible sides of quantum computing through a touchscreen interface and programmable LED qubits.',
-      thumbnail: "./assets/images/thumbnails/fleeting-states.jpg",
+      thumbnail: "./assets/images/thumbnails/fleeting-states-two.png",
       url: "./project-pages/fleeting-states.html",
       categories: ["interactive"],
       tools: [
@@ -260,7 +260,7 @@ const ProjectsData = {
    */
   getFilterButtons() {
     return [
-      { filter: "all", label: "All Projects" },
+      { filter: "all", label: "All" },
       { filter: "aiweb", label: "AI Applications" },
       { filter: "interactive", label: "Installations" },
       { filter: "narrative", label: "3D Environments" },
