@@ -1,0 +1,13 @@
+{
+  "name": "paridhi-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pages": "node scripts/prepare-pages.mjs"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.2",
+    "ffmpeg-static": "^5.2.0",
+    "sharp": "^0.33.5"
+  }
+}

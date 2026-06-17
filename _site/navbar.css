@@ -1,0 +1,532 @@
+/* Fonts: load via <link> on each page, or from layout.css on project pages (avoids duplicate Inter + @import chain). */
+
+/* ============================================================================
+   CSS VARIABLES
+   ============================================================================ */
+
+:root {
+  /* Color Palette */
+  --nav-bg: #000000;
+  --nav-text-color: #ffffff;
+  --nav-hover-color: #a7c3e7;
+
+  /* Typography */
+  --nav-font-family: "Inter", sans-serif;
+  --nav-font-weight: 400;
+
+  /* Layout - Consistent across all pages */
+  --nav-height: 75px;
+  --nav-padding: 20px;
+  --logo-size: 48px;
+  --menu-font-size: 20px;
+  --menu-link-gap: 4rem; /* Spacing between menu links */
+
+  /* Shared spacing scale (used across pages) */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+
+  /* Shared responsive spacing */
+  --site-section-spacing: clamp(1.5rem, 5vw, 3rem);
+  --site-section-gap: clamp(1.25rem, 4vw, 2rem);
+
+  /* Site-wide horizontal gutter (all pages; override per page if needed) */
+  --site-page-margin: clamp(2.5rem, 10vw, 10%);
+
+  /* Site-wide content max width (caps layouts on large monitors) */
+  --site-content-max: 75rem;
+
+  /* Back-compat / default hooks used across pages */
+  --page-margin: var(--site-page-margin, clamp(1.5rem, 7vw, 7%));
+  --section-spacing: var(--site-section-spacing);
+  --section-gap: var(--site-section-gap);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  /* Must match --transition-slow duration (used for menu visibility delay on close) */
+  --nav-menu-duration: 0.5s;
+}
+
+/* Tighter horizontal gutters on small screens (nav bar + body padding use --page-margin) */
+@media screen and (max-width: 768px) {
+  :root {
+    --site-page-margin: clamp(0.75rem, 4vw, 1.125rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --site-page-margin: clamp(0.625rem, 3.5vw, 1rem);
+  }
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+body {
+  padding-top: calc(var(--nav-height) + 1rem);
+}
+
+/* Instant blank screen when navigating away - no content bleed from previous page */
+body.navigating {
+  background: #000 !important;
+  overflow: hidden;
+}
+body.navigating > * {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+::selection {
+  background: #3d479c;
+}
+
+/* ============================================================================
+   NAVIGATION CONTAINER
+   ============================================================================ */
+
+.navigation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+  /* Align with page content; respect notches */
+  padding-left: max(var(--page-margin), env(safe-area-inset-left));
+  padding-right: max(var(--page-margin), env(safe-area-inset-right));
+  padding-top: env(safe-area-inset-top);
+  /* Prevent pull-to-refresh interference */
+  overscroll-behavior-y: contain;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: min(90vw, var(--site-content-max));
+  margin: 0 auto;
+  font-family: var(--nav-font-primary);
+  font-weight: var(--nav-font-weight);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ============================================================================
+   LOGO STYLES
+   ============================================================================ */
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: var(--logo-size);
+  width: var(--logo-size);
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+  transition: transform var(--transition-medium);
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo:active {
+  transform: scale(1);
+}
+
+.logo a:active {
+  transform: none;
+}
+
+.logo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo .default-logo,
+.logo .hover-logo {
+  transition: opacity var(--transition-medium);
+}
+
+.logo .default-logo {
+  z-index: 2;
+}
+
+.logo .hover-logo {
+  z-index: 1;
+  opacity: 0;
+}
+
+.logo:hover .default-logo {
+  opacity: 0;
+}
+
+.logo:hover .hover-logo {
+  z-index: 2;
+  opacity: 1;
+}
+
+/* ============================================================================
+   MENU STYLES
+   ============================================================================ */
+
+#menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--menu-link-gap);
+}
+
+#menu li {
+  display: inline;
+}
+
+#menu a {
+  color: var(--nav-text-color);
+  font-family: var(--nav-font-family);
+  font-size: var(--menu-font-size);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+#menu li:hover a {
+  color: var(--nav-hover-color);
+}
+
+/* ============================================================================
+   MENU TOGGLE (HAMBURGER MENU)
+   ============================================================================ */
+
+#menuToggle {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+#menuToggle input,
+#menuToggle span {
+  display: none;
+}
+
+/* ============================================================================
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media screen and (max-width: 900px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain; /* Prevent pull-to-refresh */
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top) + 1rem);
+    padding-left: max(var(--page-margin), env(safe-area-inset-left));
+    padding-right: max(var(--page-margin), env(safe-area-inset-right));
+    padding-bottom: env(safe-area-inset-bottom); /* Safe area insets */
+  }
+
+  /* Ensures the navbar maintains consistent height on mobile */
+  .navigation-container {
+    height: var(--nav-height);
+  }
+
+  /* Full-width row inside container padding — avoids 90vw gap + extra right inset */
+  nav {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  #menuToggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    z-index: 1001; /* Higher than the menu */
+    user-select: none;
+  }
+
+  #menuToggle input {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1002; /* Highest z-index */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation; /* Enhanced touch interactions */
+  }
+
+  /* Hamburger Icon */
+  #menuToggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin-bottom: 4px;
+    position: relative;
+    background: var(--nav-text-color);
+    border-radius: 3px;
+    z-index: 1001;
+    transition:
+      transform var(--transition-slow),
+      background var(--transition-slow),
+      opacity var(--transition-slow);
+  }
+
+  #menuToggle span:last-of-type {
+    margin-bottom: 0;
+  }
+
+  #menuToggle span:nth-child(2) {
+    transform-origin: 0% 0%;
+  }
+
+  #menuToggle span:nth-child(3) {
+    transform-origin: 0% 50%;
+  }
+
+  #menuToggle span:nth-child(4) {
+    transform-origin: 0% 100%;
+  }
+
+  /* Hamburger to X Animation */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: var(--nav-text-color);
+  }
+
+  #menuToggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #menuToggle input:checked ~ span:nth-child(4) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  #menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    margin: 0;
+    background: var(--nav-bg);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+
+    /* Flexbox centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* Slide + fade together; delay visibility:hidden until panel finishes (avoids bg vanishing before links) */
+    transition:
+      transform var(--transition-slow),
+      opacity var(--transition-slow),
+      visibility 0s linear var(--nav-menu-duration);
+    z-index: 999;
+    /* Prevent scrolling when menu is open */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  #menu li {
+    text-align: center;
+    list-style: none;
+    width: 100%;
+  }
+
+  #menu a {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-weight: 450;
+    transition:
+      color var(--transition-fast),
+      transform var(--transition-fast);
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  #menu a:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  #menu a:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #menu li:hover a {
+    color: var(--nav-hover-color);
+  }
+
+  /* Show menu when checkbox is checked */
+  #menuToggle input:checked ~ ul {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform var(--transition-slow),
+      opacity var(--transition-slow),
+      visibility 0s linear 0s;
+    will-change: transform, opacity;
+  }
+
+  .logo {
+    height: 40px;
+    margin-left: 0;
+  }
+}
+
+/* ============================================================================
+   ADDITIONAL RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  #menu a {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  #menu {
+    gap: 1.5rem;
+  }
+}
+
+/* For larger mobile screens */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #menu a {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  #menu {
+    gap: 2.5rem;
+  }
+}
+
+/* ============================================================================
+   SITE FOOTER (injected by public/navbar.js)
+   ============================================================================ */
+
+.site-footer {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
+  padding-left: max(var(--page-margin), env(safe-area-inset-left));
+  padding-right: max(var(--page-margin), env(safe-area-inset-right));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.site-footer-inner {
+  max-width: min(90vw, var(--site-content-max));
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs) var(--space-md);
+  font-family: var(--nav-font-family);
+  font-weight: var(--nav-font-weight);
+  font-size: clamp(0.8125rem, 2.2vw, 0.9375rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-footer-link {
+  color: var(--nav-text-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-footer-link:hover {
+  color: var(--nav-hover-color);
+}
+
+.site-footer-sep {
+  color: rgba(255, 255, 255, 0.35);
+  user-select: none;
+}
+
+/* Project title in running text (italic, replaces quotation marks where used) */
+.project-title-italics {
+  font-style: italic;
+}

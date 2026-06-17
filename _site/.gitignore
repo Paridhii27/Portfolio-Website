@@ -1,0 +1,5 @@
+node_modules/
+.venv_bs4/
+_site/
+.DS_Store
+**/.DS_Store

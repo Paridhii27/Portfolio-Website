@@ -1,0 +1,179 @@
+/**
+ * Generating the navigation bar dynamically for all pages
+ */
+
+// Instantly hide page on internal link click - prevents any content from previous page showing
+document.addEventListener(
+  "click",
+  (e) => {
+    const a = e.target.closest("a");
+    if (
+      !a ||
+      a.target === "_blank" ||
+      e.ctrlKey ||
+      e.metaKey ||
+      e.shiftKey ||
+      a.getAttribute("href")?.startsWith("mailto:") ||
+      a.getAttribute("href")?.startsWith("#")
+    )
+      return;
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("javascript:")) return;
+    if (a.hostname && a.hostname !== location.hostname) return;
+    document.body.classList.add("navigating");
+  },
+  true
+);
+
+// If the browser restores this page from the back-forward cache (bfcache),
+// the class can persist and keep the page hidden (looks like a blank page).
+// Always clear it when the page is shown again.
+function clearNavigatingState() {
+  document.body.classList.remove("navigating");
+}
+
+window.addEventListener("pageshow", clearNavigatingState);
+window.addEventListener("popstate", clearNavigatingState);
+window.addEventListener("hashchange", clearNavigatingState);
+
+const Navigation = {
+  /**
+   * Getting the base path for assets based on current page location
+   */
+  getBasePath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/project-pages/")) {
+      return "../";
+    } else if (
+      currentPath.includes("/public/") &&
+      !currentPath.includes("/project-pages/")
+    ) {
+      return "./";
+    }
+    return "./public/";
+  },
+
+  /**
+   * Getting the home page path based on current location
+   */
+  getHomePath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/project-pages/")) {
+      return "../../index.html";
+    } else if (currentPath.includes("/public/")) {
+      return "../index.html";
+    }
+    return "./index.html";
+  },
+
+  /**
+   * Getting the projects page path based on current location
+   */
+  getProjectsPath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/project-pages/")) {
+      return "../projects.html";
+    } else if (
+      currentPath.includes("/public/") &&
+      !currentPath.includes("/project-pages/")
+    ) {
+      return "./projects.html";
+    }
+    return "./public/projects.html";
+  },
+
+  /**
+   * Getting the about page path based on current location
+   */
+  getAboutPath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/project-pages/")) {
+      return "../about.html";
+    } else if (
+      currentPath.includes("/public/") &&
+      !currentPath.includes("/project-pages/")
+    ) {
+      return "./about.html";
+    }
+    return "./public/about.html";
+  },
+
+  /**
+   * Rendering the navigation bar
+   */
+  render() {
+    const basePath = this.getBasePath();
+    const homePath = this.getHomePath();
+    const projectsPath = this.getProjectsPath();
+    const aboutPath = this.getAboutPath();
+
+    const navHTML = `
+        <div class="navigation-container">
+          <nav>
+            <div class="logo">
+              <a href="${homePath}">
+                <img
+                  src="${basePath}assets/images/logos/logo.png"
+                  alt="Paridhi Garg — home"
+                  class="default-logo"
+                  width="150"
+                  height="50"
+                />
+                <img
+                  src="${basePath}assets/images/logos/logo hover.png"
+                  alt=""
+                  class="hover-logo"
+                  width="150"
+                  height="50"
+                />
+              </a>
+            </div>
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <ul id="menu">
+                <li><a href="${projectsPath}">WORK</a></li>
+                <li><a href="${aboutPath}">ABOUT</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      `;
+
+    // Inserting the navigation at the beginning of body
+    document.body.insertAdjacentHTML("afterbegin", navHTML);
+    this.renderFooter();
+  },
+
+  /**
+   * Site-wide footer (contact links)
+   */
+  renderFooter() {
+    const email = "mailto:paridhigarg27@gmail.com";
+    const github = "https://github.com/Paridhii27";
+    const linkedin = "https://www.linkedin.com/in/paridhi-garg-a15824234/";
+
+    const footerHTML = `
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer-inner">
+          <a class="site-footer-link" href="${email}">Email</a>
+          <span class="site-footer-sep" aria-hidden="true">·</span>
+          <a class="site-footer-link" href="${github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="site-footer-sep" aria-hidden="true">·</span>
+          <a class="site-footer-link" href="${linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    `;
+
+    document.body.insertAdjacentHTML("beforeend", footerHTML);
+  },
+};
+
+// Auto-render navigation when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => Navigation.render());
+} else {
+  Navigation.render();
+}
