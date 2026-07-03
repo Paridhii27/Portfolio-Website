@@ -23,14 +23,31 @@ function resetPanelThumbs(containerSelector) {
   setActivePanelThumb(firstThumb);
 }
 
-function showAboutTab(tabId) {
+let currentAboutTab = null;
+
+function animatePanelContent(panel) {
+  const inner = panel.querySelector(".about-panel-inner");
+  if (!inner) return;
+
+  inner.classList.remove("about-animate-in");
+  void inner.offsetWidth;
+  inner.classList.add("about-animate-in");
+}
+
+function showAboutTab(tabId, { animate = true } = {}) {
   const panels = document.querySelectorAll(".about-panel");
   const tabs = document.querySelectorAll("#about-tabs .btn[data-tab]");
+  const shouldAnimate =
+    animate && currentAboutTab !== null && currentAboutTab !== tabId;
 
   panels.forEach((panel) => {
     const isActive = panel.dataset.panel === tabId;
     panel.classList.toggle("show", isActive);
     panel.hidden = !isActive;
+
+    if (isActive && shouldAnimate) {
+      animatePanelContent(panel);
+    }
   });
 
   tabs.forEach((tab) => {
@@ -38,6 +55,8 @@ function showAboutTab(tabId) {
     tab.classList.toggle("active", isActive);
     tab.setAttribute("aria-selected", String(isActive));
   });
+
+  currentAboutTab = tabId;
 
   if (typeof AboutData === "undefined") return;
 
@@ -73,7 +92,7 @@ function initializeAboutTabs() {
     showAboutTab(tab.dataset.tab);
   });
 
-  showAboutTab("about");
+  showAboutTab("about", { animate: false });
 }
 
 function initializePanelThumbs() {

@@ -45,7 +45,7 @@ const AboutData = {
     { src: "./assets/images/about/2.JPG", alt: "Gallery photo 3" },
     { src: "./assets/images/about/9.jpeg", alt: "Gallery photo 4" },
     { src: "./assets/images/about/10.jpg", alt: "Gallery photo 5" },
-    { src: "./assets/images/about/11.jpg", alt: "Gallery photo 6" },
+    { src: "./assets/images/about/11.JPG", alt: "Gallery photo 6" },
     { src: "./assets/images/about/7.jpg", alt: "Gallery photo 7" },
     { src: "./assets/images/about/8.jpg", alt: "Gallery photo 8" },
     { src: "./assets/images/about/12.jpg", alt: "Gallery photo 9" },

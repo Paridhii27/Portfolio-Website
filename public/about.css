@@ -54,6 +54,28 @@ body.about-page {
   min-width: 0;
 }
 
+/* Soft load-in animations */
+@keyframes aboutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-split-media {
+  opacity: 0;
+  animation: aboutFadeIn 0.55s ease-out 0.12s forwards;
+}
+
+.about-panel.show .about-panel-inner {
+  opacity: 0;
+  animation: aboutFadeIn 0.55s ease-out 0.15s forwards;
+}
+
 /* Tab buttons — aligned with project-gallery filter scaling */
 .about-tabs {
   display: flex;
@@ -568,5 +590,15 @@ body.about-tab-split-lock .about-panel-scroll::-webkit-scrollbar-thumb {
     padding: var(--spacing-xs);
     font-size: clamp(0.58rem, 2.6vw, 0.75rem);
     min-height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-split-media,
+  .about-panel.show .about-panel-inner,
+  .about-panel-inner.about-animate-in {
+    opacity: 1;
+    animation: none;
+    transform: none;
   }
 }

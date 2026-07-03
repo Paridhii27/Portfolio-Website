@@ -32,7 +32,7 @@ const projects = {
     video: "./public/assets/videos/thismachine.mp4",
     title: "This Machine is a Stranger",
     year: "2025",
-    discipline: "Research",
+    discipline: "Research, User Experience Design",
     tools: [
       "Human-Machine Interaction",
       "Computational Autonomy",
@@ -48,7 +48,7 @@ const projects = {
     video: "./public/assets/videos/fleetingstates.mp4",
     title: "Fleeting States + Measured Values",
     year: "2024",
-    discipline: "Experience Design",
+    discipline: "Creative Technology, UI/UX",
     tools: [
       "Multimedia",
       "LED Mapping",
