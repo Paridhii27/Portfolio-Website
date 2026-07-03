@@ -8,7 +8,7 @@
   /* Color Palette */
   --nav-bg: #000000;
   --nav-text-color: #ffffff;
-  --nav-hover-color: #a7c3e7;
+  --nav-hover-color: #a7dbeb;
 
   /* Typography */
   --nav-font-family: "Inter", sans-serif;
@@ -29,6 +29,31 @@
   --space-xl: 2rem;
   --space-2xl: 2.5rem;
   --space-3xl: 3rem;
+
+  /* Shared type scale (used across pages) — one fluid clamp() shape
+     (rem base + vw growth, capped) for every heading level, paragraph,
+     button, and tag/label so text scales the same way on every page.
+     Pages may still override --subheading-font for local accent type. */
+  --heading-font: "Inter", sans-serif;
+  --subheading-font: "Inter", sans-serif;
+  --content-font: "Open Sans", sans-serif;
+  --button-font: "Inter", sans-serif;
+  --heading-bold: 700;
+
+  --font-size-h1: clamp(2rem, 1.5rem + 2vw, 2.5rem);
+  --font-size-h2: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
+  --font-size-h3: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
+  --font-size-h4: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
+  --font-size-h5: clamp(0.85rem, 0.8rem + 0.3vw, 1rem);
+  --font-size-paragraph: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  --font-size-small: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  --font-size-button: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
+  --font-size-tag: clamp(0.7rem, 0.65rem + 0.3vw, 0.85rem);
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.7;
 
   /* Shared responsive spacing */
   --site-section-spacing: clamp(1.5rem, 5vw, 3rem);
@@ -224,8 +249,32 @@ nav {
   transition: all var(--transition-fast);
 }
 
-#menu li:hover a {
+#menu a::before,
+#menu a::after {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+#menu a::before {
+  content: "(";
+}
+
+#menu a::after {
+  content: ")";
+}
+
+#menu li:hover a,
+#menu a.is-active {
   color: var(--nav-hover-color);
+}
+
+#menu li:hover a::before,
+#menu li:hover a::after,
+#menu a:active::before,
+#menu a:active::after,
+#menu a.is-active::before,
+#menu a.is-active::after {
+  opacity: 1;
 }
 
 /* ============================================================================
@@ -431,8 +480,18 @@ nav {
     box-shadow: none;
   }
 
-  #menu li:hover a {
+  #menu li:hover a,
+  #menu a.is-active {
     color: var(--nav-hover-color);
+  }
+
+  #menu li:hover a::before,
+  #menu li:hover a::after,
+  #menu a:active::before,
+  #menu a:active::after,
+  #menu a.is-active::before,
+  #menu a.is-active::after {
+    opacity: 1;
   }
 
   /* Show menu when checkbox is checked */

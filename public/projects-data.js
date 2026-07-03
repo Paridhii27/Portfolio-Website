@@ -100,16 +100,34 @@ const ProjectsData = {
         "Research Communication",
       ],
     },
+
     {
-      id: "postcards-between-worlds",
-      title: "Postcards Between Worlds",
-      year: "2023",
+      id: "granny-bytes",
+      title: "Granny Bytes",
+      year: "2024",
       description:
-        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
-      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
-      url: "./project-pages/postcards-between-worlds.html",
-      categories: ["narrative"],
-      tools: ["3D Environments", "Speculative Futures", "Writing"],
+        '<span class="project-title-italics">Granny Bytes</span> is an AI application that explores intergenerational connections and how they can manifest within our interactions with technology.',
+      thumbnail: "./assets/images/thumbnails/granny-bytes.png",
+      url: "./project-pages/granny-bytes.html",
+      categories: ["aiweb"],
+      tools: [
+        "Cultural Technology",
+        "Conversational UI",
+        "Image Analysis",
+        "Multimodal AI",
+      ],
+    },
+    {
+      id: "elsewhere",
+      title: "Elsewhere",
+      class: "research",
+      year: "2026",
+      description:
+        "A real-time visual design system driven by live ten-day weather data.",
+      thumbnail: "./assets/images/project-pages/elsewhere/2.png",
+      url: "./project-pages/elsewhere.html",
+      categories: ["others"],
+      tools: ["Real-time Visuals", "Weather Mapping", "Perception"],
     },
     {
       id: "Limen",
@@ -125,22 +143,17 @@ const ProjectsData = {
     },
 
     {
-      id: "granny-bytes",
-      title: "Granny Bytes",
-      class: "research",
-      year: "2024",
+      id: "postcards-between-worlds",
+      title: "Postcards Between Worlds",
+      year: "2023",
       description:
-        '<span class="project-title-italics">Granny Bytes</span> is an AI application that explores intergenerational connections and how they can manifest within our interactions with technology.',
-      thumbnail: "./assets/images/thumbnails/granny-bytes.png",
-      url: "./project-pages/granny-bytes.html",
-      categories: ["aiweb"],
-      tools: [
-        "Cultural Technology",
-        "Conversational UI",
-        "Image Analysis",
-        "Multimodal AI",
-      ],
+        "A story of two people in the future who send postcards to each other because societal systems have created physical barriers between them.",
+      thumbnail: "./assets/images/thumbnails/postcards-between-worlds.png",
+      url: "./project-pages/postcards-between-worlds.html",
+      categories: ["narrative"],
+      tools: ["3D Environments", "Speculative Futures", "Writing"],
     },
+
     {
       id: "firefly-symphony",
       title: "Firefly Symphony",

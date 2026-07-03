@@ -5,6 +5,7 @@ const projects = {
     video: "./public/assets/videos/moveabit.mp4",
     title: "Move a Bit",
     year: "2022",
+    discipline: "Experience Design",
     tools: [
       "Quantum Computing",
       "Motion Capture",
@@ -20,6 +21,7 @@ const projects = {
     video: "./public/assets/images/project-pages/limen/prospect2.mp4",
     title: "Limen",
     year: "2026",
+    discipline: "Product Design",
     tools: ["Multisensory", "AI Object", "Spatial Interaction"],
     description:
       '<span class="project-title-italics">Limen</span> is a spatial tool that uses lightweight context—location, time and weather—to deliver brief multi-sensory prompts that encourage you to notice and observe your surroundings more deeply.',
@@ -30,6 +32,7 @@ const projects = {
     video: "./public/assets/videos/thismachine.mp4",
     title: "This Machine is a Stranger",
     year: "2025",
+    discipline: "Research",
     tools: [
       "Human-Machine Interaction",
       "Computational Autonomy",
@@ -45,6 +48,7 @@ const projects = {
     video: "./public/assets/videos/fleetingstates.mp4",
     title: "Fleeting States + Measured Values",
     year: "2024",
+    discipline: "Experience Design",
     tools: [
       "Multimedia",
       "LED Mapping",
@@ -146,6 +150,7 @@ function renderAccordion() {
       </div>
       <div class="accordion-content">
         <div class="accordion-info">
+          <span class="project-discipline">${project.discipline}</span>
           <div class="project-title" style="margin-bottom: var(--spacing-sm);">
             ${project.title}
           </div>

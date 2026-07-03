@@ -38,22 +38,121 @@ const AboutData = {
     },
   ],
 
+  /* Gallery images */
+  galleryImages: [
+    { src: "./assets/images/about/1.jpg", alt: "Gallery photo 1" },
+    { src: "./assets/images/about/5.JPG", alt: "Gallery photo 2" },
+    { src: "./assets/images/about/2.JPG", alt: "Gallery photo 3" },
+    { src: "./assets/images/about/9.jpeg", alt: "Gallery photo 4" },
+    { src: "./assets/images/about/10.jpg", alt: "Gallery photo 5" },
+    { src: "./assets/images/about/11.jpg", alt: "Gallery photo 6" },
+    { src: "./assets/images/about/7.jpg", alt: "Gallery photo 7" },
+    { src: "./assets/images/about/8.jpg", alt: "Gallery photo 8" },
+    { src: "./assets/images/about/12.jpg", alt: "Gallery photo 9" },
+  ],
+
   /* Exhibitions data */
   exhibitions: [
     {
+      id: "ibm-quantum",
       number: "01.",
+      label: "IBM Quantum",
       name: "Quantum Art: Creative Expressions of the Infamously Counter Intuitive",
       location: "Microscope Gallery, New York, NY",
+      images: [
+        {
+          src: "./assets/images/project-pages/move-a-bit/9.png",
+          alt: "Move a Bit at KISD",
+        },
+        {
+          src: "./assets/images/thumbnails/move-a-bit.jpg",
+          alt: "Move a Bit installation",
+        },
+      ],
+    },
+    {
+      id: "dlr-institute",
+      number: "02.",
+      label: "DLR Institute of AI Safety and Security",
+      name: "How to show off quantum computing",
+      location: "KISD, Cologne, Germany",
+      images: [
+        {
+          src: "./assets/images/thumbnails/fleeting-states-two.png",
+          alt: "Fleeting States at Mosaic Pop Up Show",
+        },
+        {
+          src: "./assets/images/project-pages/fleeting-states/render3.png",
+          alt: "Fleeting States installation",
+        },
+      ],
+    },
+    {
+      id: "mosaic-pop-up",
+      number: "03.",
+      label: "Mosaic Pop up Show",
+      name: "Mosaic Pop Up Show",
+      location: "Parsons School of Design, New York, NY",
+      images: [
+        {
+          src: "./assets/images/project-pages/this-machine-is-a-stranger/main-visual.jpg",
+          alt: "This Machine is a Stranger at Quantum Art",
+        },
+        {
+          src: "./assets/images/project-pages/this-machine-is-a-stranger/thesis.jpeg",
+          alt: "This Machine is a Stranger thesis installation",
+        },
+      ],
+    },
+  ],
+
+  panelImages: {
+    about: {
+      src: "./assets/images/about/me.png",
+      alt: "Paridhi Garg",
+    },
+    gallery: {
+      src: "./assets/images/about/5.JPG",
+      alt: "Gallery",
+    },
+    skills: {
+      src: "./assets/images/about/main.png",
+      alt: "Paridhi Garg",
+    },
+    toolkit: {
+      src: "./assets/images/thumbnails/computerized-memories.jpg",
+      alt: "3D Render of desk",
+    },
+    exhibitions: {
+      src: "./assets/images/project-pages/this-machine-is-a-stranger/main-visual.jpg",
+      alt: "This Machine is a Stranger exhibition",
+    },
+  },
+
+  skills: [
+    {
+      number: "01.",
+      category: "Experience Design",
+      description:
+        "Designing moments of human connection that leave a lasting impression.",
     },
     {
       number: "02.",
-      name: "How to show off quantum computing",
-      location: "KISD, Cologne, Germany",
+      category: "Product & Interface Design",
+      description:
+        "Building AI products and shaping how they fit into everyday life.",
     },
     {
       number: "03.",
-      name: "Mosaic Pop Up Show",
-      location: "Parsons School of Design, New York, NY",
+      category: "Creative Technology",
+      description:
+        "Pushing the boundaries of design and technology to realize new ideas.",
+    },
+    {
+      number: "04.",
+      category: "Research",
+      description:
+        "Exploring human behavior, memory, and perception in everyday contexts to design human systems.",
     },
   ],
 
@@ -69,23 +168,19 @@ const AboutData = {
       number: "02.",
       category: "Web Design and Development",
       description:
-        "Figma · Webflow · Framer · HTML/CSS · JavaScript · Git/GitHub",
+        "Figma · Webflow · Framer · HTML/CSS · JavaScript · React · TypeScript · Git/GitHub",
     },
     {
       number: "03.",
-      category: "Programming Languages",
-      description: "Python · C++ (Arduino) · C# (Unity) · SQL",
+      category: "Technical Prototyping",
+      description:
+        "Python · C++ (Arduino) · C# (Unity) · SQL · MediaPipe · Computer Vision / Object Detection",
     },
     {
       number: "04.",
-      category: "Fabrication",
-      description: "Laser Cutting · 3D Printing",
-    },
-    {
-      number: "05.",
-      category: "Advanced Computing",
+      category: "AI + Generative Media",
       description:
-        "APIs (OpenAI, Anthropic, Google's Gemini) · Prompt Engineering · Image Generation · Stable Diffusion · ElevenLabs · Runway ML · Gesture Recognition · Object Detection",
+        "OpenAI · Anthropic · Gemini · Perplexity · Notebook LM · Stable Diffusion · Midjourney · ElevenLabs · Runway ML · Cursor · Claude Code · Hugging Face",
     },
   ],
 
@@ -126,95 +221,83 @@ const AboutData = {
     contactLinksContainer.innerHTML = linksHTML;
   },
 
-  /* Render exhibitions dropdown function */
-  renderExhibitions() {
-    const exhibitionsContent = document.getElementById("exhibitions-content");
-    if (!exhibitionsContent) return;
-
-    const exhibitionsHTML = this.exhibitions
-      .map((exhibition) => {
-        return `
-        <div class="exhibition-item">
-          <span class="exhibition-number">${exhibition.number}</span>
-          <div class="exhibition-content">
-            <strong>${exhibition.name}</strong>
-            <span>${exhibition.location}</span>
+  renderListItems(items) {
+    return items
+      .map(
+        (item) => `
+        <div class="about-list-item">
+          <span class="about-list-number">${item.number}</span>
+          <div class="about-list-body">
+            <strong>${item.category || item.name}</strong>
+            <span>${item.description || item.location}</span>
           </div>
         </div>
-      `;
-      })
+      `,
+      )
       .join("");
-
-    exhibitionsContent.innerHTML = exhibitionsHTML;
   },
 
-  /* Render toolkit dropdown function */
+  renderImageThumbs(images) {
+    if (!Array.isArray(images) || images.length === 0) return "";
+
+    return images
+      .map(
+        (image) => `
+        <button
+          type="button"
+          class="about-panel-thumb"
+          data-src="${image.src}"
+          data-alt="${image.alt}"
+          aria-label="View ${image.alt}"
+        >
+          <img src="${image.src}" alt="${image.alt}" loading="lazy" />
+        </button>
+      `,
+      )
+      .join("");
+  },
+
+  renderGallery() {
+    const galleryContent = document.getElementById("gallery-content");
+    if (!galleryContent || !Array.isArray(this.galleryImages)) return;
+    galleryContent.innerHTML = `<div class="about-gallery-grid">${this.renderImageThumbs(this.galleryImages)}</div>`;
+  },
+
+  renderExhibitions() {
+    const exhibitionsContent = document.getElementById("exhibitions-content");
+    if (!exhibitionsContent || !Array.isArray(this.exhibitions)) return;
+
+    const entriesHTML = this.exhibitions
+      .map(
+        (exhibition) => `
+        <div class="about-exhibition-entry">
+          <div class="about-list-item">
+            <span class="about-list-number">${exhibition.number}</span>
+            <div class="about-list-body">
+              <strong>${exhibition.name}</strong>
+              <span>${exhibition.location}</span>
+            </div>
+          </div>
+          <div class="about-exhibition-images">
+            ${this.renderImageThumbs(exhibition.images || [])}
+          </div>
+        </div>
+      `,
+      )
+      .join("");
+
+    exhibitionsContent.innerHTML = entriesHTML;
+  },
+
   renderToolkit() {
     const toolkitContent = document.getElementById("toolkit-content");
     if (!toolkitContent) return;
-
-    const toolkitHTML = this.toolkit
-      .map((tool) => {
-        return `
-        <div class="toolkit-item">
-          <span class="toolkit-number">${tool.number}</span>
-          <div class="toolkit-content-wrapper">
-            <strong>${tool.category}</strong>
-            <span>${tool.description}</span>
-          </div>
-        </div>
-      `;
-      })
-      .join("");
-
-    toolkitContent.innerHTML = toolkitHTML;
+    toolkitContent.innerHTML = this.renderListItems(this.toolkit);
   },
 
-  /* Render resume function */
   renderSkills() {
-    const resumeContent = document.getElementById("resume-content");
-    if (!resumeContent) return;
-    if (!Array.isArray(this.skills) || this.skills.length === 0) {
-      resumeContent.innerHTML = "";
-      return;
-    }
-
-    const skillsHTML = this.skills
-      .map((skill, index) => {
-        const separator =
-          index < this.skills.length - 1
-            ? '<div class="skill-separator"></div>'
-            : "";
-        return `
-        <div class="skill-item">
-          <span class="skill-number">${skill.number}</span>
-          <div class="skill-content">
-            <h2 class="skill-category">${skill.category}</h2>
-            <p class="skill-description">${skill.description}</p>
-          </div>
-        </div>
-        ${separator}
-      `;
-      })
-      .join("");
-
-    resumeContent.innerHTML = `
-      <div class="skills-wrapper">
-        <h1 class="skills-title">SKILLS</h1>
-        <div class="skills-list">${skillsHTML}</div>
-        <div class="download-btn-container">
-          <button class="download-btn" onclick="downloadPDF()">
-            DOWNLOAD FULL RESUME
-          </button>
-          <a
-            id="downloadLink"
-            href="./assets/images/Paridhi-Resume-2026.pdf"
-            download="Paridhi-Garg-Resume.pdf"
-            style="display: none"
-          >
-          </a>
-        </div>
-      </div>
-    `;
+    const skillsContent = document.getElementById("skills-content");
+    if (!skillsContent || !Array.isArray(this.skills)) return;
+    skillsContent.innerHTML = this.renderListItems(this.skills);
   },
 };

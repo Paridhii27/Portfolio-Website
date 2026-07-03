@@ -14,19 +14,9 @@
   --hover-color: #a7dbeb;
   --highlight-color: #3d479c;
 
-  /* Font Families */
-  --heading-font: "Inter", sans-serif;
-  --content-font: "Open Sans", sans-serif;
-
-  /* Font Sizes */
-  --font-size-h1: clamp(2rem, 1.5rem + 2vw, 2.5rem);
-  --font-size-h2: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
-  --font-size-h3: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
-  --font-size-h4: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
-  --font-size-paragraph: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
-  --font-size-button: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
-  --font-size-button-small: 0.8rem;
-  --font-size-button-large: 1rem;
+  /* Font Families, --heading-bold, and --font-size-h1/h2/h3/h4/paragraph/button
+     come from the shared type system in navbar.css (loaded before this file
+     on every project page). Only page-specific sizes live here. */
   --font-size-details-titles: clamp(0.85rem, 2.5vw, 1rem);
 
   /* Consistent spacing scale */
@@ -483,7 +473,7 @@ p {
 .keywords h3 {
   margin: 0;
   font-family: var(--heading-font);
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-tag);
   font-weight: 550;
   text-transform: uppercase;
   line-height: 1.4;
@@ -2510,10 +2500,6 @@ body.page-fleeting-states .documentation .inline-video-grid .inline-video {
   .keywords {
     padding: var(--space-xs) var(--space-sm);
     gap: 0.35rem 0.5rem;
-  }
-
-  .keywords h3 {
-    font-size: clamp(0.76rem, 3.6vw, 0.88rem);
   }
 
   .documentation {

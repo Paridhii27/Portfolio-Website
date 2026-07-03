@@ -22,7 +22,7 @@ document.addEventListener(
     if (a.hostname && a.hostname !== location.hostname) return;
     document.body.classList.add("navigating");
   },
-  true
+  true,
 );
 
 // If the browser restores this page from the back-forward cache (bfcache),
@@ -83,7 +83,7 @@ const Navigation = {
   },
 
   /**
-   * Getting the about page path based on current location
+   * Getting the about page path based on current location.
    */
   getAboutPath() {
     const currentPath = window.location.pathname;
@@ -134,8 +134,8 @@ const Navigation = {
               <span></span>
               <span></span>
               <ul id="menu">
-                <li><a href="${projectsPath}">WORK</a></li>
-                <li><a href="${aboutPath}">ABOUT</a></li>
+                <li><a href="${projectsPath}" data-nav="work">WORK</a></li>
+                <li><a href="${aboutPath}" data-nav="about">ABOUT</a></li>
               </ul>
             </div>
           </nav>
@@ -144,7 +144,28 @@ const Navigation = {
 
     // Inserting the navigation at the beginning of body
     document.body.insertAdjacentHTML("afterbegin", navHTML);
+    this.updateActiveNavLink();
     this.renderFooter();
+  },
+
+  /**
+   * Marks the current nav item with (WORK) / (ABOUT) styling via .is-active
+   */
+  updateActiveNavLink() {
+    const menu = document.getElementById("menu");
+    if (!menu) return;
+
+    const workLink = menu.querySelector('[data-nav="work"]');
+    const aboutLink = menu.querySelector('[data-nav="about"]');
+    const path = window.location.pathname;
+
+    const isWork =
+      path.includes("/project-pages/") || path.includes("projects.html");
+
+    const isAbout = path.includes("about.html");
+
+    workLink?.classList.toggle("is-active", isWork);
+    aboutLink?.classList.toggle("is-active", isAbout);
   },
 
   /**
@@ -154,6 +175,7 @@ const Navigation = {
     const email = "mailto:paridhigarg27@gmail.com";
     const github = "https://github.com/Paridhii27";
     const linkedin = "https://www.linkedin.com/in/paridhi-garg-a15824234/";
+    const resume = `https://drive.google.com/file/d/1OY_WwnXVqxWVJan65O20f8RYBzPIaOmt/view?usp=sharing`;
 
     const footerHTML = `
       <footer class="site-footer" role="contentinfo">
@@ -163,6 +185,8 @@ const Navigation = {
           <a class="site-footer-link" href="${github}" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span class="site-footer-sep" aria-hidden="true">·</span>
           <a class="site-footer-link" href="${linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer-sep" aria-hidden="true">·</span>
+          <a class="site-footer-link" href="${resume}" target="_blank" rel="noopener noreferrer"">Resume</a>
         </div>
       </footer>
     `;

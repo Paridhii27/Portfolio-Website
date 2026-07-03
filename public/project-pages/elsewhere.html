@@ -1,0 +1,161 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body {
+        background: #000;
+      }
+    </style>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+      name="viewport"
+    />
+    <link href="../../navbar.css" rel="stylesheet" />
+    <link href="./layout.css" rel="stylesheet" />
+    <link
+      href="../assets/images/logos/favicon.ico"
+      rel="icon"
+      type="image/x-icon"
+    />
+    <title>Elsewhere</title>
+  </head>
+  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+  <script
+    async=""
+    src="https://www.googletagmanager.com/gtag/js?id=G-6F7Y5HSK0Z"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-6F7Y5HSK0Z");
+  </script>
+  <body>
+    <div class="project-container">
+      <div class="project-header">
+        <div class="project-title">
+          <h1>Elsewhere</h1>
+        </div>
+        <div class="spacer"></div>
+        <div class="details">
+          <div class="tools-container">
+            <p>
+              <span id="toolkit-title">TOOLKIT:</span>
+              <span>Touchdesigner,</span>
+              <span>OpenWeather API,</span>
+              <span>GLSL,</span>
+              <span>Python,</span>
+              <span>Figma</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="project-visual">
+        <video
+          class="video-container"
+          autoplay=""
+          controls=""
+          height="700"
+          loop=""
+          muted=""
+          playsinline=""
+          preload="auto"
+          width="700"
+        >
+          <source
+            src="../assets/images/project-pages/elsewhere/Meadow.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <!-- <img
+          id="main-img"
+          src="../assets/images/project-pages/elsewhere/2.png"
+        /> -->
+      </div>
+      <div class="keywords">
+        <h3 style="color: #3e6aa9">Atmospheric Interaction</h3>
+        <h3 style="color: #99bce2">Spatial Interface</h3>
+        <h3 style="color: #d3d8ef">Digital Artifact</h3>
+      </div>
+      <div class="documentation">
+        <div class="project-section">
+          <div class="project-content-container">
+            <h3>Overview</h3>
+            <p>
+              A real-time visual design system driven by live ten-day weather
+              data. Atmospheric conditions pulled from cities around the world
+              determine how an image is processed and presented. Temperature
+              shifts the colour grade. Cloud cover controls visibility. Wind
+              moves the surface. Rain fractures the image entirely. At maximum
+              intensity, the image dissolves into signal.
+            </p>
+            <p>
+              Exploring what it would mean for a visual identity to genuinely
+              respond to atmospheric conditions — not as metaphor, but as
+              mechanism.
+            </p>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/elsewhere/2.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-content-container">
+            <h3>How It Works</h3>
+            <p>
+              Custom GLSL shaders handle each visual state — gradient heatmap,
+              chromatic aberration, liquid glass displacement, water ripples. At
+              maximum atmospheric intensity, signal is processed through
+              dithering. Every parameter is driven by live meteorological data,
+              interpolated continuously across a ten-day forecast cycle. Built
+              in TouchDesigner using the OpenWeather API.
+            </p>
+          </div>
+          <div class="inline-img-container">
+            <figure>
+              <img
+                class="inline-img"
+                src="../assets/images/project-pages/elsewhere/1.png"
+              />
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Next Previous Buttons Section -->
+    <div class="nextPrev">
+      <div class="prev-project">
+        <a class="previous" href="./granny-bytes.html">←</a>
+        <p>Previous Project</p>
+      </div>
+      <div class="next-project">
+        <p>Next Project</p>
+        <a class="next" href="./limen.html">→</a>
+      </div>
+    </div>
+  </body>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="../navbar.js"></script>
+  <script src="../../script.js"></script>
+  <script src="./projects.js"></script>
+</html>
