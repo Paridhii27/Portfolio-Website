@@ -14,10 +14,8 @@
   --hover-color: #a7dbeb;
   --highlight-color: #3d479c;
 
-  /* Font Families, --heading-bold, and --font-size-h1/h2/h3/h4/paragraph/button
-     come from the shared type system in navbar.css (loaded before this file
-     on every project page). Only page-specific sizes live here. */
   --font-size-details-titles: clamp(0.85rem, 2.5vw, 1rem);
+  --font-size-keywords: clamp(0.95rem, 2.7vw, 1.1rem);
 
   /* Consistent spacing scale */
   --space-xs: 0.5rem; /* 8px */
@@ -473,7 +471,7 @@ p {
 .keywords h3 {
   margin: 0;
   font-family: var(--heading-font);
-  font-size: var(--font-size-tag);
+  font-size: var(--font-size-keywords);
   font-weight: 550;
   text-transform: uppercase;
   line-height: 1.4;
